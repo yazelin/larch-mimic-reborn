@@ -1,0 +1,47 @@
+<!--
+  《轉生成寶箱怪的我》對話框（Larch settings.customInterfaces.dialogue），方向 B「黃昏軟糖」。
+  半透明的白色軟糖泡泡，名字是一顆粉紅色膠囊；旁白（沒有講者）不顯示名字，字改成淡紫。
+  寶箱怪一族（寶箱怪、箱爺爺、阿扣、小鎖、族人）的名字膠囊是薰衣草色，冒險隊是粉紅色。
+-->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Huninn&display=swap");
+:root { color-scheme: light; --glass: rgba(255,246,252,.84); --ink: #4a3560; --dim: #7b6696; --pink: #ff8fb1; --pink-d: #d9688c; --lav: #a98ce0; --lav-d: #7a56aa; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: transparent; overflow: hidden; }
+.larch-project-font body .box, .larch-project-font body .box * { font-family: "Huninn", "Noto Sans TC", sans-serif !important; }
+.wrap { padding: 34px 7vw 22px; }
+.box { position: relative; padding: 22px 34px 22px; border-radius: 34px; background: var(--glass); color: var(--ink);
+  box-shadow: 0 7px 0 rgba(122,86,170,.35), inset 0 0 0 4px #fff, 0 18px 40px -18px rgba(74,53,96,.6); backdrop-filter: blur(6px);
+  font-family: "Huninn", "Noto Sans TC", sans-serif; }
+.name { position: absolute; left: 28px; top: -20px; margin: 0; padding: 4px 20px; border-radius: 999px; background: var(--k, var(--pink)); color: #fff;
+  font-size: clamp(15px, 1.2vw, 19px); letter-spacing: .1em; box-shadow: 0 4px 0 var(--kd, var(--pink-d)); }
+.name:empty, .box.is-narration .name { display: none; }
+.text { margin: 0; min-height: 3.4em; max-width: 52em; font-size: var(--larch-text-size, 22px); line-height: 1.7; letter-spacing: .04em; }
+.box.is-narration .text { color: var(--dim); }
+.next { position: absolute; right: 22px; bottom: 14px; width: 26px; height: 26px; border: 0; border-radius: 50%; padding: 0; cursor: pointer;
+  background: var(--lav); box-shadow: 0 3px 0 var(--lav-d); animation: bob 1.3s ease-in-out infinite; }
+.next:focus-visible { outline: 3px solid var(--pink); outline-offset: 2px; }
+@keyframes bob { 50% { transform: translateY(-4px); } }
+@media (max-width: 720px) { .wrap { padding: 28px 4vw 14px; } .box { padding: 18px 22px 18px; border-radius: 26px; } .text { font-size: var(--larch-text-size, 18px); } }
+@media (prefers-reduced-motion: reduce) { .next { animation: none; } }
+</style>
+<div class="wrap">
+  <div class="box" id="box">
+    <p class="name" data-larch-slot="speaker"></p>
+    <p class="text" data-larch-slot="text"></p>
+    <button class="next" data-larch-action="advance" aria-label="下一句"></button>
+  </div>
+</div>
+<script>
+(function () {
+  var box = document.getElementById('box');
+  var FAMILY = ['寶箱怪', '箱爺爺', '阿扣', '小鎖', '族人'];
+  window.addEventListener('larch:state', function (e) {
+    var sp = ((e.detail && e.detail.speaker) || '').trim();
+    box.classList.toggle('is-narration', !sp || sp === '旁白');
+    var fam = FAMILY.indexOf(sp) >= 0;
+    box.style.setProperty('--k', fam ? 'var(--lav)' : 'var(--pink)');
+    box.style.setProperty('--kd', fam ? 'var(--lav-d)' : 'var(--pink-d)');
+  });
+})();
+</script>

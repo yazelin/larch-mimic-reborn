@@ -1,0 +1,21 @@
+/* larch-skill-part: gallery */
+/* @larch-params { "gold": { "type": "color", "label": "主色", "default": "#ff8fb1" } } */
+/* 方向 B「黃昏軟糖」：收藏頁是黃昏的粉紫天空，每張 CG 是一顆圓角泡泡框；還沒看過的是一顆霧面泡泡。 */
+:scope { background: radial-gradient(90vw 60vh at 20% -10%, rgba(255,200,225,.7), transparent 60%), linear-gradient(170deg, #c9b3ea, #f3c6dc 70%, #ffe2c2) !important; color: #4a3560; }
+[data-larch-ui="screen-header"] { background: transparent !important; border-bottom-color: rgba(255,255,255,.5) !important; }
+[data-larch-ui="screen-header"] h1 { letter-spacing: .2em; color: #fff; text-shadow: 0 3px 0 #d9688c; }
+[data-larch-ui="screen-header"] small, [data-larch-ui="screen-header"] p { color: #5e4680; letter-spacing: .15em; }
+[data-larch-ui="screen-back"], [data-larch-ui="screen-close"] { border: 0 !important; border-radius: 999px !important; background: #fff !important; color: #4a3560 !important; box-shadow: 0 4px 0 rgba(122,86,170,.3) !important; }
+[data-larch-ui="screen-back"] { padding: 8px 18px 8px 14px !important; gap: 6px !important; letter-spacing: .1em; }
+[data-larch-ui="screen-close"] { aspect-ratio: 1; }
+[data-larch-ui="screen-back"]:hover, [data-larch-ui="screen-close"]:hover, [data-larch-ui="screen-back"]:focus-visible, [data-larch-ui="screen-close"]:focus-visible { background: #a98ce0 !important; color: #fff !important; outline: none; }
+[data-larch-ui="gallery-grid"] { gap: 22px !important; }
+[data-larch-ui="cg"] { border: 0 !important; border-radius: 22px !important; overflow: hidden; background: rgba(255,246,252,.6) !important;
+  box-shadow: 0 6px 0 rgba(122,86,170,.3), inset 0 0 0 4px #fff !important; }
+[data-larch-ui="cg"]:not([data-locked]):hover, [data-larch-ui="cg"]:not([data-locked]):focus-visible { box-shadow: 0 6px 0 #d9688c, inset 0 0 0 4px #ff8fb1 !important; outline: none; }
+[data-larch-ui="cg"][data-locked] { background: radial-gradient(70% 70% at 50% 40%, rgba(255,255,255,.7), rgba(255,255,255,.3)) !important; opacity: 1 !important; }
+[data-larch-ui="cg"][data-locked] svg { color: rgba(122,86,170,.5); }
+[data-larch-ui="cg"] figcaption { background: linear-gradient(transparent, rgba(74,53,96,.6)) !important; }
+[data-larch-ui="cg"] figcaption b { color: #fff; font-weight: 500; letter-spacing: .06em; }
+[data-larch-ui="cg"][data-locked] figcaption { background: none !important; }
+[data-larch-ui="cg"][data-locked] figcaption b { color: #7b6696; }

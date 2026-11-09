@@ -1,0 +1,42 @@
+{
+ "kv_title": {
+  "id": "baf445ba-1f07-467c-9c63-9e3e04a763c9",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244607322_kv_title.webp"
+ },
+ "cg_opening": {
+  "id": "2ab64aaa-8ab4-4301-af26-73ae0b95439f",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244609857_cg_opening.webp"
+ },
+ "bg_intro": {
+  "id": "a49699b0-ae7f-4b5a-a757-84cf1e6939e0",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244611989_bg_intro.webp"
+ },
+ "bg_ending": {
+  "id": "776b6cdb-d640-46d9-ae8d-e0b38bd8d7a4",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244614223_bg_ending.webp"
+ },
+ "icon": {
+  "id": "6947c61a-1fd8-4ed5-86d1-8ed384388005",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244616342_icon.png"
+ },
+ "bgm-title": {
+  "id": "168aaa82-4134-4f9d-8329-32487cb60492",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244618886_bgm-title.mp3"
+ },
+ "bgm-opening": {
+  "id": "8e128485-6d40-4d52-a9ad-56cf97c579fe",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244621800_bgm-opening.mp3"
+ },
+ "bgm-explore": {
+  "id": "5f028889-d4eb-433e-b9de-c88cb99e85cb",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244624541_bgm-explore.mp3"
+ },
+ "bgm-battle": {
+  "id": "8046ad4d-50b2-4fa7-9e04-44dd6fd20737",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244627884_bgm-battle.mp3"
+ },
+ "bgm-ending": {
+  "id": "d8e5ca3d-ac69-4576-a119-40da9c313982",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244632405_bgm-ending.mp3"
+ }
+}
