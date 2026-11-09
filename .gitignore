@@ -2,3 +2,4 @@ snapshots/
 __pycache__/
 *.raw/
 node_modules/
+art/music_raw/

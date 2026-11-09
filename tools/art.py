@@ -1,0 +1,136 @@
+# -*- coding: utf-8 -*-
+"""《轉生成寶箱怪的我》的圖：走 .11 codex-image-service，排隊規則照 ~/larch-wt-walks/buchan/cg_jobs.py（同一個 ~/.cache/cg_jobs 目錄）。
+參考圖在 art/refs/（從遊戲裡拍的），產出放 art/cg/<名字>_v<n>.webp，旁邊存一份 .json 記提示詞與參考圖。
+  python3 tools/art.py list
+  python3 tools/art.py run 名字 [名字…]   （同時送出，排隊間隔照 ~/.cache/cg_jobs/interval）
+"""
+import io, json, os, sys, threading, time, urllib.request, base64
+from PIL import Image
+
+R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = os.path.join(R, 'art/cg')
+BASE = 'https://ching-tech.ddns.net/codex-image'
+KEY = next(l.split('=', 1)[1].strip().strip('"') for l in open(os.path.expanduser('~/.bashrc')) if 'CODEX_IMAGE_KEY=' in l)
+QUEUE = os.path.expanduser('~/.cache/cg_jobs')   # 跟 ~/larch-wt-walks/buchan/cg_jobs.py 共用同一個排隊目錄與規則（間隔 interval 秒、上限 max_inflight 張）
+
+
+class C:
+    @staticmethod
+    def call(method, path, body=None):
+        r = urllib.request.Request(BASE + path, method=method, data=json.dumps(body).encode() if body else None,
+                                   headers={'Authorization': 'Bearer ' + KEY, 'Content-Type': 'application/json'})
+        with urllib.request.urlopen(r, timeout=120) as x: return json.loads(x.read())
+
+    @staticmethod
+    def _inflight():
+        try: live = json.load(open(os.path.join(QUEUE, 'inflight.json')))
+        except (OSError, ValueError): live = {}
+        return {k: t for k, t in live.items() if os.path.exists(f"/proc/{k.split('-')[0]}") and time.time() - t < 1200}
+
+    @staticmethod
+    def _queue():
+        import fcntl, uuid
+        os.makedirs(QUEUE, exist_ok=True); tag = f'{os.getpid()}-{uuid.uuid4().hex}'
+        while True:
+            with open(os.path.join(QUEUE, 'lock'), 'w') as lk:
+                fcntl.flock(lk, fcntl.LOCK_EX); live = C._inflight()
+                try: cap = int(open(os.path.join(QUEUE, 'max_inflight')).read())
+                except (OSError, ValueError): cap = 999
+                if len(live) < cap:
+                    try: gap = float(open(os.path.join(QUEUE, 'interval')).read())
+                    except (OSError, ValueError): gap = 30
+                    try: last = float(open(os.path.join(QUEUE, 'last')).read())
+                    except (OSError, ValueError): last = 0
+                    if last + gap > time.time(): time.sleep(last + gap - time.time())
+                    open(os.path.join(QUEUE, 'last'), 'w').write(str(time.time()))
+                    live[tag] = time.time(); json.dump(live, open(os.path.join(QUEUE, 'inflight.json'), 'w'))
+                    return tag
+            time.sleep(10)
+
+    @staticmethod
+    def _done(tag):
+        import fcntl
+        with open(os.path.join(QUEUE, 'lock'), 'w') as lk:
+            fcntl.flock(lk, fcntl.LOCK_EX); live = C._inflight(); live.pop(tag, None)
+            json.dump(live, open(os.path.join(QUEUE, 'inflight.json'), 'w'))
+
+REF = {
+    'mimic': ('art/refs/mimic.webp', '寶箱怪（主角）：紅色木頭寶箱，四邊包著粉紫色的金屬框，正面中間一個粉紫色方形鎖扣'),
+    'boy': ('art/refs/hunter_boy.webp', '少年獵人：白色短髮，紅色短披肩，白色上衣、紅腰帶，深色長褲與靴子'),
+    'girl': ('art/refs/hunter_girl.webp', '少女獵人：橘色長髮，紅色短披肩，白色上衣、紅腰帶，深色褲子與長靴'),
+    'pulut': ('art/refs/pulut.webp', 'Pulut：圓滾滾的綠色小史萊姆，頭頂兩個小尖角，黑色圓眼睛'),
+    'chest': ('art/refs/chest.webp', '族人（睡著的寶箱怪）：普通的棕色木頭寶箱，金色包邊'),
+    'island': ('art/refs/island_aerial.webp', '島的樣子：草地小島，紅屋頂的村子、石拱門、圓滾滾的樹，海是藍紫色'),
+    'village': ('art/refs/village.webp', '村口：石板路、路牌、木長椅、花圃，黃昏粉紫色天空'),
+}
+
+S3D = '畫風：跟參考圖的遊戲畫面一致的 3D 玩具感低多邊形，圓潤柔軟的造型、乾淨的平滑上色、柔和的黃昏光，粉紫與暖黃的天空，像精緻的 3D 動畫電影宣傳圖。'
+S2D = '畫風：2D 手繪繪本插畫，水彩加色鉛筆的質感，溫暖柔和、線條輕鬆，粉紫與暖黃的黃昏色調，像童書封面。角色造型照參考圖，但畫成手繪。'
+NOTXT = '畫面裡沒有任何文字、字母、浮水印、標誌。'
+
+KV = """作品《轉生成寶箱怪的我》的標題主視覺，橫幅 16:9。
+畫面：黃昏的小島草地上，前景正中偏右是主角寶箱怪（照 Image 1：紅色寶箱、粉紫色金屬框與鎖扣），蓋子微微掀開一條縫，縫裡露出一雙圓圓亮亮的眼睛，好奇又有點緊張地往外看。
+它身旁的草地上散著幾個睡著的棕色寶箱族人（照 Image 2），蓋子闔著，安安靜靜地睡著，旁邊飄著幾個小小的圓泡泡。
+中景遠處的沙灘停著一艘小木船，兩個小小的獵人（Image 3 少年、Image 4 少女）正背著背包往島上走，少女的背包口探出一隻綠色小史萊姆（Image 5）。
+背景是島上紅屋頂的村子與圓滾滾的樹（照 Image 6），更遠處的西北邊有一座高高的雲端高台，頂上一圈石環門。
+畫面左上留一大塊乾淨的天空，之後要放標題字。"""
+
+OPEN = """序章開場 CG，橫幅 16:9。
+畫面：清晨柔和的光，草地上一個闔著的寶箱怪（照 Image 1：紅色寶箱、粉紫色金屬框與鎖扣），鏡頭貼近地面、從正面稍低的角度看它。
+蓋子與箱身之間的縫裡露出一雙圓圓的眼睛，剛睡醒、帶著困惑，好像在想「我怎麼會在這裡」。
+草葉上有露珠，背景是模糊的村口（照 Image 2）與粉紫色天空，景深淺，焦點在那雙眼睛。
+整個畫面安靜、有一點神祕，也有一點可愛。"""
+
+JOBS = {
+    'kv_3d': dict(size='1536x1024', refs=['mimic', 'chest', 'boy', 'girl', 'pulut', 'island'], prompt=KV + '\n' + S3D + NOTXT),
+    'kv_2d': dict(size='1536x1024', refs=['mimic', 'chest', 'boy', 'girl', 'pulut', 'island'], prompt=KV + '\n' + S2D + NOTXT),
+    'open_3d': dict(size='1536x1024', refs=['mimic', 'village'], prompt=OPEN + '\n' + S3D + NOTXT),
+    'open_2d': dict(size='1536x1024', refs=['mimic', 'village'], prompt=OPEN + '\n' + S2D + NOTXT),
+}
+
+
+def b64(path):
+    im = Image.open(os.path.join(R, path)).convert('RGB'); buf = io.BytesIO(); im.save(buf, 'PNG')
+    return base64.b64encode(buf.getvalue()).decode()
+
+
+def next_path(name):
+    os.makedirs(OUT, exist_ok=True); n = 1
+    while os.path.exists(os.path.join(OUT, f'{name}_v{n}.webp')): n += 1
+    return os.path.join(OUT, f'{name}_v{n}.webp')
+
+
+def run(name):
+    j = JOBS[name]
+    legend = '參考圖：' + '；'.join(f'Image {i + 1}＝{REF[k][1]}' for i, k in enumerate(j['refs'])) + '。'
+    prompt = legend + '\n' + j['prompt'].strip()
+    body = {'prompt': prompt, 'size': j['size'], 'quality': 'high', 'count': 1,
+            'reference_images_base64': [b64(REF[k][0]) for k in j['refs']]}
+    tag = C._queue()
+    try:
+        job = C.call('POST', '/v1/images/jobs', body)['id']; t0 = time.time()
+        while True:
+            time.sleep(15)
+            st = C.call('GET', f'/v1/images/jobs/{job}')
+            if st.get('status') == 'succeeded':
+                data = urllib.request.urlopen(st['images'][0]['url'], timeout=120).read()
+                out = next_path(name)
+                Image.open(io.BytesIO(data)).save(out, 'WEBP', quality=92)
+                json.dump({'job': job, 'prompt': prompt, 'refs': [REF[k][0] for k in j['refs']]},
+                          open(out.replace('.webp', '.json'), 'w'), ensure_ascii=False, indent=1)
+                print(f'{name}: OK {int(time.time() - t0)}s → {out}', flush=True); return
+            if st.get('status') in ('failed', 'error'):
+                print(f'{name}: FAILED {st.get("error")}', flush=True); return
+    except Exception as e:
+        print(f'{name}: 例外 {e!r}', flush=True)
+    finally:
+        C._done(tag)
+
+
+if __name__ == '__main__':
+    if sys.argv[1] == 'list':
+        for k, j in JOBS.items(): print(k, j['size'], j['refs'])
+    else:
+        ts = [threading.Thread(target=run, args=(n,)) for n in sys.argv[2:]]
+        for t in ts: t.start()
+        for t in ts: t.join()
