@@ -1,21 +1,24 @@
 /* larch-skill-part: gallery */
-/* @larch-params { "gold": { "type": "color", "label": "主色", "default": "#ff8fb1" } } */
-/* 方向 B「黃昏軟糖」：收藏頁是黃昏的粉紫天空，每張 CG 是一顆圓角泡泡框；還沒看過的是一顆霧面泡泡。 */
-:scope { background: radial-gradient(90vw 60vh at 20% -10%, rgba(255,200,225,.7), transparent 60%), linear-gradient(170deg, #c9b3ea, #f3c6dc 70%, #ffe2c2) !important; color: #4a3560; }
-[data-larch-ui="screen-header"] { background: transparent !important; border-bottom-color: rgba(255,255,255,.5) !important; }
-[data-larch-ui="screen-header"] h1 { letter-spacing: .2em; color: #fff; text-shadow: 0 3px 0 #d9688c; }
-[data-larch-ui="screen-header"] small, [data-larch-ui="screen-header"] p { color: #5e4680; letter-spacing: .15em; }
-[data-larch-ui="screen-back"], [data-larch-ui="screen-close"] { border: 0 !important; border-radius: 999px !important; background: #fff !important; color: #4a3560 !important; box-shadow: 0 4px 0 rgba(122,86,170,.3) !important; }
-[data-larch-ui="screen-back"] { padding: 8px 18px 8px 14px !important; gap: 6px !important; letter-spacing: .1em; }
+/* @larch-params { "gold": { "type": "color", "label": "主色", "default": "#e0789c" } } */
+/* 手繪水彩版（2026-11-10 作者選定）：收藏頁是一張暖白水彩紙，四邊刷一圈淡粉紫；每張 CG 像貼在紙上的小畫，留白邊、微微歪；還沒看過的是一塊淡淡的水彩暈。 */
+:scope { background: radial-gradient(130% 120% at 50% 45%, #fff9f0 0 55%, #f6e3ec 80%, #e6c6de 100%) !important; color: #5a3f52; }
+[data-larch-ui="screen-header"] { background: transparent !important; border-bottom-color: rgba(176,120,160,.35) !important; }
+[data-larch-ui="screen-header"] h1 { letter-spacing: .2em; color: #b9577c; text-shadow: 0 0 .5em rgba(224,120,156,.35); }
+[data-larch-ui="screen-header"] small, [data-larch-ui="screen-header"] p { color: #86708c; letter-spacing: .15em; }
+[data-larch-ui="screen-back"], [data-larch-ui="screen-close"] { border-style: solid !important; border-width: 0 !important; border-radius: 0 !important; background: none !important; color: #5a3f52 !important;
+  border-image: url("https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp") 40 60 fill / 10px 14px stretch !important; box-shadow: none !important; filter: drop-shadow(0 3px 5px rgba(90,50,80,.2)); }
+[data-larch-ui="screen-back"] { padding: 8px 20px 8px 16px !important; gap: 6px !important; letter-spacing: .1em; }
 [data-larch-ui="screen-close"] { aspect-ratio: 1; }
-[data-larch-ui="screen-back"]:hover, [data-larch-ui="screen-close"]:hover, [data-larch-ui="screen-back"]:focus-visible, [data-larch-ui="screen-close"]:focus-visible { background: #a98ce0 !important; color: #fff !important; outline: none; }
-[data-larch-ui="gallery-grid"] { gap: 22px !important; }
-[data-larch-ui="cg"] { border: 0 !important; border-radius: 22px !important; overflow: hidden; background: rgba(255,246,252,.6) !important;
-  box-shadow: 0 6px 0 rgba(122,86,170,.3), inset 0 0 0 4px #fff !important; }
-[data-larch-ui="cg"]:not([data-locked]):hover, [data-larch-ui="cg"]:not([data-locked]):focus-visible { box-shadow: 0 6px 0 #d9688c, inset 0 0 0 4px #ff8fb1 !important; outline: none; }
-[data-larch-ui="cg"][data-locked] { background: radial-gradient(70% 70% at 50% 40%, rgba(255,255,255,.7), rgba(255,255,255,.3)) !important; opacity: 1 !important; }
-[data-larch-ui="cg"][data-locked] svg { color: rgba(122,86,170,.5); }
-[data-larch-ui="cg"] figcaption { background: linear-gradient(transparent, rgba(74,53,96,.6)) !important; }
+[data-larch-ui="screen-back"]:hover, [data-larch-ui="screen-close"]:hover, [data-larch-ui="screen-back"]:focus-visible, [data-larch-ui="screen-close"]:focus-visible {
+  border-image-source: url("https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301269756_ui_pill_hot.webp") !important; border-image-slice: 60 80 fill !important; color: #fff !important; outline: none; }
+[data-larch-ui="gallery-grid"] { gap: 26px !important; }
+[data-larch-ui="cg"] { border: 0 !important; border-radius: 2px !important; overflow: hidden; background: #fffdf8 !important; padding: 8px 8px 0 !important;
+  box-shadow: 0 0 0 1px rgba(176,120,160,.25), 0 8px 16px -6px rgba(90,50,80,.35) !important; transition: rotate .2s, translate .2s; }
+[data-larch-ui="cg"]:nth-child(3n+1) { rotate: -.8deg; } [data-larch-ui="cg"]:nth-child(3n+2) { rotate: .6deg; }
+[data-larch-ui="cg"]:not([data-locked]):hover, [data-larch-ui="cg"]:not([data-locked]):focus-visible { rotate: 0deg; translate: 0 -3px; box-shadow: 0 0 0 2px #e0789c, 0 12px 20px -6px rgba(90,50,80,.4) !important; outline: none; }
+[data-larch-ui="cg"][data-locked] { background: radial-gradient(70% 70% at 50% 45%, rgba(236,201,223,.55), rgba(255,249,240,.9)) !important; opacity: 1 !important; }
+[data-larch-ui="cg"][data-locked] svg { color: rgba(176,120,160,.55); }
+[data-larch-ui="cg"] figcaption { background: linear-gradient(transparent, rgba(90,50,70,.55)) !important; }
 [data-larch-ui="cg"] figcaption b { color: #fff; font-weight: 500; letter-spacing: .06em; }
 [data-larch-ui="cg"][data-locked] figcaption { background: none !important; }
-[data-larch-ui="cg"][data-locked] figcaption b { color: #7b6696; }
+[data-larch-ui="cg"][data-locked] figcaption b { color: #86708c; }

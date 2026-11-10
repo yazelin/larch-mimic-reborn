@@ -1,34 +1,35 @@
 <!--
-  《轉生成寶箱怪的我》標題畫面（Larch settings.customInterfaces.title），方向 B「黃昏軟糖」（2026-11-10 作者選定）。
-  底圖是標題主視覺（titleCoverImage，2D 手繪版），左上的天空留給書名；按鈕是一排半透明的軟糖泡泡。
+  《轉生成寶箱怪的我》標題畫面（Larch settings.customInterfaces.title），手繪水彩版（2026-11-10 作者選定，取代黃昏軟糖）。
+  底圖是標題主視覺（titleCoverImage，2D 手繪版），左上的天空留給書名；書名用手寫楷體壓一層玫瑰粉水彩暈；按鈕是水彩紙條（ui_pill），「開始遊戲」是玫瑰粉色帶（ui_pill_hot）。
   標題配樂用 <audio data-larch-asset> 掛媒體庫的 bgm-title，播放器依靜音狀態控制。
 -->
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Huninn&display=swap");
-:root { color-scheme: light; --glass: rgba(255,246,252,.78); --ink: #4a3560; --pink: #ff8fb1; --pink-d: #d9688c; --lav: #b49ae6; --lav-d: #7a56aa; }
+@import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap");
+:root { color-scheme: light; --ink: #5a3f52; --rose: #e0789c; --rose-d: #b9577c; --hand: "LXGW WenKai TC", "Huninn", "Noto Sans TC", serif; }
 * { box-sizing: border-box; }
-html, body { margin: 0; height: 100%; background: #b9a3d6; }
-.cover { position: relative; min-height: 100dvh; overflow: hidden; font-family: "Huninn", "Noto Sans TC", sans-serif; color: var(--ink); }
-.larch-project-font body .cover, .larch-project-font body .cover * { font-family: "Huninn", "Noto Sans TC", sans-serif !important; }
+html, body { margin: 0; height: 100%; background: #c9b3d6; }
+.cover { position: relative; min-height: 100dvh; overflow: hidden; font-family: var(--hand); color: var(--ink); }
+.larch-project-font body .cover, .larch-project-font body .cover * { font-family: var(--hand) !important; }
 .art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 60%; pointer-events: none; }
-.sky { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 55% at 18% 18%, rgba(255,240,250,.45), rgba(255,240,250,0) 70%); }
-.content { position: absolute; left: 6vw; top: 8vh; display: grid; gap: 3.2vh; justify-items: start; }
-h1 { margin: 0; line-height: 1.08; font-weight: 400; font-size: clamp(40px, 6.4vw, 104px); color: #fff; letter-spacing: .04em;
-  text-shadow: 0 .06em 0 var(--pink), 0 .12em 0 var(--pink-d), 0 .2em .3em rgba(122,86,170,.45); }
-h1 .s { display: block; font-size: .62em; letter-spacing: .12em; }
-h1 .eyes { display: inline-flex; gap: .14em; vertical-align: .12em; margin-left: .2em; padding: .08em .18em; border-radius: .2em; background: rgba(74,53,96,.85); }
+.sky { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(55% 50% at 20% 20%, rgba(255,246,236,.55), rgba(255,246,236,0) 70%); }
+.content { position: absolute; left: 6vw; top: 8vh; display: grid; gap: 3.6vh; justify-items: start; }
+h1 { margin: 0; line-height: 1.1; font-weight: 700; font-size: clamp(40px, 6.4vw, 104px); color: #fffaf3; letter-spacing: .05em;
+  text-shadow: 0 0 .04em var(--rose-d), 0 0 .04em var(--rose-d), 0 .05em .02em var(--rose-d), 0 .1em .2em rgba(150,60,100,.6), 0 0 .55em rgba(255,214,228,.75); }
+h1 .s { display: block; font-size: .6em; letter-spacing: .14em; }
+h1 .eyes { display: inline-flex; gap: .14em; vertical-align: .12em; margin-left: .2em; padding: .08em .2em; border-radius: .3em .25em .32em .22em; background: rgba(90,50,70,.82); }
 h1 .eyes i { width: .2em; height: .2em; border-radius: 50%; background: #ffe9a8; display: block; animation: blink 5s infinite; }
 @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
-nav { display: flex; flex-wrap: wrap; gap: 12px; padding: 10px; border-radius: 999px; background: var(--glass);
-  box-shadow: 0 6px 0 rgba(122,86,170,.35), inset 0 0 0 3px #fff; backdrop-filter: blur(6px); }
-button { font: inherit; font-size: clamp(16px, 1.35vw, 22px); letter-spacing: .12em; color: var(--ink); background: #fff; border: 0; border-radius: 999px;
-  padding: .55em 1.5em; cursor: pointer; box-shadow: 0 4px 0 rgba(122,86,170,.25); transition: transform .15s, background .2s, color .2s, box-shadow .15s; }
-button[data-larch-action="start"] { background: var(--pink); color: #fff; box-shadow: 0 4px 0 var(--pink-d); }
-button:hover, button:focus-visible { transform: translateY(-2px); background: var(--lav); color: #fff; box-shadow: 0 6px 0 var(--lav-d); outline: none; }
-button[data-larch-action="start"]:hover, button[data-larch-action="start"]:focus-visible { background: #ff7aa2; box-shadow: 0 6px 0 var(--pink-d); }
-button:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
-button:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(122,86,170,.3); }
-button:disabled { opacity: .45; cursor: default; transform: none; }
+nav { display: flex; flex-wrap: wrap; gap: 14px; }
+button { font: inherit; font-size: clamp(16px, 1.35vw, 22px); letter-spacing: .12em; color: var(--ink); background: none; cursor: pointer;
+  padding: .6em 1.7em; border-style: solid; border-width: 0; border-image: url("https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp") 40 60 fill / 12px 18px stretch;
+  filter: drop-shadow(0 5px 8px rgba(90,50,80,.25)); transition: translate .15s; }
+button:nth-child(2) { rotate: .8deg; } button:nth-child(3) { rotate: -.6deg; }
+button[data-larch-action="start"] { border-image: url("https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301269756_ui_pill_hot.webp") 60 80 fill / 14px 20px stretch; color: #fff; text-shadow: 0 0 .35em rgba(150,40,80,.45); rotate: -1deg; }
+button:hover, button:focus-visible { translate: 0 -3px; outline: none; }
+button:not([data-larch-action="start"]):hover, button:not([data-larch-action="start"]):focus-visible { color: var(--rose-d); }
+button:focus-visible { outline: 3px solid #fffaf3; outline-offset: 4px; }
+button:active { translate: 0 2px; }
+button:disabled { opacity: .45; cursor: default; translate: none; }
 button[hidden] { display: none; }
 .bubbles i { position: absolute; bottom: -40px; width: var(--d); height: var(--d); left: var(--x); border-radius: 50%; pointer-events: none;
   background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,.15) 45%, rgba(255,255,255,.05) 70%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.6);

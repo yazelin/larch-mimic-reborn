@@ -1,0 +1,22 @@
+/* larch-skill-part: menu */
+/* @larch-params { "gold": { "type": "color", "label": "主色", "default": "#ff8fb1" } } */
+/* 方向 B「黃昏軟糖」：設定、存讀檔、對話紀錄是一顆大的半透明白色泡泡；分頁是膠囊，選到的變粉紅。工具列是淡白字。 */
+:scope[data-larch-ui="toolbar"] button { color: rgba(255,250,255,.8); letter-spacing: .1em; text-shadow: 0 1px 4px rgba(74,53,96,.6); }
+:scope[data-larch-ui="toolbar"] button:hover, :scope[data-larch-ui="toolbar"] button:focus-visible { color: #ffd1e0; outline: none; }
+:scope[data-larch-ui="toolbar"] button[aria-pressed="true"] { color: #ffd1e0; }
+:scope[data-larch-ui="toolbar"] .vn2-dialogue-actions-divider { background: rgba(255,250,255,.3); }
+:scope:is([data-larch-ui="settings"], [data-larch-ui="save"], [data-larch-ui="history"]) {
+  --vn-settings-surface: #fff6fc !important; --vn-settings-accent: var(--skin-gold, #ff8fb1) !important; --vn-settings-text: #4a3560 !important;
+  --vn-settings-button: #f1e6fb !important; --vn-settings-button-text: #4a3560 !important; --vn-settings-border: rgba(122,86,170,.25) !important; --vn-settings-radius: 999px !important;
+  --vn-history-surface: #fff6fc !important; --vn-history-text: #4a3560 !important; --vn-history-accent: #a98ce0 !important;
+  background: linear-gradient(170deg, rgba(255,246,252,.96), rgba(243,233,252,.96)) !important; border-radius: 34px !important;
+  box-shadow: 0 8px 0 rgba(122,86,170,.35), inset 0 0 0 4px #fff, 0 30px 60px -24px rgba(40,24,60,.7) !important; }
+:scope > header h2 { letter-spacing: .2em; color: #4a3560; }
+:scope > header small { color: #7b6696; letter-spacing: .2em; }
+[data-larch-ui="settings-tab"] { border-radius: 999px !important; letter-spacing: .1em; }
+[data-larch-ui="settings-tab"][aria-selected="true"] { background: var(--skin-gold, #ff8fb1) !important; color: #fff !important; box-shadow: 0 3px 0 #d9688c; }
+[data-larch-ui="save-slot"] { border: 0; border-radius: 22px; background: #fff; box-shadow: 0 4px 0 rgba(122,86,170,.2); }
+[data-larch-ui="save-slot"]:hover, [data-larch-ui="save-slot"]:focus-visible { box-shadow: 0 4px 0 #a98ce0, inset 0 0 0 2px #a98ce0; outline: none; }
+[data-larch-ui="history-entry"] b { color: #d9688c; letter-spacing: .1em; }
+:scope[data-larch-ui="title-corner"] button { color: rgba(255,250,255,.85); text-shadow: 0 1px 4px rgba(74,53,96,.6); }
+:scope[data-larch-ui="title-corner"] button:hover, :scope[data-larch-ui="title-corner"] button:focus-visible { color: #ffd1e0; }
