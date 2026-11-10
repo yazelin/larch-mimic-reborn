@@ -1,0 +1,41 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>敲三下</title>
+<style>
+html,body{margin:0;height:100%;background:transparent;font-family:"Noto Sans TC",system-ui,sans-serif;overflow:hidden;user-select:none;-webkit-user-select:none}
+#stage{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2vh;background:radial-gradient(ellipse at 50% 60%,#fbe7d0 0%,#f2c9b8 55%,#d9a7c4 100%)}
+#tip{font-size:clamp(18px,3vh,30px);color:#5a3b55;font-weight:700;text-shadow:0 2px 0 #fff8}
+#box{position:relative;width:min(38vh,60vw);aspect-ratio:1.15;cursor:pointer;touch-action:manipulation}
+#ring{position:absolute;left:50%;top:55%;width:100%;aspect-ratio:1;border-radius:50%;border:6px solid #fff;transform:translate(-50%,-50%) scale(1.6);opacity:.85;pointer-events:none;box-shadow:0 0 24px #fff8}
+.chest{position:absolute;inset:18% 6% 0 6%;background:#9a5b34;border-radius:14% 14% 8% 8%;box-shadow:inset 0 -10px 0 #7a4426,0 12px 0 #0002}
+.lid{position:absolute;left:6%;right:6%;top:0;height:30%;background:#b06c3f;border-radius:40% 40% 6% 6%;transform-origin:50% 100%;transition:transform .12s}
+.band{position:absolute;top:0;bottom:0;width:10%;background:#e0b24a}.band.l{left:12%}.band.r{right:12%}
+.lock{position:absolute;left:50%;top:22%;width:14%;aspect-ratio:1;background:#e0b24a;transform:translateX(-50%);border-radius:18%}
+.eyes{position:absolute;left:30%;right:30%;top:26%;height:6%;display:flex;justify-content:space-between;opacity:0;transition:opacity .3s}
+.eyes i{width:22%;aspect-ratio:1;background:#fff;border-radius:50%;box-shadow:inset 0 -3px 0 #3a2a2a}
+#dots{display:flex;gap:1.6vh}#dots b{width:3vh;height:3vh;border-radius:50%;background:#fff6;border:3px solid #fff}#dots b.on{background:#e0b24a}
+#knock{position:absolute;left:50%;top:-6%;transform:translateX(-50%);font-size:clamp(28px,6vh,64px);font-weight:900;color:#fff;text-shadow:0 3px 0 #a0507a;opacity:0;pointer-events:none}
+#skip{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));border:0;border-radius:999px;padding:.6em 1.2em;background:#fff9;color:#5a3b55;font:inherit;cursor:pointer}
+</style></head><body>
+<div id="stage"><div id="tip">光圈縮到最小的時候，點一下寶箱。</div>
+<div id="box"><div id="ring"></div><div id="knock">叩</div><div class="chest"><div class="band l"></div><div class="band r"></div><div class="lock"></div></div><div class="lid" id="lid"><div class="eyes" id="eyes"><i></i><i></i></div></div></div>
+<div id="dots"><b></b><b></b><b></b></div></div>
+<button id="skip" type="button">略過</button>
+<script>
+var BEAT=900,WIN=230,need=3,hits=0,t0=performance.now(),done=false,mode='normal',target='箱爺爺';
+var ring=document.getElementById('ring'),dots=[].slice.call(document.querySelectorAll('#dots b')),tip=document.getElementById('tip'),kn=document.getElementById('knock'),lid=document.getElementById('lid');
+function phase(){return ((performance.now()-t0)%BEAT)/BEAT}
+(function loop(){if(done)return;var p=phase();var s=1+0.6*Math.abs(Math.cos(Math.PI*p));ring.style.transform='translate(-50%,-50%) scale('+s+')';requestAnimationFrame(loop)})();
+function flash(txt,c){kn.textContent=txt;kn.style.color=c||'#fff';kn.animate([{opacity:1,transform:'translate(-50%,0)'},{opacity:0,transform:'translate(-50%,-30px)'}],{duration:500})}
+function knock(){if(done)return;var p=phase();var d=Math.min(p,1-p)*BEAT;
+ lid.animate([{transform:'rotate(0)'},{transform:'rotate(-6deg)'},{transform:'rotate(0)'}],{duration:160});
+ if(d<=WIN){hits++;flash('叩');}else{hits=0;flash('……','#5a3b55');tip.textContent='沒對上，重來。光圈最小的時候點。';}
+ dots.forEach(function(b,i){b.classList.toggle('on',i<hits)});
+ if(hits>=need)finish(true)}
+function finish(ok){done=true;document.getElementById('eyes').style.opacity=1;lid.style.transform='rotate(-14deg)';tip.textContent=ok?target+'的蓋子動了一下。':'';
+ parent.postMessage({type:'larch:set',name:'knock_ok',value:!!ok},'*');
+ setTimeout(function(){parent.postMessage({type:'larch:complete',result:ok?'woke':'skipped'},'*')},900)}
+document.getElementById('box').addEventListener('pointerdown',function(e){e.preventDefault();knock()});
+addEventListener('keydown',function(e){if(e.code==='Space'||e.code==='Enter'){e.preventDefault();knock()}});
+document.getElementById('skip').onclick=function(){finish(false)};
+parent.postMessage({type:'larch:ready'},'*');
+addEventListener('message',function(e){var d=e.data;if(d&&d.type==='larch:init'){var v=d.values||{};if(v.target)target=v.target}});
+</script></body></html>
