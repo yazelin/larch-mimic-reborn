@@ -1,0 +1,2325 @@
+{
+ "nodes": [
+  {
+   "id": "bk-mode",
+   "type": "story",
+   "position": {
+    "x": 80,
+    "y": 600
+   },
+   "data": {
+    "type": "choice",
+    "title": "要怎麼走這一趟",
+    "text": "要怎麼陪寶箱怪走這一趟？",
+    "speaker": "旁白",
+    "stage": {
+     "actors": []
+    },
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244609857_cg_opening.webp",
+    "choices": [
+     "在島上自己走走（3D 冒險）",
+     "翻開繪本，跟著故事走"
+    ]
+   }
+  },
+  {
+   "id": "bk-1a",
+   "type": "story",
+   "position": {
+    "x": 380,
+    "y": 820
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "第一章　村口",
+    "text": "長老！",
+    "speaker": "寶箱怪",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308786045_book_1-1.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-1a-0",
+      "text": "長老！",
+      "speaker": "寶箱怪",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308786045_book_1-1.webp"
+     },
+     {
+      "id": "bk-1a-1",
+      "text": "你也看到了吧。早上那幾個外地人，已經撬了市集後面兩箱，大家寄放在裡面的金幣全被拿走了。",
+      "speaker": "長老"
+     },
+     {
+      "id": "bk-1a-2",
+      "text": "你的族人睡得太沉，被撬開都不會醒。去把他們叫起來。",
+      "speaker": "長老",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308788559_book_1-2.webp"
+     },
+     {
+      "id": "bk-1a-3",
+      "text": "你敲了一整個夏天，也許今天叫得起來。",
+      "speaker": "長老"
+     },
+     {
+      "id": "bk-1a-4",
+      "text": "箱爺爺就在村口告示牌旁邊。營地跟遺跡也各有一個。",
+      "speaker": "長老",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308790547_book_1-3.webp"
+     },
+     {
+      "id": "bk-1a-5",
+      "text": "箱爺爺是村口最老的寶箱。蓋子上的木紋，比長老臉上的皺紋還多。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308792643_book_1-4.webp"
+     },
+     {
+      "id": "bk-1a-6",
+      "text": "（跟夏天的時候一樣，敲三下。）",
+      "speaker": "寶箱怪"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400,
+    "bgm": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244624541_bgm-explore.mp3",
+    "bgmLoop": true,
+    "bgmVolume": 0.5
+   }
+  },
+  {
+   "id": "bk-kt1",
+   "type": "story",
+   "position": {
+    "x": 680,
+    "y": 820
+   },
+   "data": {
+    "type": "setVariable",
+    "title": "bk-kt1",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "variableOps": [
+     {
+      "id": "o0",
+      "kind": "set",
+      "variable": "knock_target",
+      "value": "箱爺爺"
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-g1",
+   "type": "story",
+   "position": {
+    "x": 980,
+    "y": 820
+   },
+   "data": {
+    "type": "miniGame",
+    "title": "敲三下：箱爺爺",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "miniGameHtml": "<!-- bk-g1 -->\n<!doctype html><html lang=\"zh-Hant\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\"><title>敲三下</title>\n<style>\n@import url(\"https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap\");\n:root{--ink:#5a3f52;--rose:#e0789c;--rose-d:#b9577c;--hand:\"LXGW WenKai TC\",\"Huninn\",\"Noto Sans TC\",serif}\nhtml,body{margin:0;height:100%;background:#2a1f2a;font-family:var(--hand);overflow:hidden;user-select:none;-webkit-user-select:none;color:var(--ink)}\n#stage{position:fixed;inset:0;overflow:hidden}\n#bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}\n.pill{position:absolute;white-space:nowrap;padding:.55em 1.7em;font-size:clamp(17px,2.6vh,28px);letter-spacing:.08em;\n  border-style:solid;border-width:0;border-image:url(\"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp\") 40 60 fill / 12px 18px stretch;filter:drop-shadow(0 5px 8px rgba(90,50,80,.28))}\n#tip{left:50%;top:5%;translate:-50% 0;rotate:-.6deg}\n#skip{right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));font:inherit;font-size:clamp(14px,2vh,20px);color:var(--ink);background:none;cursor:pointer;padding:.45em 1.4em}\n#skip:hover,#skip:focus-visible{color:var(--rose-d);outline:none}\n\n#hit{position:absolute;translate:-50% -50%;aspect-ratio:1;cursor:pointer;touch-action:manipulation;border-radius:50%}\n#ring{position:absolute;inset:-8%;pointer-events:none;opacity:.85}\n#ring circle{fill:none;stroke:#fffaf3;stroke-width:3.2;stroke-linecap:round;filter:url(#rough)}\n#ring .c2{stroke-width:1.6;opacity:.6}\n.kn{position:absolute;font-weight:700;font-size:clamp(34px,7vh,78px);color:#fffaf3;pointer-events:none;\n  text-shadow:0 0 .05em var(--rose-d),0 .05em .02em var(--rose-d),0 .1em .25em rgba(150,60,100,.55)}\n#dots{position:absolute;left:50%;bottom:7%;translate:-50% 0;display:flex;gap:2.2vh}\n#dots b{width:4.4vh;height:4.4vh;border-radius:50%;filter:url(#rough-s);\n  background:radial-gradient(circle at 45% 40%,#fffaf1 0 55%,#f3dde8 80%,#ddb8d4 100%);box-shadow:0 3px 6px rgba(90,50,80,.25)}\n#dots b.on{background:radial-gradient(circle at 45% 40%,#ffb7cb 0 45%,#f590ae 72%,#c95f86 100%)}\n#veil{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(255,250,240,0),rgba(255,250,240,.0));pointer-events:none;transition:background .5s}\n#veil.done{background:radial-gradient(60% 60% at 50% 50%,rgba(255,246,236,.35),rgba(255,246,236,.0))}\n</style></head><body>\n<svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\">\n <filter id=\"rough\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.05\" numOctaves=\"3\" seed=\"4\"/><feDisplacementMap in=\"SourceGraphic\" scale=\"4\"/></filter>\n <filter id=\"rough-s\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.09\" numOctaves=\"2\" seed=\"3\"/><feDisplacementMap in=\"SourceGraphic\" scale=\"3\"/></filter>\n</svg>\n<div id=\"stage\"><img id=\"bg\" alt=\"\">\n<div id=\"veil\"></div>\n<div id=\"hit\" role=\"button\" tabindex=\"0\" aria-label=\"敲蓋子\"><svg id=\"ring\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"44\"/><circle class=\"c2\" cx=\"51\" cy=\"49\" r=\"40\"/></svg></div>\n<div class=\"pill\" id=\"tip\"></div>\n<div id=\"dots\"><b></b><b></b><b></b></div>\n<button class=\"pill\" id=\"skip\" type=\"button\">略過</button></div>\n<script>\nvar T={\"箱爺爺\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308792643_book_1-4.webp\", \"x\": 62, \"y\": 47, \"w\": 34, \"tip\": \"點三下箱爺爺的蓋子\", \"ok\": \"箱爺爺的蓋子動了一下。\"}, \"阿扣\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308896711_book_2-3.webp\", \"x\": 82, \"y\": 58, \"w\": 22, \"tip\": \"點三下阿扣的蓋子\", \"ok\": \"阿扣的蓋子動了一下。\"}, \"小鎖\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308916856_book_3-2.webp\", \"x\": 89, \"y\": 62, \"w\": 14, \"tip\": \"輕輕點三下小鎖的蓋子\", \"ok\": \"小鎖的蓋子動了一下。\"}},cfg=T['箱爺爺'],name='箱爺爺',need=3,hits=0,done=false;\nvar bg=document.getElementById('bg'),hit=document.getElementById('hit'),ring=document.getElementById('ring'),tip=document.getElementById('tip'),\n    dots=[].slice.call(document.querySelectorAll('#dots b')),stage=document.getElementById('stage');\nfunction apply(n){if(T[n]){name=n;cfg=T[n]}bg.src=cfg.bg;hit.style.left=cfg.x+'%';hit.style.top=cfg.y+'%';hit.style.width=cfg.w+'%';tip.textContent=cfg.tip}\napply('箱爺爺');\nring.animate([{transform:'scale(1)',opacity:.85},{transform:'scale(1.08)',opacity:.45},{transform:'scale(1)',opacity:.85}],{duration:1600,iterations:Infinity});\nfunction knock(){if(done)return;hits++;\n var k=document.createElement('div');k.className='kn';k.textContent='叩！';\n var r=hit.getBoundingClientRect();k.style.left=(r.left+r.width*(.55+Math.random()*.2))+'px';k.style.top=(r.top-r.height*.05)+'px';stage.appendChild(k);\n k.animate([{opacity:0,transform:'translateY(10px) rotate(-8deg) scale(.8)'},{opacity:1,transform:'translateY(-6px) rotate(-8deg) scale(1.05)',offset:.25},{opacity:0,transform:'translateY(-40px) rotate(-8deg)'}],{duration:700}).onfinish=function(){k.remove()};\n bg.animate([{transform:'translate(0,0)'},{transform:'translate(-4px,2px)'},{transform:'translate(3px,-2px)'},{transform:'translate(0,0)'}],{duration:160});\n ring.animate([{transform:'scale(.92)',opacity:1},{transform:'scale(1.45)',opacity:0}],{duration:600});\n dots.forEach(function(b,i){b.classList.toggle('on',i<hits)});\n if(hits>=need)setTimeout(function(){finish(true)},350)}\nfunction finish(ok){if(done&&ok)return;done=true;document.getElementById('veil').classList.add('done');ring.style.display='none';\n tip.textContent=ok?cfg.ok:'';\n parent.postMessage({type:'larch:set',name:'knock_ok',value:!!ok},'*');\n setTimeout(function(){parent.postMessage({type:'larch:complete',result:ok?'woke':'skipped'},'*')},900)}\nhit.addEventListener('pointerdown',function(e){e.preventDefault();knock()});\nhit.addEventListener('keydown',function(e){if(e.code==='Space'||e.code==='Enter'){e.preventDefault();knock()}});\naddEventListener('keydown',function(e){if(e.target===document.body&&(e.code==='Space'||e.code==='Enter')){e.preventDefault();knock()}});\ndocument.getElementById('skip').onclick=function(){finish(false)};\naddEventListener('message',function(e){var d=e.data;if(d&&d.type==='larch:init'){var v=d.values||d.variables||{};if(v.knock_target)apply(String(v.knock_target))}});\nparent.postMessage({type:'larch:ready'},'*');\n</script></body></html>",
+    "miniGameFrame": {
+     "showTitle": false,
+     "showButton": false
+    },
+    "miniGameReadVars": [
+     "knock_target"
+    ],
+    "miniGameWriteVars": [
+     "knock_ok"
+    ],
+    "miniGameSkippable": false,
+    "miniGamePresentation": "fullscreen"
+   }
+  },
+  {
+   "id": "bk-1b",
+   "type": "story",
+   "position": {
+    "x": 1280,
+    "y": 820
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "箱爺爺醒了",
+    "text": "吵什麼……天亮了嗎？",
+    "speaker": "箱爺爺",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308832128_book_1-5.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-1b-0",
+      "text": "吵什麼……天亮了嗎？",
+      "speaker": "箱爺爺",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308832128_book_1-5.webp"
+     },
+     {
+      "id": "bk-1b-1",
+      "text": "有獵人上島了，在撬族人的蓋子，搶大家寄放的東西。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-1b-2",
+      "text": "……這個聲音。這陣子每天都有人敲我三下，跟我講天氣、講蘋果。是你吧？",
+      "speaker": "箱爺爺",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308835055_book_1-6.webp"
+     },
+     {
+      "id": "bk-1b-3",
+      "text": "你聽得到？",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-1b-4",
+      "text": "睡著的時候聽得到一點，就是醒不過來。被你敲了這麼久，一天比一天睡得淺，今天總算醒了。",
+      "speaker": "箱爺爺",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308837720_book_1-7.webp"
+     },
+     {
+      "id": "bk-1b-5",
+      "text": "一個人醒著，很悶吧。",
+      "speaker": "箱爺爺"
+     },
+     {
+      "id": "bk-1b-6",
+      "text": "……嗯。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-1b-7",
+      "text": "先不說這個。我身上收的，是村子裡好幾代人交給我顧的東西，誰敢拿？",
+      "speaker": "箱爺爺",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308839906_book_1-8.webp"
+     },
+     {
+      "id": "bk-1b-8",
+      "text": "對了，蓋子不是只拿來走路的。往地上用力一砸，旁邊的人都站不穩。",
+      "speaker": "箱爺爺",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308842072_book_1-9.webp"
+     },
+     {
+      "id": "bk-1b-9",
+      "text": "寶箱怪學會了「蓋子砸地」。",
+      "speaker": "旁白",
+      "narration": true
+     },
+     {
+      "id": "bk-1b-10",
+      "text": "我跟你去。營地的阿扣睡最熟，先去叫他。",
+      "speaker": "箱爺爺"
+     },
+     {
+      "id": "bk-1b-11",
+      "text": "去營地的路上，會經過好幾個寶箱怪很熟的地方。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308845408_book_M-0.webp"
+     },
+     {
+      "id": "bk-1b-12",
+      "text": "（要去哪裡看看？）",
+      "speaker": "寶箱怪"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-map",
+   "type": "story",
+   "position": {
+    "x": 1580,
+    "y": 820
+   },
+   "data": {
+    "type": "choice",
+    "choiceStyle": "map",
+    "title": "島上的回憶",
+    "text": "",
+    "speaker": "",
+    "stage": {
+     "actors": []
+    },
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308845408_book_M-0.webp",
+    "choices": [
+     "井",
+     "火堆",
+     "市集的貓",
+     "岩縫",
+     "池塘",
+     "風車",
+     "出發去營地"
+    ],
+    "mapSpots": [
+     {
+      "x": 39,
+      "y": 66,
+      "hover": "glow",
+      "label": "tag",
+      "visibleCondition": {
+       "kind": "variable",
+       "variable": "seen_well",
+       "op": "neq",
+       "value": true
+      }
+     },
+     {
+      "x": 52,
+      "y": 73,
+      "hover": "glow",
+      "label": "tag",
+      "visibleCondition": {
+       "kind": "variable",
+       "variable": "seen_fire",
+       "op": "neq",
+       "value": true
+      }
+     },
+     {
+      "x": 60,
+      "y": 64,
+      "hover": "glow",
+      "label": "tag",
+      "visibleCondition": {
+       "kind": "variable",
+       "variable": "seen_cat",
+       "op": "neq",
+       "value": true
+      }
+     },
+     {
+      "x": 48,
+      "y": 8,
+      "hover": "glow",
+      "label": "tag",
+      "visibleCondition": {
+       "kind": "variable",
+       "variable": "seen_nook",
+       "op": "neq",
+       "value": true
+      }
+     },
+     {
+      "x": 79,
+      "y": 47,
+      "hover": "glow",
+      "label": "tag",
+      "visibleCondition": {
+       "kind": "variable",
+       "variable": "seen_pond",
+       "op": "neq",
+       "value": true
+      }
+     },
+     {
+      "x": 74,
+      "y": 12,
+      "hover": "glow",
+      "label": "tag",
+      "visibleCondition": {
+       "kind": "variable",
+       "variable": "seen_mill",
+       "op": "neq",
+       "value": true
+      }
+     },
+     {
+      "x": 27,
+      "y": 34,
+      "hover": "lift",
+      "label": "tag"
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-m-well",
+   "type": "story",
+   "position": {
+    "x": 1880,
+    "y": 820
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "回憶：井",
+    "text": "我第一次看到自己的樣子，就是在這口井的水面上。",
+    "speaker": "寶箱怪",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308847673_book_M-1.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-m-well-0",
+      "text": "我第一次看到自己的樣子，就是在這口井的水面上。",
+      "speaker": "寶箱怪",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308847673_book_M-1.webp"
+     },
+     {
+      "id": "bk-m-well-1",
+      "text": "紅色的箱子，一雙眼睛。我盯著看了很久，才相信那是我。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-m-well-2",
+      "text": "我第一次照這口井的時候，還以為自己是一個便當盒。",
+      "speaker": "箱爺爺"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-sv-well",
+   "type": "story",
+   "position": {
+    "x": 2180,
+    "y": 820
+   },
+   "data": {
+    "type": "setVariable",
+    "title": "bk-sv-well",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "variableOps": [
+     {
+      "id": "o0",
+      "kind": "set",
+      "variable": "seen_well",
+      "value": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-m-fire",
+   "type": "story",
+   "position": {
+    "x": 80,
+    "y": 1040
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "回憶：火堆",
+    "text": "第一次起風的晚上，長老在這裡生火，叫我坐近一點。",
+    "speaker": "寶箱怪",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308850171_book_M-2.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-m-fire-0",
+      "text": "第一次起風的晚上，長老在這裡生火，叫我坐近一點。",
+      "speaker": "寶箱怪",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308850171_book_M-2.webp"
+     },
+     {
+      "id": "bk-m-fire-1",
+      "text": "我說我是木頭做的，怕火。長老笑了很久，然後把我往後挪了一點。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-m-fire-2",
+      "text": "他小時候也這樣挪過我。他們一家都這樣。",
+      "speaker": "箱爺爺"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-sv-fire",
+   "type": "story",
+   "position": {
+    "x": 380,
+    "y": 1040
+   },
+   "data": {
+    "type": "setVariable",
+    "title": "bk-sv-fire",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "variableOps": [
+     {
+      "id": "o0",
+      "kind": "set",
+      "variable": "seen_fire",
+      "value": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-m-cat",
+   "type": "story",
+   "position": {
+    "x": 680,
+    "y": 1040
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "回憶：市集的貓",
+    "text": "市集的貓很喜歡睡在我的蓋子上。",
+    "speaker": "寶箱怪",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308852361_book_M-3.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-m-cat-0",
+      "text": "市集的貓很喜歡睡在我的蓋子上。",
+      "speaker": "寶箱怪",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308852361_book_M-3.webp"
+     },
+     {
+      "id": "bk-m-cat-1",
+      "text": "我怕吵醒牠，一動也不敢動，結果等到天黑牠才走。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-m-cat-2",
+      "text": "那隻貓也睡過我。我睡著的時候，都是聽著牠打呼嚕。",
+      "speaker": "箱爺爺"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-sv-cat",
+   "type": "story",
+   "position": {
+    "x": 980,
+    "y": 1040
+   },
+   "data": {
+    "type": "setVariable",
+    "title": "bk-sv-cat",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "variableOps": [
+     {
+      "id": "o0",
+      "kind": "set",
+      "variable": "seen_cat",
+      "value": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-m-nook",
+   "type": "story",
+   "position": {
+    "x": 1280,
+    "y": 1040
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "回憶：岩縫",
+    "text": "下雨的時候，我都躲進這個岩縫。",
+    "speaker": "寶箱怪",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308854292_book_M-4.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-m-nook-0",
+      "text": "下雨的時候，我都躲進這個岩縫。",
+      "speaker": "寶箱怪",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308854292_book_M-4.webp"
+     },
+     {
+      "id": "bk-m-nook-1",
+      "text": "裡面那箱族人一直沒醒。我就對著他講話，講到雨停。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-m-nook-2",
+      "text": "岩縫裡那位很膽小，一緊張就往石頭縫裡鑽。",
+      "speaker": "箱爺爺"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-sv-nook",
+   "type": "story",
+   "position": {
+    "x": 1580,
+    "y": 1040
+   },
+   "data": {
+    "type": "setVariable",
+    "title": "bk-sv-nook",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "variableOps": [
+     {
+      "id": "o0",
+      "kind": "set",
+      "variable": "seen_nook",
+      "value": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-m-pond",
+   "type": "story",
+   "position": {
+    "x": 1880,
+    "y": 1040
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "回憶：池塘",
+    "text": "我在這裡試過游泳。",
+    "speaker": "寶箱怪",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308856287_book_M-5.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-m-pond-0",
+      "text": "我在這裡試過游泳。",
+      "speaker": "寶箱怪",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308856287_book_M-5.webp"
+     },
+     {
+      "id": "bk-m-pond-1",
+      "text": "木頭會浮，所以我沒沉下去，只是翻過來，肚子朝天漂了一個下午。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-m-pond-2",
+      "text": "那你最後怎麼翻回來的？",
+      "speaker": "箱爺爺"
+     },
+     {
+      "id": "bk-m-pond-3",
+      "text": "一隻青蛙跳到我身上，我就翻回來了。",
+      "speaker": "寶箱怪"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-sv-pond",
+   "type": "story",
+   "position": {
+    "x": 2180,
+    "y": 1040
+   },
+   "data": {
+    "type": "setVariable",
+    "title": "bk-sv-pond",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "variableOps": [
+     {
+      "id": "o0",
+      "kind": "set",
+      "variable": "seen_pond",
+      "value": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-m-mill",
+   "type": "story",
+   "position": {
+    "x": 80,
+    "y": 1260
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "回憶：風車",
+    "text": "午睡我都選風車底下。",
+    "speaker": "寶箱怪",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308858622_book_M-6.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-m-mill-0",
+      "text": "午睡我都選風車底下。",
+      "speaker": "寶箱怪",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308858622_book_M-6.webp"
+     },
+     {
+      "id": "bk-m-mill-1",
+      "text": "葉片的影子一下一下晃過去，比數羊還好睡。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-m-mill-2",
+      "text": "……下次換我睡那裡。",
+      "speaker": "箱爺爺"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-sv-mill",
+   "type": "story",
+   "position": {
+    "x": 380,
+    "y": 1260
+   },
+   "data": {
+    "type": "setVariable",
+    "title": "bk-sv-mill",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "variableOps": [
+     {
+      "id": "o0",
+      "kind": "set",
+      "variable": "seen_mill",
+      "value": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-2a",
+   "type": "story",
+   "position": {
+    "x": 680,
+    "y": 1260
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "第二章　營地",
+    "text": "那兩個獵人連我攤子底下的錢箱都翻了。",
+    "speaker": "市集老闆",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309062927_book_2-1.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-2a-0",
+      "text": "那兩個獵人連我攤子底下的錢箱都翻了。",
+      "speaker": "市集老闆",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309062927_book_2-1.webp"
+     },
+     {
+      "id": "bk-2a-1",
+      "text": "以前你天天擋在我攤子前面曬太陽，害我少做好幾筆生意。現在換你去顧大家了。",
+      "speaker": "市集老闆"
+     },
+     {
+      "id": "bk-2a-2",
+      "text": "營地裡，火焰飛龍趴在火堆旁打盹。旁邊有一個寶箱，蓋子被撬開了，裡面空空的。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308894215_book_2-2.webp"
+     },
+     {
+      "id": "bk-2a-3",
+      "text": "被撬開的這箱還在睡。睡著被撬，連自己少了什麼都不知道。",
+      "speaker": "箱爺爺"
+     },
+     {
+      "id": "bk-2a-4",
+      "text": "阿扣呢？",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-2a-5",
+      "text": "阿扣就在隔壁，蓋子跟著打呼一起一伏。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308896711_book_2-3.webp"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-kt2",
+   "type": "story",
+   "position": {
+    "x": 980,
+    "y": 1260
+   },
+   "data": {
+    "type": "setVariable",
+    "title": "bk-kt2",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "variableOps": [
+     {
+      "id": "o0",
+      "kind": "set",
+      "variable": "knock_target",
+      "value": "阿扣"
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-g2a",
+   "type": "story",
+   "position": {
+    "x": 1280,
+    "y": 1260
+   },
+   "data": {
+    "type": "miniGame",
+    "title": "敲三下：阿扣（第一次）",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "miniGameHtml": "<!-- bk-g2a -->\n<!doctype html><html lang=\"zh-Hant\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\"><title>敲三下</title>\n<style>\n@import url(\"https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap\");\n:root{--ink:#5a3f52;--rose:#e0789c;--rose-d:#b9577c;--hand:\"LXGW WenKai TC\",\"Huninn\",\"Noto Sans TC\",serif}\nhtml,body{margin:0;height:100%;background:#2a1f2a;font-family:var(--hand);overflow:hidden;user-select:none;-webkit-user-select:none;color:var(--ink)}\n#stage{position:fixed;inset:0;overflow:hidden}\n#bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}\n.pill{position:absolute;white-space:nowrap;padding:.55em 1.7em;font-size:clamp(17px,2.6vh,28px);letter-spacing:.08em;\n  border-style:solid;border-width:0;border-image:url(\"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp\") 40 60 fill / 12px 18px stretch;filter:drop-shadow(0 5px 8px rgba(90,50,80,.28))}\n#tip{left:50%;top:5%;translate:-50% 0;rotate:-.6deg}\n#skip{right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));font:inherit;font-size:clamp(14px,2vh,20px);color:var(--ink);background:none;cursor:pointer;padding:.45em 1.4em}\n#skip:hover,#skip:focus-visible{color:var(--rose-d);outline:none}\n\n#hit{position:absolute;translate:-50% -50%;aspect-ratio:1;cursor:pointer;touch-action:manipulation;border-radius:50%}\n#ring{position:absolute;inset:-8%;pointer-events:none;opacity:.85}\n#ring circle{fill:none;stroke:#fffaf3;stroke-width:3.2;stroke-linecap:round;filter:url(#rough)}\n#ring .c2{stroke-width:1.6;opacity:.6}\n.kn{position:absolute;font-weight:700;font-size:clamp(34px,7vh,78px);color:#fffaf3;pointer-events:none;\n  text-shadow:0 0 .05em var(--rose-d),0 .05em .02em var(--rose-d),0 .1em .25em rgba(150,60,100,.55)}\n#dots{position:absolute;left:50%;bottom:7%;translate:-50% 0;display:flex;gap:2.2vh}\n#dots b{width:4.4vh;height:4.4vh;border-radius:50%;filter:url(#rough-s);\n  background:radial-gradient(circle at 45% 40%,#fffaf1 0 55%,#f3dde8 80%,#ddb8d4 100%);box-shadow:0 3px 6px rgba(90,50,80,.25)}\n#dots b.on{background:radial-gradient(circle at 45% 40%,#ffb7cb 0 45%,#f590ae 72%,#c95f86 100%)}\n#veil{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(255,250,240,0),rgba(255,250,240,.0));pointer-events:none;transition:background .5s}\n#veil.done{background:radial-gradient(60% 60% at 50% 50%,rgba(255,246,236,.35),rgba(255,246,236,.0))}\n</style></head><body>\n<svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\">\n <filter id=\"rough\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.05\" numOctaves=\"3\" seed=\"4\"/><feDisplacementMap in=\"SourceGraphic\" scale=\"4\"/></filter>\n <filter id=\"rough-s\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.09\" numOctaves=\"2\" seed=\"3\"/><feDisplacementMap in=\"SourceGraphic\" scale=\"3\"/></filter>\n</svg>\n<div id=\"stage\"><img id=\"bg\" alt=\"\">\n<div id=\"veil\"></div>\n<div id=\"hit\" role=\"button\" tabindex=\"0\" aria-label=\"敲蓋子\"><svg id=\"ring\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"44\"/><circle class=\"c2\" cx=\"51\" cy=\"49\" r=\"40\"/></svg></div>\n<div class=\"pill\" id=\"tip\"></div>\n<div id=\"dots\"><b></b><b></b><b></b></div>\n<button class=\"pill\" id=\"skip\" type=\"button\">略過</button></div>\n<script>\nvar T={\"箱爺爺\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308792643_book_1-4.webp\", \"x\": 62, \"y\": 47, \"w\": 34, \"tip\": \"點三下箱爺爺的蓋子\", \"ok\": \"箱爺爺的蓋子動了一下。\"}, \"阿扣\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308896711_book_2-3.webp\", \"x\": 82, \"y\": 58, \"w\": 22, \"tip\": \"點三下阿扣的蓋子\", \"ok\": \"阿扣的蓋子動了一下。\"}, \"小鎖\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308916856_book_3-2.webp\", \"x\": 89, \"y\": 62, \"w\": 14, \"tip\": \"輕輕點三下小鎖的蓋子\", \"ok\": \"小鎖的蓋子動了一下。\"}},cfg=T['箱爺爺'],name='箱爺爺',need=3,hits=0,done=false;\nvar bg=document.getElementById('bg'),hit=document.getElementById('hit'),ring=document.getElementById('ring'),tip=document.getElementById('tip'),\n    dots=[].slice.call(document.querySelectorAll('#dots b')),stage=document.getElementById('stage');\nfunction apply(n){if(T[n]){name=n;cfg=T[n]}bg.src=cfg.bg;hit.style.left=cfg.x+'%';hit.style.top=cfg.y+'%';hit.style.width=cfg.w+'%';tip.textContent=cfg.tip}\napply('箱爺爺');\nring.animate([{transform:'scale(1)',opacity:.85},{transform:'scale(1.08)',opacity:.45},{transform:'scale(1)',opacity:.85}],{duration:1600,iterations:Infinity});\nfunction knock(){if(done)return;hits++;\n var k=document.createElement('div');k.className='kn';k.textContent='叩！';\n var r=hit.getBoundingClientRect();k.style.left=(r.left+r.width*(.55+Math.random()*.2))+'px';k.style.top=(r.top-r.height*.05)+'px';stage.appendChild(k);\n k.animate([{opacity:0,transform:'translateY(10px) rotate(-8deg) scale(.8)'},{opacity:1,transform:'translateY(-6px) rotate(-8deg) scale(1.05)',offset:.25},{opacity:0,transform:'translateY(-40px) rotate(-8deg)'}],{duration:700}).onfinish=function(){k.remove()};\n bg.animate([{transform:'translate(0,0)'},{transform:'translate(-4px,2px)'},{transform:'translate(3px,-2px)'},{transform:'translate(0,0)'}],{duration:160});\n ring.animate([{transform:'scale(.92)',opacity:1},{transform:'scale(1.45)',opacity:0}],{duration:600});\n dots.forEach(function(b,i){b.classList.toggle('on',i<hits)});\n if(hits>=need)setTimeout(function(){finish(true)},350)}\nfunction finish(ok){if(done&&ok)return;done=true;document.getElementById('veil').classList.add('done');ring.style.display='none';\n tip.textContent=ok?cfg.ok:'';\n parent.postMessage({type:'larch:set',name:'knock_ok',value:!!ok},'*');\n setTimeout(function(){parent.postMessage({type:'larch:complete',result:ok?'woke':'skipped'},'*')},900)}\nhit.addEventListener('pointerdown',function(e){e.preventDefault();knock()});\nhit.addEventListener('keydown',function(e){if(e.code==='Space'||e.code==='Enter'){e.preventDefault();knock()}});\naddEventListener('keydown',function(e){if(e.target===document.body&&(e.code==='Space'||e.code==='Enter')){e.preventDefault();knock()}});\ndocument.getElementById('skip').onclick=function(){finish(false)};\naddEventListener('message',function(e){var d=e.data;if(d&&d.type==='larch:init'){var v=d.values||d.variables||{};if(v.knock_target)apply(String(v.knock_target))}});\nparent.postMessage({type:'larch:ready'},'*');\n</script></body></html>",
+    "miniGameFrame": {
+     "showTitle": false,
+     "showButton": false
+    },
+    "miniGameReadVars": [
+     "knock_target"
+    ],
+    "miniGameWriteVars": [
+     "knock_ok"
+    ],
+    "miniGameSkippable": false,
+    "miniGamePresentation": "fullscreen"
+   }
+  },
+  {
+   "id": "bk-2b",
+   "type": "story",
+   "position": {
+    "x": 1580,
+    "y": 1260
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "阿扣翻身",
+    "text": "……呼……再五分鐘……",
+    "speaker": "阿扣",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308898798_book_2-3b.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-2b-0",
+      "text": "……呼……再五分鐘……",
+      "speaker": "阿扣",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308898798_book_2-3b.webp"
+     },
+     {
+      "id": "bk-2b-1",
+      "text": "他睡最熟。再敲一次。",
+      "speaker": "箱爺爺"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-g2b",
+   "type": "story",
+   "position": {
+    "x": 1880,
+    "y": 1260
+   },
+   "data": {
+    "type": "miniGame",
+    "title": "敲三下：阿扣（第二次）",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "miniGameHtml": "<!-- bk-g2b -->\n<!doctype html><html lang=\"zh-Hant\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\"><title>敲三下</title>\n<style>\n@import url(\"https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap\");\n:root{--ink:#5a3f52;--rose:#e0789c;--rose-d:#b9577c;--hand:\"LXGW WenKai TC\",\"Huninn\",\"Noto Sans TC\",serif}\nhtml,body{margin:0;height:100%;background:#2a1f2a;font-family:var(--hand);overflow:hidden;user-select:none;-webkit-user-select:none;color:var(--ink)}\n#stage{position:fixed;inset:0;overflow:hidden}\n#bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}\n.pill{position:absolute;white-space:nowrap;padding:.55em 1.7em;font-size:clamp(17px,2.6vh,28px);letter-spacing:.08em;\n  border-style:solid;border-width:0;border-image:url(\"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp\") 40 60 fill / 12px 18px stretch;filter:drop-shadow(0 5px 8px rgba(90,50,80,.28))}\n#tip{left:50%;top:5%;translate:-50% 0;rotate:-.6deg}\n#skip{right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));font:inherit;font-size:clamp(14px,2vh,20px);color:var(--ink);background:none;cursor:pointer;padding:.45em 1.4em}\n#skip:hover,#skip:focus-visible{color:var(--rose-d);outline:none}\n\n#hit{position:absolute;translate:-50% -50%;aspect-ratio:1;cursor:pointer;touch-action:manipulation;border-radius:50%}\n#ring{position:absolute;inset:-8%;pointer-events:none;opacity:.85}\n#ring circle{fill:none;stroke:#fffaf3;stroke-width:3.2;stroke-linecap:round;filter:url(#rough)}\n#ring .c2{stroke-width:1.6;opacity:.6}\n.kn{position:absolute;font-weight:700;font-size:clamp(34px,7vh,78px);color:#fffaf3;pointer-events:none;\n  text-shadow:0 0 .05em var(--rose-d),0 .05em .02em var(--rose-d),0 .1em .25em rgba(150,60,100,.55)}\n#dots{position:absolute;left:50%;bottom:7%;translate:-50% 0;display:flex;gap:2.2vh}\n#dots b{width:4.4vh;height:4.4vh;border-radius:50%;filter:url(#rough-s);\n  background:radial-gradient(circle at 45% 40%,#fffaf1 0 55%,#f3dde8 80%,#ddb8d4 100%);box-shadow:0 3px 6px rgba(90,50,80,.25)}\n#dots b.on{background:radial-gradient(circle at 45% 40%,#ffb7cb 0 45%,#f590ae 72%,#c95f86 100%)}\n#veil{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(255,250,240,0),rgba(255,250,240,.0));pointer-events:none;transition:background .5s}\n#veil.done{background:radial-gradient(60% 60% at 50% 50%,rgba(255,246,236,.35),rgba(255,246,236,.0))}\n</style></head><body>\n<svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\">\n <filter id=\"rough\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.05\" numOctaves=\"3\" seed=\"4\"/><feDisplacementMap in=\"SourceGraphic\" scale=\"4\"/></filter>\n <filter id=\"rough-s\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.09\" numOctaves=\"2\" seed=\"3\"/><feDisplacementMap in=\"SourceGraphic\" scale=\"3\"/></filter>\n</svg>\n<div id=\"stage\"><img id=\"bg\" alt=\"\">\n<div id=\"veil\"></div>\n<div id=\"hit\" role=\"button\" tabindex=\"0\" aria-label=\"敲蓋子\"><svg id=\"ring\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"44\"/><circle class=\"c2\" cx=\"51\" cy=\"49\" r=\"40\"/></svg></div>\n<div class=\"pill\" id=\"tip\"></div>\n<div id=\"dots\"><b></b><b></b><b></b></div>\n<button class=\"pill\" id=\"skip\" type=\"button\">略過</button></div>\n<script>\nvar T={\"箱爺爺\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308792643_book_1-4.webp\", \"x\": 62, \"y\": 47, \"w\": 34, \"tip\": \"點三下箱爺爺的蓋子\", \"ok\": \"箱爺爺的蓋子動了一下。\"}, \"阿扣\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308896711_book_2-3.webp\", \"x\": 82, \"y\": 58, \"w\": 22, \"tip\": \"點三下阿扣的蓋子\", \"ok\": \"阿扣的蓋子動了一下。\"}, \"小鎖\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308916856_book_3-2.webp\", \"x\": 89, \"y\": 62, \"w\": 14, \"tip\": \"輕輕點三下小鎖的蓋子\", \"ok\": \"小鎖的蓋子動了一下。\"}},cfg=T['箱爺爺'],name='箱爺爺',need=3,hits=0,done=false;\nvar bg=document.getElementById('bg'),hit=document.getElementById('hit'),ring=document.getElementById('ring'),tip=document.getElementById('tip'),\n    dots=[].slice.call(document.querySelectorAll('#dots b')),stage=document.getElementById('stage');\nfunction apply(n){if(T[n]){name=n;cfg=T[n]}bg.src=cfg.bg;hit.style.left=cfg.x+'%';hit.style.top=cfg.y+'%';hit.style.width=cfg.w+'%';tip.textContent=cfg.tip}\napply('箱爺爺');\nring.animate([{transform:'scale(1)',opacity:.85},{transform:'scale(1.08)',opacity:.45},{transform:'scale(1)',opacity:.85}],{duration:1600,iterations:Infinity});\nfunction knock(){if(done)return;hits++;\n var k=document.createElement('div');k.className='kn';k.textContent='叩！';\n var r=hit.getBoundingClientRect();k.style.left=(r.left+r.width*(.55+Math.random()*.2))+'px';k.style.top=(r.top-r.height*.05)+'px';stage.appendChild(k);\n k.animate([{opacity:0,transform:'translateY(10px) rotate(-8deg) scale(.8)'},{opacity:1,transform:'translateY(-6px) rotate(-8deg) scale(1.05)',offset:.25},{opacity:0,transform:'translateY(-40px) rotate(-8deg)'}],{duration:700}).onfinish=function(){k.remove()};\n bg.animate([{transform:'translate(0,0)'},{transform:'translate(-4px,2px)'},{transform:'translate(3px,-2px)'},{transform:'translate(0,0)'}],{duration:160});\n ring.animate([{transform:'scale(.92)',opacity:1},{transform:'scale(1.45)',opacity:0}],{duration:600});\n dots.forEach(function(b,i){b.classList.toggle('on',i<hits)});\n if(hits>=need)setTimeout(function(){finish(true)},350)}\nfunction finish(ok){if(done&&ok)return;done=true;document.getElementById('veil').classList.add('done');ring.style.display='none';\n tip.textContent=ok?cfg.ok:'';\n parent.postMessage({type:'larch:set',name:'knock_ok',value:!!ok},'*');\n setTimeout(function(){parent.postMessage({type:'larch:complete',result:ok?'woke':'skipped'},'*')},900)}\nhit.addEventListener('pointerdown',function(e){e.preventDefault();knock()});\nhit.addEventListener('keydown',function(e){if(e.code==='Space'||e.code==='Enter'){e.preventDefault();knock()}});\naddEventListener('keydown',function(e){if(e.target===document.body&&(e.code==='Space'||e.code==='Enter')){e.preventDefault();knock()}});\ndocument.getElementById('skip').onclick=function(){finish(false)};\naddEventListener('message',function(e){var d=e.data;if(d&&d.type==='larch:init'){var v=d.values||d.variables||{};if(v.knock_target)apply(String(v.knock_target))}});\nparent.postMessage({type:'larch:ready'},'*');\n</script></body></html>",
+    "miniGameFrame": {
+     "showTitle": false,
+     "showButton": false
+    },
+    "miniGameReadVars": [
+     "knock_target"
+    ],
+    "miniGameWriteVars": [
+     "knock_ok"
+    ],
+    "miniGameSkippable": false,
+    "miniGamePresentation": "fullscreen"
+   }
+  },
+  {
+   "id": "bk-2c",
+   "type": "story",
+   "position": {
+    "x": 2180,
+    "y": 1260
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "阿扣醒了",
+    "text": "……嗯？",
+    "speaker": "阿扣",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308900991_book_2-4.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-2c-0",
+      "text": "……嗯？",
+      "speaker": "阿扣",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308900991_book_2-4.webp"
+     },
+     {
+      "id": "bk-2c-1",
+      "text": "阿扣，起來。隔壁那箱被撬了。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-2c-2",
+      "text": "我一直夢到有人敲我的蓋子，每次三下，敲完還說「明天再來」。",
+      "speaker": "阿扣"
+     },
+     {
+      "id": "bk-2c-3",
+      "text": "原來不是夢。",
+      "speaker": "阿扣"
+     },
+     {
+      "id": "bk-2c-4",
+      "text": "……睡太久，肚子好餓。",
+      "speaker": "阿扣",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308903515_book_2-5.webp"
+     },
+     {
+      "id": "bk-2c-5",
+      "text": "營地後面那棵蘋果樹，這陣子結得正多。",
+      "speaker": "箱爺爺"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-ga",
+   "type": "story",
+   "position": {
+    "x": 80,
+    "y": 1480
+   },
+   "data": {
+    "type": "miniGame",
+    "title": "接蘋果",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "miniGameHtml": "<!-- bk-ga -->\n<!doctype html><html lang=\"zh-Hant\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\"><title>接蘋果</title>\n<style>\n@import url(\"https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap\");\n:root{--ink:#5a3f52;--rose:#e0789c;--rose-d:#b9577c;--hand:\"LXGW WenKai TC\",\"Huninn\",\"Noto Sans TC\",serif}\nhtml,body{margin:0;height:100%;background:#2a1f2a;font-family:var(--hand);overflow:hidden;user-select:none;-webkit-user-select:none;color:var(--ink)}\n#stage{position:fixed;inset:0;overflow:hidden}\n#bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}\n.pill{position:absolute;white-space:nowrap;padding:.55em 1.7em;font-size:clamp(17px,2.6vh,28px);letter-spacing:.08em;\n  border-style:solid;border-width:0;border-image:url(\"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp\") 40 60 fill / 12px 18px stretch;filter:drop-shadow(0 5px 8px rgba(90,50,80,.28))}\n#tip{left:50%;top:5%;translate:-50% 0;rotate:-.6deg}\n#skip{right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));font:inherit;font-size:clamp(14px,2vh,20px);color:var(--ink);background:none;cursor:pointer;padding:.45em 1.4em}\n#skip:hover,#skip:focus-visible{color:var(--rose-d);outline:none}\n\n#hud{left:50%;top:4%;translate:-50% 0}\n#mimic{position:absolute;bottom:3%;width:16vw;max-width:260px;translate:-50% 0;filter:drop-shadow(0 8px 6px rgba(60,40,30,.3));pointer-events:none}\n.ap{position:absolute;width:5.2vw;max-width:80px;translate:-50% -50%;pointer-events:none;filter:drop-shadow(0 3px 3px rgba(0,0,0,.18))}\n.plus{position:absolute;font-weight:700;font-size:clamp(26px,5vh,56px);color:#fffaf3;pointer-events:none;\n  text-shadow:0 0 .05em var(--rose-d),0 .05em .02em var(--rose-d),0 .1em .25em rgba(150,60,100,.55)}\n#start{left:50%;top:50%;translate:-50% -50%;font:inherit;font-size:clamp(20px,3.4vh,34px);color:#fff;background:none;cursor:pointer;\n  border-image:url(\"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301269756_ui_pill_hot.webp\") 60 80 fill / 14px 20px stretch;text-shadow:0 0 .35em rgba(150,40,80,.45);padding:.6em 2em}\n#start[hidden]{display:none}\n#help{left:50%;top:64%;translate:-50% 0;font-size:clamp(14px,2.1vh,22px)}\n#help[hidden]{display:none}\n</style></head><body>\n<div id=\"stage\"><img id=\"bg\" src=\"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308912174_book_A-0.webp\" alt=\"\">\n<div class=\"pill\" id=\"hud\">接到 0 顆・剩 20 秒</div>\n<img id=\"mimic\" src=\"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309051802_sprite_mimic_open.png\" alt=\"寶箱怪\">\n<button class=\"pill\" id=\"start\" type=\"button\">開始接蘋果</button>\n<div class=\"pill\" id=\"help\">滑鼠、手指左右移動，或按 ← →</div>\n<button class=\"pill\" id=\"skip\" type=\"button\">略過</button></div>\n<script>\nvar stage=document.getElementById('stage'),mimic=document.getElementById('mimic'),hud=document.getElementById('hud'),APPLE='https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309054410_sprite_apple.png';\nvar x=50,keys={},apples=[],got=0,left=20,running=false,last=0,spawnT=0;\nfunction place(){mimic.style.left=x+'%'}place();\nfunction setX(clientX){x=Math.max(8,Math.min(92,clientX/innerWidth*100));place()}\nstage.addEventListener('pointermove',function(e){if(running)setX(e.clientX)});\nstage.addEventListener('pointerdown',function(e){if(running)setX(e.clientX)});\naddEventListener('keydown',function(e){keys[e.code]=true});addEventListener('keyup',function(e){keys[e.code]=false});\nfunction spawn(){var a=document.createElement('img');a.src=APPLE;a.className='ap';var o={el:a,x:10+Math.random()*80,y:-6,v:22+Math.random()*16};\n a.style.left=o.x+'%';a.style.top=o.y+'%';stage.appendChild(a);apples.push(o)}\nfunction plus(px){var p=document.createElement('div');p.className='plus';p.textContent='+1';p.style.left=px+'%';p.style.top='68%';p.style.translate='-50% 0';stage.appendChild(p);\n p.animate([{opacity:1,transform:'translateY(0)'},{opacity:0,transform:'translateY(-50px)'}],{duration:650}).onfinish=function(){p.remove()}}\nfunction tick(t){if(!running)return;var dt=Math.min(.05,(t-last)/1000||0);last=t;left-=dt;\n if(keys.ArrowLeft||keys.KeyA){x=Math.max(8,x-60*dt);place()}if(keys.ArrowRight||keys.KeyD){x=Math.min(92,x+60*dt);place()}\n spawnT-=dt;if(spawnT<=0){spawn();spawnT=.55+Math.random()*.4}\n for(var i=apples.length-1;i>=0;i--){var o=apples[i];o.y+=o.v*dt;o.el.style.top=o.y+'%';\n  if(o.y>82&&o.y<92&&Math.abs(o.x-x)<7){got++;plus(o.x);mimic.animate([{transform:'scaleY(1)'},{transform:'scaleY(.9)'},{transform:'scaleY(1)'}],{duration:180});o.el.remove();apples.splice(i,1)}\n  else if(o.y>104){o.el.remove();apples.splice(i,1)}}\n hud.textContent='接到 '+got+' 顆・剩 '+Math.max(0,Math.ceil(left))+' 秒';\n if(left<=0)return end();requestAnimationFrame(tick)}\nfunction end(){running=false;apples.forEach(function(o){o.el.remove()});apples=[];hud.textContent='接到 '+got+' 顆！';\n parent.postMessage({type:'larch:set',name:'apples',value:got},'*');setTimeout(function(){parent.postMessage({type:'larch:complete',result:String(got)},'*')},1200)}\ndocument.getElementById('start').onclick=function(){this.hidden=true;document.getElementById('help').hidden=true;running=true;last=performance.now();requestAnimationFrame(tick)};\ndocument.getElementById('skip').onclick=function(){if(running){left=0}else{parent.postMessage({type:'larch:set',name:'apples',value:0},'*');parent.postMessage({type:'larch:complete',result:'0'},'*')}};\nparent.postMessage({type:'larch:ready'},'*');\n</script></body></html>",
+    "miniGameFrame": {
+     "showTitle": false,
+     "showButton": false
+    },
+    "miniGameReadVars": [],
+    "miniGameWriteVars": [
+     "apples"
+    ],
+    "miniGameSkippable": false,
+    "miniGamePresentation": "fullscreen"
+   }
+  },
+  {
+   "id": "bk-2d1",
+   "type": "story",
+   "position": {
+    "x": 380,
+    "y": 1480
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "接到很多",
+    "text": "吃飽了！現在我什麼都撞得倒。",
+    "speaker": "阿扣",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308905564_book_2-6a.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-2d1-0",
+      "text": "吃飽了！現在我什麼都撞得倒。",
+      "speaker": "阿扣",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308905564_book_2-6a.webp"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-2d2",
+   "type": "story",
+   "position": {
+    "x": 680,
+    "y": 1480
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "接到很少",
+    "text": "……先墊墊肚子就好。",
+    "speaker": "阿扣",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308907946_book_2-6b.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-2d2-0",
+      "text": "……先墊墊肚子就好。",
+      "speaker": "阿扣",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308907946_book_2-6b.webp"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-2e",
+   "type": "story",
+   "position": {
+    "x": 980,
+    "y": 1480
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "整箱衝撞",
+    "text": "我睡覺翻身都會滾下坡。你試試看，整個箱子撞過去。",
+    "speaker": "阿扣",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308909947_book_2-7.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-2e-0",
+      "text": "我睡覺翻身都會滾下坡。你試試看，整個箱子撞過去。",
+      "speaker": "阿扣",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308909947_book_2-7.webp"
+     },
+     {
+      "id": "bk-2e-1",
+      "text": "寶箱怪學會了「整箱衝撞」。",
+      "speaker": "旁白",
+      "narration": true
+     },
+     {
+      "id": "bk-2e-2",
+      "text": "他們往遺跡走了。我跟你去。",
+      "speaker": "阿扣"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-3a",
+   "type": "story",
+   "position": {
+    "x": 1280,
+    "y": 1480
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "第三章　遺跡",
+    "text": "遺跡入口的大石頭被炸開了，碎石散了一地。",
+    "speaker": "旁白",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308914713_book_3-1.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-3a-0",
+      "text": "遺跡入口的大石頭被炸開了，碎石散了一地。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308914713_book_3-1.webp"
+     },
+     {
+      "id": "bk-3a-1",
+      "text": "連石頭都炸，這些人真的什麼都敢。",
+      "speaker": "箱爺爺"
+     },
+     {
+      "id": "bk-3a-2",
+      "text": "遺跡最裡面的角落，有一個寶箱縮成一團，蓋子抖個不停。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308916856_book_3-2.webp"
+     },
+     {
+      "id": "bk-3a-3",
+      "text": "小鎖膽子小，敲輕一點。",
+      "speaker": "箱爺爺"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-kt3",
+   "type": "story",
+   "position": {
+    "x": 1580,
+    "y": 1480
+   },
+   "data": {
+    "type": "setVariable",
+    "title": "bk-kt3",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "variableOps": [
+     {
+      "id": "o0",
+      "kind": "set",
+      "variable": "knock_target",
+      "value": "小鎖"
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-g3a",
+   "type": "story",
+   "position": {
+    "x": 1880,
+    "y": 1480
+   },
+   "data": {
+    "type": "miniGame",
+    "title": "敲三下：小鎖（第一次）",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "miniGameHtml": "<!-- bk-g3a -->\n<!doctype html><html lang=\"zh-Hant\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\"><title>敲三下</title>\n<style>\n@import url(\"https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap\");\n:root{--ink:#5a3f52;--rose:#e0789c;--rose-d:#b9577c;--hand:\"LXGW WenKai TC\",\"Huninn\",\"Noto Sans TC\",serif}\nhtml,body{margin:0;height:100%;background:#2a1f2a;font-family:var(--hand);overflow:hidden;user-select:none;-webkit-user-select:none;color:var(--ink)}\n#stage{position:fixed;inset:0;overflow:hidden}\n#bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}\n.pill{position:absolute;white-space:nowrap;padding:.55em 1.7em;font-size:clamp(17px,2.6vh,28px);letter-spacing:.08em;\n  border-style:solid;border-width:0;border-image:url(\"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp\") 40 60 fill / 12px 18px stretch;filter:drop-shadow(0 5px 8px rgba(90,50,80,.28))}\n#tip{left:50%;top:5%;translate:-50% 0;rotate:-.6deg}\n#skip{right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));font:inherit;font-size:clamp(14px,2vh,20px);color:var(--ink);background:none;cursor:pointer;padding:.45em 1.4em}\n#skip:hover,#skip:focus-visible{color:var(--rose-d);outline:none}\n\n#hit{position:absolute;translate:-50% -50%;aspect-ratio:1;cursor:pointer;touch-action:manipulation;border-radius:50%}\n#ring{position:absolute;inset:-8%;pointer-events:none;opacity:.85}\n#ring circle{fill:none;stroke:#fffaf3;stroke-width:3.2;stroke-linecap:round;filter:url(#rough)}\n#ring .c2{stroke-width:1.6;opacity:.6}\n.kn{position:absolute;font-weight:700;font-size:clamp(34px,7vh,78px);color:#fffaf3;pointer-events:none;\n  text-shadow:0 0 .05em var(--rose-d),0 .05em .02em var(--rose-d),0 .1em .25em rgba(150,60,100,.55)}\n#dots{position:absolute;left:50%;bottom:7%;translate:-50% 0;display:flex;gap:2.2vh}\n#dots b{width:4.4vh;height:4.4vh;border-radius:50%;filter:url(#rough-s);\n  background:radial-gradient(circle at 45% 40%,#fffaf1 0 55%,#f3dde8 80%,#ddb8d4 100%);box-shadow:0 3px 6px rgba(90,50,80,.25)}\n#dots b.on{background:radial-gradient(circle at 45% 40%,#ffb7cb 0 45%,#f590ae 72%,#c95f86 100%)}\n#veil{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(255,250,240,0),rgba(255,250,240,.0));pointer-events:none;transition:background .5s}\n#veil.done{background:radial-gradient(60% 60% at 50% 50%,rgba(255,246,236,.35),rgba(255,246,236,.0))}\n</style></head><body>\n<svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\">\n <filter id=\"rough\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.05\" numOctaves=\"3\" seed=\"4\"/><feDisplacementMap in=\"SourceGraphic\" scale=\"4\"/></filter>\n <filter id=\"rough-s\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.09\" numOctaves=\"2\" seed=\"3\"/><feDisplacementMap in=\"SourceGraphic\" scale=\"3\"/></filter>\n</svg>\n<div id=\"stage\"><img id=\"bg\" alt=\"\">\n<div id=\"veil\"></div>\n<div id=\"hit\" role=\"button\" tabindex=\"0\" aria-label=\"敲蓋子\"><svg id=\"ring\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"44\"/><circle class=\"c2\" cx=\"51\" cy=\"49\" r=\"40\"/></svg></div>\n<div class=\"pill\" id=\"tip\"></div>\n<div id=\"dots\"><b></b><b></b><b></b></div>\n<button class=\"pill\" id=\"skip\" type=\"button\">略過</button></div>\n<script>\nvar T={\"箱爺爺\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308792643_book_1-4.webp\", \"x\": 62, \"y\": 47, \"w\": 34, \"tip\": \"點三下箱爺爺的蓋子\", \"ok\": \"箱爺爺的蓋子動了一下。\"}, \"阿扣\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308896711_book_2-3.webp\", \"x\": 82, \"y\": 58, \"w\": 22, \"tip\": \"點三下阿扣的蓋子\", \"ok\": \"阿扣的蓋子動了一下。\"}, \"小鎖\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308916856_book_3-2.webp\", \"x\": 89, \"y\": 62, \"w\": 14, \"tip\": \"輕輕點三下小鎖的蓋子\", \"ok\": \"小鎖的蓋子動了一下。\"}},cfg=T['箱爺爺'],name='箱爺爺',need=3,hits=0,done=false;\nvar bg=document.getElementById('bg'),hit=document.getElementById('hit'),ring=document.getElementById('ring'),tip=document.getElementById('tip'),\n    dots=[].slice.call(document.querySelectorAll('#dots b')),stage=document.getElementById('stage');\nfunction apply(n){if(T[n]){name=n;cfg=T[n]}bg.src=cfg.bg;hit.style.left=cfg.x+'%';hit.style.top=cfg.y+'%';hit.style.width=cfg.w+'%';tip.textContent=cfg.tip}\napply('箱爺爺');\nring.animate([{transform:'scale(1)',opacity:.85},{transform:'scale(1.08)',opacity:.45},{transform:'scale(1)',opacity:.85}],{duration:1600,iterations:Infinity});\nfunction knock(){if(done)return;hits++;\n var k=document.createElement('div');k.className='kn';k.textContent='叩！';\n var r=hit.getBoundingClientRect();k.style.left=(r.left+r.width*(.55+Math.random()*.2))+'px';k.style.top=(r.top-r.height*.05)+'px';stage.appendChild(k);\n k.animate([{opacity:0,transform:'translateY(10px) rotate(-8deg) scale(.8)'},{opacity:1,transform:'translateY(-6px) rotate(-8deg) scale(1.05)',offset:.25},{opacity:0,transform:'translateY(-40px) rotate(-8deg)'}],{duration:700}).onfinish=function(){k.remove()};\n bg.animate([{transform:'translate(0,0)'},{transform:'translate(-4px,2px)'},{transform:'translate(3px,-2px)'},{transform:'translate(0,0)'}],{duration:160});\n ring.animate([{transform:'scale(.92)',opacity:1},{transform:'scale(1.45)',opacity:0}],{duration:600});\n dots.forEach(function(b,i){b.classList.toggle('on',i<hits)});\n if(hits>=need)setTimeout(function(){finish(true)},350)}\nfunction finish(ok){if(done&&ok)return;done=true;document.getElementById('veil').classList.add('done');ring.style.display='none';\n tip.textContent=ok?cfg.ok:'';\n parent.postMessage({type:'larch:set',name:'knock_ok',value:!!ok},'*');\n setTimeout(function(){parent.postMessage({type:'larch:complete',result:ok?'woke':'skipped'},'*')},900)}\nhit.addEventListener('pointerdown',function(e){e.preventDefault();knock()});\nhit.addEventListener('keydown',function(e){if(e.code==='Space'||e.code==='Enter'){e.preventDefault();knock()}});\naddEventListener('keydown',function(e){if(e.target===document.body&&(e.code==='Space'||e.code==='Enter')){e.preventDefault();knock()}});\ndocument.getElementById('skip').onclick=function(){finish(false)};\naddEventListener('message',function(e){var d=e.data;if(d&&d.type==='larch:init'){var v=d.values||d.variables||{};if(v.knock_target)apply(String(v.knock_target))}});\nparent.postMessage({type:'larch:ready'},'*');\n</script></body></html>",
+    "miniGameFrame": {
+     "showTitle": false,
+     "showButton": false
+    },
+    "miniGameReadVars": [
+     "knock_target"
+    ],
+    "miniGameWriteVars": [
+     "knock_ok"
+    ],
+    "miniGameSkippable": false,
+    "miniGamePresentation": "fullscreen"
+   }
+  },
+  {
+   "id": "bk-3b",
+   "type": "story",
+   "position": {
+    "x": 2180,
+    "y": 1480
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "小鎖嚇到",
+    "text": "（嗚……）",
+    "speaker": "小鎖",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308919572_book_3-2b.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-3b-0",
+      "text": "（嗚……）",
+      "speaker": "小鎖",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308919572_book_3-2b.webp"
+     },
+     {
+      "id": "bk-3b-1",
+      "text": "太大力了。輕一點。",
+      "speaker": "箱爺爺"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-g3b",
+   "type": "story",
+   "position": {
+    "x": 80,
+    "y": 1700
+   },
+   "data": {
+    "type": "miniGame",
+    "title": "敲三下：小鎖（第二次）",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "miniGameHtml": "<!-- bk-g3b -->\n<!doctype html><html lang=\"zh-Hant\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\"><title>敲三下</title>\n<style>\n@import url(\"https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap\");\n:root{--ink:#5a3f52;--rose:#e0789c;--rose-d:#b9577c;--hand:\"LXGW WenKai TC\",\"Huninn\",\"Noto Sans TC\",serif}\nhtml,body{margin:0;height:100%;background:#2a1f2a;font-family:var(--hand);overflow:hidden;user-select:none;-webkit-user-select:none;color:var(--ink)}\n#stage{position:fixed;inset:0;overflow:hidden}\n#bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}\n.pill{position:absolute;white-space:nowrap;padding:.55em 1.7em;font-size:clamp(17px,2.6vh,28px);letter-spacing:.08em;\n  border-style:solid;border-width:0;border-image:url(\"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp\") 40 60 fill / 12px 18px stretch;filter:drop-shadow(0 5px 8px rgba(90,50,80,.28))}\n#tip{left:50%;top:5%;translate:-50% 0;rotate:-.6deg}\n#skip{right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));font:inherit;font-size:clamp(14px,2vh,20px);color:var(--ink);background:none;cursor:pointer;padding:.45em 1.4em}\n#skip:hover,#skip:focus-visible{color:var(--rose-d);outline:none}\n\n#hit{position:absolute;translate:-50% -50%;aspect-ratio:1;cursor:pointer;touch-action:manipulation;border-radius:50%}\n#ring{position:absolute;inset:-8%;pointer-events:none;opacity:.85}\n#ring circle{fill:none;stroke:#fffaf3;stroke-width:3.2;stroke-linecap:round;filter:url(#rough)}\n#ring .c2{stroke-width:1.6;opacity:.6}\n.kn{position:absolute;font-weight:700;font-size:clamp(34px,7vh,78px);color:#fffaf3;pointer-events:none;\n  text-shadow:0 0 .05em var(--rose-d),0 .05em .02em var(--rose-d),0 .1em .25em rgba(150,60,100,.55)}\n#dots{position:absolute;left:50%;bottom:7%;translate:-50% 0;display:flex;gap:2.2vh}\n#dots b{width:4.4vh;height:4.4vh;border-radius:50%;filter:url(#rough-s);\n  background:radial-gradient(circle at 45% 40%,#fffaf1 0 55%,#f3dde8 80%,#ddb8d4 100%);box-shadow:0 3px 6px rgba(90,50,80,.25)}\n#dots b.on{background:radial-gradient(circle at 45% 40%,#ffb7cb 0 45%,#f590ae 72%,#c95f86 100%)}\n#veil{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(255,250,240,0),rgba(255,250,240,.0));pointer-events:none;transition:background .5s}\n#veil.done{background:radial-gradient(60% 60% at 50% 50%,rgba(255,246,236,.35),rgba(255,246,236,.0))}\n</style></head><body>\n<svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\">\n <filter id=\"rough\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.05\" numOctaves=\"3\" seed=\"4\"/><feDisplacementMap in=\"SourceGraphic\" scale=\"4\"/></filter>\n <filter id=\"rough-s\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.09\" numOctaves=\"2\" seed=\"3\"/><feDisplacementMap in=\"SourceGraphic\" scale=\"3\"/></filter>\n</svg>\n<div id=\"stage\"><img id=\"bg\" alt=\"\">\n<div id=\"veil\"></div>\n<div id=\"hit\" role=\"button\" tabindex=\"0\" aria-label=\"敲蓋子\"><svg id=\"ring\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"44\"/><circle class=\"c2\" cx=\"51\" cy=\"49\" r=\"40\"/></svg></div>\n<div class=\"pill\" id=\"tip\"></div>\n<div id=\"dots\"><b></b><b></b><b></b></div>\n<button class=\"pill\" id=\"skip\" type=\"button\">略過</button></div>\n<script>\nvar T={\"箱爺爺\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308792643_book_1-4.webp\", \"x\": 62, \"y\": 47, \"w\": 34, \"tip\": \"點三下箱爺爺的蓋子\", \"ok\": \"箱爺爺的蓋子動了一下。\"}, \"阿扣\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308896711_book_2-3.webp\", \"x\": 82, \"y\": 58, \"w\": 22, \"tip\": \"點三下阿扣的蓋子\", \"ok\": \"阿扣的蓋子動了一下。\"}, \"小鎖\": {\"bg\": \"https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308916856_book_3-2.webp\", \"x\": 89, \"y\": 62, \"w\": 14, \"tip\": \"輕輕點三下小鎖的蓋子\", \"ok\": \"小鎖的蓋子動了一下。\"}},cfg=T['箱爺爺'],name='箱爺爺',need=3,hits=0,done=false;\nvar bg=document.getElementById('bg'),hit=document.getElementById('hit'),ring=document.getElementById('ring'),tip=document.getElementById('tip'),\n    dots=[].slice.call(document.querySelectorAll('#dots b')),stage=document.getElementById('stage');\nfunction apply(n){if(T[n]){name=n;cfg=T[n]}bg.src=cfg.bg;hit.style.left=cfg.x+'%';hit.style.top=cfg.y+'%';hit.style.width=cfg.w+'%';tip.textContent=cfg.tip}\napply('箱爺爺');\nring.animate([{transform:'scale(1)',opacity:.85},{transform:'scale(1.08)',opacity:.45},{transform:'scale(1)',opacity:.85}],{duration:1600,iterations:Infinity});\nfunction knock(){if(done)return;hits++;\n var k=document.createElement('div');k.className='kn';k.textContent='叩！';\n var r=hit.getBoundingClientRect();k.style.left=(r.left+r.width*(.55+Math.random()*.2))+'px';k.style.top=(r.top-r.height*.05)+'px';stage.appendChild(k);\n k.animate([{opacity:0,transform:'translateY(10px) rotate(-8deg) scale(.8)'},{opacity:1,transform:'translateY(-6px) rotate(-8deg) scale(1.05)',offset:.25},{opacity:0,transform:'translateY(-40px) rotate(-8deg)'}],{duration:700}).onfinish=function(){k.remove()};\n bg.animate([{transform:'translate(0,0)'},{transform:'translate(-4px,2px)'},{transform:'translate(3px,-2px)'},{transform:'translate(0,0)'}],{duration:160});\n ring.animate([{transform:'scale(.92)',opacity:1},{transform:'scale(1.45)',opacity:0}],{duration:600});\n dots.forEach(function(b,i){b.classList.toggle('on',i<hits)});\n if(hits>=need)setTimeout(function(){finish(true)},350)}\nfunction finish(ok){if(done&&ok)return;done=true;document.getElementById('veil').classList.add('done');ring.style.display='none';\n tip.textContent=ok?cfg.ok:'';\n parent.postMessage({type:'larch:set',name:'knock_ok',value:!!ok},'*');\n setTimeout(function(){parent.postMessage({type:'larch:complete',result:ok?'woke':'skipped'},'*')},900)}\nhit.addEventListener('pointerdown',function(e){e.preventDefault();knock()});\nhit.addEventListener('keydown',function(e){if(e.code==='Space'||e.code==='Enter'){e.preventDefault();knock()}});\naddEventListener('keydown',function(e){if(e.target===document.body&&(e.code==='Space'||e.code==='Enter')){e.preventDefault();knock()}});\ndocument.getElementById('skip').onclick=function(){finish(false)};\naddEventListener('message',function(e){var d=e.data;if(d&&d.type==='larch:init'){var v=d.values||d.variables||{};if(v.knock_target)apply(String(v.knock_target))}});\nparent.postMessage({type:'larch:ready'},'*');\n</script></body></html>",
+    "miniGameFrame": {
+     "showTitle": false,
+     "showButton": false
+    },
+    "miniGameReadVars": [
+     "knock_target"
+    ],
+    "miniGameWriteVars": [
+     "knock_ok"
+    ],
+    "miniGameSkippable": false,
+    "miniGamePresentation": "fullscreen"
+   }
+  },
+  {
+   "id": "bk-3c",
+   "type": "story",
+   "position": {
+    "x": 380,
+    "y": 1700
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "小鎖醒了",
+    "text": "（蓋子抖個不停）走、走了嗎？",
+    "speaker": "小鎖",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309066816_book_3-3.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-3c-0",
+      "text": "（蓋子抖個不停）走、走了嗎？",
+      "speaker": "小鎖",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309066816_book_3-3.webp"
+     },
+     {
+      "id": "bk-3c-1",
+      "text": "小鎖，是我。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-3c-2",
+      "text": "他們剛剛就站在我前面。那隻史萊姆聞了我一下，又跳走了。",
+      "speaker": "小鎖"
+     },
+     {
+      "id": "bk-3c-3",
+      "text": "獵人說最大的寶藏在雲端高台上，要去那裡。",
+      "speaker": "小鎖",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308955444_book_3-4.webp"
+     },
+     {
+      "id": "bk-3c-4",
+      "text": "雲端之門是通到雲上的門。雲上住著女神卡雅，她什麼都知道。",
+      "speaker": "小鎖"
+     },
+     {
+      "id": "bk-3c-5",
+      "text": "高台那麼高，我們上不去。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-3c-6",
+      "text": "營地的火焰飛龍會載人。我們也算人吧？",
+      "speaker": "小鎖"
+     },
+     {
+      "id": "bk-3c-7",
+      "text": "算吧？我們會講話。",
+      "speaker": "阿扣",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308958326_book_3-5.webp"
+     },
+     {
+      "id": "bk-3c-8",
+      "text": "會講話的箱子，就算人。",
+      "speaker": "箱爺爺"
+     },
+     {
+      "id": "bk-3c-9",
+      "text": "害怕的時候，就把蓋子闔緊。躲一下，就不痛了。",
+      "speaker": "小鎖",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308960230_book_3-6.webp"
+     },
+     {
+      "id": "bk-3c-10",
+      "text": "寶箱怪學會了「躲進蓋子」。",
+      "speaker": "旁白",
+      "narration": true
+     },
+     {
+      "id": "bk-3c-11",
+      "text": "三個族人都醒了。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308962695_book_3-7.webp"
+     },
+     {
+      "id": "bk-3c-12",
+      "text": "上去之前，我們一起敲三下，嚇他們一跳。",
+      "speaker": "箱爺爺"
+     },
+     {
+      "id": "bk-3c-13",
+      "text": "寶箱怪學會了「敲三下」。",
+      "speaker": "旁白",
+      "narration": true
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-4",
+   "type": "story",
+   "position": {
+    "x": 680,
+    "y": 1700
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "第四章　騎火焰飛龍",
+    "text": "火焰飛龍睜開一隻眼睛，看著四個寶箱。",
+    "speaker": "旁白",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308965176_book_4-1.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-4-0",
+      "text": "火焰飛龍睜開一隻眼睛，看著四個寶箱。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308965176_book_4-1.webp"
+     },
+     {
+      "id": "bk-4-1",
+      "text": "牠、牠會不會把我們當成點心？",
+      "speaker": "小鎖"
+     },
+     {
+      "id": "bk-4-2",
+      "text": "牠只吃烤魚。",
+      "speaker": "箱爺爺"
+     },
+     {
+      "id": "bk-4-3",
+      "text": "四個寶箱一個疊一個，爬上了龍背。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308967232_book_4-2.webp"
+     },
+     {
+      "id": "bk-4-4",
+      "text": "誰踩到我的蓋子了？",
+      "speaker": "阿扣"
+     },
+     {
+      "id": "bk-4-5",
+      "text": "火焰飛龍拍了兩下翅膀，整座島一下子變得好小。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308969492_book_4-3.webp"
+     },
+     {
+      "id": "bk-4-6",
+      "text": "我看到營地了！那個空空的箱子旁邊就是我家！",
+      "speaker": "阿扣"
+     },
+     {
+      "id": "bk-4-7",
+      "text": "（蓋子闔得緊緊的）我、我不看。",
+      "speaker": "小鎖"
+     },
+     {
+      "id": "bk-4-8",
+      "text": "（從這麼高的地方往下看，島上的寶箱一個一個，像撒在草地上的糖果。）",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-4-9",
+      "text": "雲端之門前，兩個獵人正在撬門上的石環。綠色的史萊姆縮在門邊。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308971999_book_4-4.webp"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-5a",
+   "type": "story",
+   "position": {
+    "x": 980,
+    "y": 1700
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "第五章　雲端高台",
+    "text": "又一個寶箱。會自己走的。",
+    "speaker": "少年獵人",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308974789_book_5-1.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-5a-0",
+      "text": "又一個寶箱。會自己走的。",
+      "speaker": "少年獵人",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308974789_book_5-1.webp"
+     },
+     {
+      "id": "bk-5a-1",
+      "text": "會走的寶箱，裡面一定是好東西。",
+      "speaker": "少女獵人"
+     },
+     {
+      "id": "bk-5a-2",
+      "text": "把錢還回來。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-5a-3",
+      "text": "撬開再說。",
+      "speaker": "少年獵人"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400,
+    "bgm": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244627884_bgm-battle.mp3",
+    "bgmLoop": true,
+    "bgmVolume": 0.5
+   }
+  },
+  {
+   "id": "bk-r1",
+   "type": "story",
+   "position": {
+    "x": 1280,
+    "y": 1700
+   },
+   "data": {
+    "type": "setVariable",
+    "title": "bk-r1",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "variableOps": [
+     {
+      "id": "o0",
+      "kind": "set",
+      "variable": "round",
+      "value": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-5r1",
+   "type": "story",
+   "position": {
+    "x": 1580,
+    "y": 1700
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "第一回合",
+    "text": "別動，讓我撬一下就好！",
+    "speaker": "少年獵人",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308978887_book_5-2.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-5r1-0",
+      "text": "別動，讓我撬一下就好！",
+      "speaker": "少年獵人",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308978887_book_5-2.webp"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-5r2",
+   "type": "story",
+   "position": {
+    "x": 1880,
+    "y": 1700
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "第二回合",
+    "text": "綁起來帶回船上！",
+    "speaker": "少女獵人",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308982077_book_5-3.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-5r2-0",
+      "text": "綁起來帶回船上！",
+      "speaker": "少女獵人",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308982077_book_5-3.webp"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-5r3",
+   "type": "story",
+   "position": {
+    "x": 2180,
+    "y": 1700
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "第三回合",
+    "text": "一起上！",
+    "speaker": "少年獵人",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308984777_book_5-4.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-5r3-0",
+      "text": "一起上！",
+      "speaker": "少年獵人",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308984777_book_5-4.webp"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-5c",
+   "type": "story",
+   "position": {
+    "x": 80,
+    "y": 1920
+   },
+   "data": {
+    "type": "choice",
+    "title": "選招式",
+    "text": "第 {{round}} 回合：要用哪一招？",
+    "speaker": "寶箱怪",
+    "stage": {
+     "actors": []
+    },
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308974789_book_5-1.webp",
+    "choices": [
+     "蓋子砸地",
+     "整箱衝撞",
+     "躲進蓋子",
+     "敲三下"
+    ],
+    "choiceConditions": [
+     null,
+     null,
+     null,
+     {
+      "kind": "variable",
+      "variable": "round",
+      "op": "gte",
+      "value": 3
+     }
+    ],
+    "hideUnavailableChoices": true
+   }
+  },
+  {
+   "id": "bk-5y",
+   "type": "story",
+   "position": {
+    "x": 380,
+    "y": 1920
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "蓋子砸地",
+    "text": "哇、地在晃！",
+    "speaker": "少女獵人",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309068932_book_5-Y.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-5y-0",
+      "text": "哇、地在晃！",
+      "speaker": "少女獵人",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309068932_book_5-Y.webp"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-5u",
+   "type": "story",
+   "position": {
+    "x": 680,
+    "y": 1920
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "整箱衝撞",
+    "text": "我的撬棍！",
+    "speaker": "少年獵人",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309022247_book_5-U.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-5u-0",
+      "text": "我的撬棍！",
+      "speaker": "少年獵人",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309022247_book_5-U.webp"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-5i",
+   "type": "story",
+   "position": {
+    "x": 980,
+    "y": 1920
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "躲進蓋子",
+    "text": "好硬……手好麻。",
+    "speaker": "少年獵人",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309027556_book_5-I.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-5i-0",
+      "text": "好硬……手好麻。",
+      "speaker": "少年獵人",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309027556_book_5-I.webp"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400
+   }
+  },
+  {
+   "id": "bk-rn",
+   "type": "story",
+   "position": {
+    "x": 1280,
+    "y": 1920
+   },
+   "data": {
+    "type": "setVariable",
+    "title": "bk-rn",
+    "text": "",
+    "stage": {
+     "actors": []
+    },
+    "variableOps": [
+     {
+      "id": "o0",
+      "kind": "add",
+      "variable": "round",
+      "value": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "bk-5o",
+   "type": "story",
+   "position": {
+    "x": 1580,
+    "y": 1920
+   },
+   "data": {
+    "type": "dialogue",
+    "title": "敲三下",
+    "text": "叩、叩、叩。四個寶箱一起敲下去，整座高台都在響。",
+    "speaker": "旁白",
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309031379_book_5-O.webp",
+    "stage": {
+     "props": [],
+     "actors": []
+    },
+    "dialogueLines": [
+     {
+      "id": "bk-5o-0",
+      "text": "叩、叩、叩。四個寶箱一起敲下去，整座高台都在響。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309031379_book_5-O.webp"
+     },
+     {
+      "id": "bk-5o-1",
+      "text": "等一下，不打了。我們投降。",
+      "speaker": "少女獵人",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309033463_book_5-5.webp"
+     },
+     {
+      "id": "bk-5o-2",
+      "text": "錢都在船上，我們還。",
+      "speaker": "少年獵人"
+     },
+     {
+      "id": "bk-5o-3",
+      "text": "那隻史萊姆呢？",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-5o-4",
+      "text": "……我不是他們的。",
+      "speaker": "Pulut",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309035969_book_5-6.webp"
+     },
+     {
+      "id": "bk-5o-5",
+      "text": "我住在雲的上面，掉下來的時候被他們撿到。他們說幫他們找寶箱，就帶我回家。",
+      "speaker": "Pulut"
+     },
+     {
+      "id": "bk-5o-6",
+      "text": "（掉到一個不認識的地方，什麼都不會。我剛醒的時候也是這樣。）",
+      "speaker": "寶箱怪",
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309038867_book_5-7.webp"
+     },
+     {
+      "id": "bk-5o-7",
+      "text": "（那時候，是長老把我扶起來的。）",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-5o-8",
+      "text": "我們幫你想辦法回去。",
+      "speaker": "寶箱怪"
+     },
+     {
+      "id": "bk-5o-9",
+      "text": "我們……其實不知道怎麼上雲。",
+      "speaker": "少女獵人"
+     },
+     {
+      "id": "bk-5o-10",
+      "text": "雲端之門亮了起來，門裡走出一個女孩。是住在雲上的女神，卡雅。",
+      "speaker": "旁白",
+      "narration": true,
+      "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794309041407_book_5-8.webp"
+     },
+     {
+      "id": "bk-5o-11",
+      "text": "Pulut，找到你了。",
+      "speaker": "卡雅"
+     },
+     {
+      "id": "bk-5o-12",
+      "text": "這扇門會把人送到雲上。你就是從它的縫掉下來的。",
+      "speaker": "卡雅"
+     },
+     {
+      "id": "bk-5o-13",
+      "text": "謝謝你們顧著他。我帶他回家。",
+      "speaker": "卡雅"
+     }
+    ],
+    "transition": "fade",
+    "transitionMs": 400,
+    "bgm": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244624541_bgm-explore.mp3",
+    "bgmLoop": true,
+    "bgmVolume": 0.5
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e-bk-mode-bk-1a-right",
+   "source": "bk-mode",
+   "target": "bk-1a",
+   "sourceHandle": "choice-1",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-1a-bk-kt1-right",
+   "source": "bk-1a",
+   "target": "bk-kt1",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-kt1-bk-g1-right",
+   "source": "bk-kt1",
+   "target": "bk-g1",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-g1-bk-1b-right",
+   "source": "bk-g1",
+   "target": "bk-1b",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-1b-bk-map-right",
+   "source": "bk-1b",
+   "target": "bk-map",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-map-bk-m-well-choice-0",
+   "source": "bk-map",
+   "target": "bk-m-well",
+   "sourceHandle": "choice-0",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-m-well-bk-sv-well-right",
+   "source": "bk-m-well",
+   "target": "bk-sv-well",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-sv-well-bk-map-right",
+   "source": "bk-sv-well",
+   "target": "bk-map",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-map-bk-m-fire-choice-1",
+   "source": "bk-map",
+   "target": "bk-m-fire",
+   "sourceHandle": "choice-1",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-m-fire-bk-sv-fire-right",
+   "source": "bk-m-fire",
+   "target": "bk-sv-fire",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-sv-fire-bk-map-right",
+   "source": "bk-sv-fire",
+   "target": "bk-map",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-map-bk-m-cat-choice-2",
+   "source": "bk-map",
+   "target": "bk-m-cat",
+   "sourceHandle": "choice-2",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-m-cat-bk-sv-cat-right",
+   "source": "bk-m-cat",
+   "target": "bk-sv-cat",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-sv-cat-bk-map-right",
+   "source": "bk-sv-cat",
+   "target": "bk-map",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-map-bk-m-nook-choice-3",
+   "source": "bk-map",
+   "target": "bk-m-nook",
+   "sourceHandle": "choice-3",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-m-nook-bk-sv-nook-right",
+   "source": "bk-m-nook",
+   "target": "bk-sv-nook",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-sv-nook-bk-map-right",
+   "source": "bk-sv-nook",
+   "target": "bk-map",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-map-bk-m-pond-choice-4",
+   "source": "bk-map",
+   "target": "bk-m-pond",
+   "sourceHandle": "choice-4",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-m-pond-bk-sv-pond-right",
+   "source": "bk-m-pond",
+   "target": "bk-sv-pond",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-sv-pond-bk-map-right",
+   "source": "bk-sv-pond",
+   "target": "bk-map",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-map-bk-m-mill-choice-5",
+   "source": "bk-map",
+   "target": "bk-m-mill",
+   "sourceHandle": "choice-5",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-m-mill-bk-sv-mill-right",
+   "source": "bk-m-mill",
+   "target": "bk-sv-mill",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-sv-mill-bk-map-right",
+   "source": "bk-sv-mill",
+   "target": "bk-map",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-map-bk-2a-choice-6",
+   "source": "bk-map",
+   "target": "bk-2a",
+   "sourceHandle": "choice-6",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-2a-bk-kt2-right",
+   "source": "bk-2a",
+   "target": "bk-kt2",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-kt2-bk-g2a-right",
+   "source": "bk-kt2",
+   "target": "bk-g2a",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-g2a-bk-2b-right",
+   "source": "bk-g2a",
+   "target": "bk-2b",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-2b-bk-g2b-right",
+   "source": "bk-2b",
+   "target": "bk-g2b",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-g2b-bk-2c-right",
+   "source": "bk-g2b",
+   "target": "bk-2c",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-2c-bk-ga-right",
+   "source": "bk-2c",
+   "target": "bk-ga",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-ga-bk-2d1-right",
+   "source": "bk-ga",
+   "target": "bk-2d1",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true,
+   "data": {
+    "condition": {
+     "kind": "variable",
+     "variable": "apples",
+     "op": "gte",
+     "value": 5
+    }
+   }
+  },
+  {
+   "id": "e-bk-ga-bk-2d2-right",
+   "source": "bk-ga",
+   "target": "bk-2d2",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-2d1-bk-2e-right",
+   "source": "bk-2d1",
+   "target": "bk-2e",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-2d2-bk-2e-right",
+   "source": "bk-2d2",
+   "target": "bk-2e",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-2e-bk-3a-right",
+   "source": "bk-2e",
+   "target": "bk-3a",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-3a-bk-kt3-right",
+   "source": "bk-3a",
+   "target": "bk-kt3",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-kt3-bk-g3a-right",
+   "source": "bk-kt3",
+   "target": "bk-g3a",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-g3a-bk-3b-right",
+   "source": "bk-g3a",
+   "target": "bk-3b",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-3b-bk-g3b-right",
+   "source": "bk-3b",
+   "target": "bk-g3b",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-g3b-bk-3c-right",
+   "source": "bk-g3b",
+   "target": "bk-3c",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-3c-bk-4-right",
+   "source": "bk-3c",
+   "target": "bk-4",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-4-bk-5a-right",
+   "source": "bk-4",
+   "target": "bk-5a",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5a-bk-r1-right",
+   "source": "bk-5a",
+   "target": "bk-r1",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-r1-bk-5r1-right",
+   "source": "bk-r1",
+   "target": "bk-5r1",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5r1-bk-5c-right",
+   "source": "bk-5r1",
+   "target": "bk-5c",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5r2-bk-5c-right",
+   "source": "bk-5r2",
+   "target": "bk-5c",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5r3-bk-5c-right",
+   "source": "bk-5r3",
+   "target": "bk-5c",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5c-bk-5y-choice-0",
+   "source": "bk-5c",
+   "target": "bk-5y",
+   "sourceHandle": "choice-0",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5y-bk-rn-right",
+   "source": "bk-5y",
+   "target": "bk-rn",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5c-bk-5u-choice-1",
+   "source": "bk-5c",
+   "target": "bk-5u",
+   "sourceHandle": "choice-1",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5u-bk-rn-right",
+   "source": "bk-5u",
+   "target": "bk-rn",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5c-bk-5i-choice-2",
+   "source": "bk-5c",
+   "target": "bk-5i",
+   "sourceHandle": "choice-2",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5i-bk-rn-right",
+   "source": "bk-5i",
+   "target": "bk-rn",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-rn-bk-5r2-right",
+   "source": "bk-rn",
+   "target": "bk-5r2",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true,
+   "data": {
+    "condition": {
+     "kind": "variable",
+     "variable": "round",
+     "op": "eq",
+     "value": 2
+    }
+   }
+  },
+  {
+   "id": "e-bk-rn-bk-5r3-right",
+   "source": "bk-rn",
+   "target": "bk-5r3",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5c-bk-5o-choice-3",
+   "source": "bk-5c",
+   "target": "bk-5o",
+   "sourceHandle": "choice-3",
+   "targetHandle": "left",
+   "animated": true
+  },
+  {
+   "id": "e-bk-5o-sw-ending-right",
+   "source": "bk-5o",
+   "target": "sw-ending",
+   "sourceHandle": "right",
+   "targetHandle": "left",
+   "animated": true
+  }
+ ],
+ "vars": {
+  "knock_ok": false,
+  "knock_target": "箱爺爺",
+  "apples": 0,
+  "round": 1,
+  "seen_well": false,
+  "seen_fire": false,
+  "seen_cat": false,
+  "seen_nook": false,
+  "seen_pond": false,
+  "seen_mill": false
+ }
+}
