@@ -26,7 +26,7 @@ def fetch(key, name, w=1600):
         open(tmp, 'wb').write(urllib.request.urlopen(req, timeout=120).read())
     p = save(tmp, name, w); os.remove(tmp); return p
 
-KV = fetch('kv_title', 'kv', 1920)
+KV = fetch('kv_title_v3', 'kv', 1920)  # 遊戲 titleCoverImage 用的是 v3；v1 獵人臉是糊的
 LORE = fetch('cg_lore_a', 'lore', 1400)
 OPEN = fetch('cg_opening', 'opening', 1400)
 SHOT3D = save(os.path.join(R, 'art/screenshots/4-wake-grandpa.webp'), 'shot_3d', 1400)
