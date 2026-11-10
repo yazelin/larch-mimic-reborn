@@ -3,22 +3,23 @@
 @import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap");
 :root{--ink:#5a3f52;--rose:#e0789c;--rose-d:#b9577c;--hand:"LXGW WenKai TC","Huninn","Noto Sans TC",serif}
 html,body{margin:0;height:100%;background:#2a1f2a;font-family:var(--hand);overflow:hidden;user-select:none;-webkit-user-select:none;color:var(--ink)}
-#stage{position:fixed;inset:0;overflow:hidden}
+#fill{position:fixed;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;filter:blur(24px) brightness(.8);pointer-events:none}
+#stage{position:fixed;left:50%;top:50%;translate:-50% -50%;width:min(100vw,177.78vh);aspect-ratio:16/9;overflow:hidden;container-type:size}
 #bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.pill{position:absolute;white-space:nowrap;padding:.55em 1.7em;font-size:clamp(17px,2.6vh,28px);letter-spacing:.08em;
+.pill{position:absolute;white-space:nowrap;padding:.55em 1.7em;font-size:clamp(13px,4.6cqh,28px);letter-spacing:.08em;
   border-style:solid;border-width:0;border-image:url("https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp") 40 60 fill / 12px 18px stretch;filter:drop-shadow(0 5px 8px rgba(90,50,80,.28))}
 #tip{left:50%;top:5%;translate:-50% 0;rotate:-.6deg}
-#skip{right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));font:inherit;font-size:clamp(14px,2vh,20px);color:var(--ink);background:none;cursor:pointer;padding:.45em 1.4em}
+#skip{right:2.5%;bottom:3.5%;font:inherit;font-size:clamp(12px,3.4cqh,20px);color:var(--ink);background:none;cursor:pointer;padding:.45em 1.4em}
 #skip:hover,#skip:focus-visible{color:var(--rose-d);outline:none}
 
 #hit{position:absolute;translate:-50% -50%;aspect-ratio:1;cursor:pointer;touch-action:manipulation;border-radius:50%}
 #ring{position:absolute;inset:-8%;pointer-events:none;opacity:.85}
 #ring circle{fill:none;stroke:#fffaf3;stroke-width:3.2;stroke-linecap:round;filter:url(#rough)}
 #ring .c2{stroke-width:1.6;opacity:.6}
-.kn{position:absolute;font-weight:700;font-size:clamp(34px,7vh,78px);color:#fffaf3;pointer-events:none;
+.kn{position:absolute;font-weight:700;font-size:clamp(26px,12cqh,78px);color:#fffaf3;pointer-events:none;
   text-shadow:0 0 .05em var(--rose-d),0 .05em .02em var(--rose-d),0 .1em .25em rgba(150,60,100,.55)}
-#dots{position:absolute;left:50%;bottom:7%;translate:-50% 0;display:flex;gap:2.2vh}
-#dots b{width:4.4vh;height:4.4vh;border-radius:50%;filter:url(#rough-s);
+#dots{position:absolute;left:50%;bottom:7%;translate:-50% 0;display:flex;gap:3.8cqh}
+#dots b{width:7.5cqh;height:7.5cqh;border-radius:50%;filter:url(#rough-s);
   background:radial-gradient(circle at 45% 40%,#fffaf1 0 55%,#f3dde8 80%,#ddb8d4 100%);box-shadow:0 3px 6px rgba(90,50,80,.25)}
 #dots b.on{background:radial-gradient(circle at 45% 40%,#ffb7cb 0 45%,#f590ae 72%,#c95f86 100%)}
 #veil{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(255,250,240,0),rgba(255,250,240,.0));pointer-events:none;transition:background .5s}
@@ -28,7 +29,7 @@ html,body{margin:0;height:100%;background:#2a1f2a;font-family:var(--hand);overfl
  <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="4"/></filter>
  <filter id="rough-s"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter>
 </svg>
-<div id="stage"><img id="bg" alt="">
+<img id="fill" alt=""><div id="stage"><img id="bg" alt="">
 <div id="veil"></div>
 <div id="hit" role="button" tabindex="0" aria-label="敲蓋子"><svg id="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/><circle class="c2" cx="51" cy="49" r="40"/></svg></div>
 <div class="pill" id="tip"></div>
@@ -38,12 +39,12 @@ html,body{margin:0;height:100%;background:#2a1f2a;font-family:var(--hand);overfl
 var T={"箱爺爺": {"bg": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308792643_book_1-4.webp", "x": 62, "y": 47, "w": 34, "tip": "點三下箱爺爺的蓋子", "ok": "箱爺爺的蓋子動了一下。"}, "阿扣": {"bg": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308896711_book_2-3.webp", "x": 82, "y": 58, "w": 22, "tip": "點三下阿扣的蓋子", "ok": "阿扣的蓋子動了一下。"}, "小鎖": {"bg": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794308916856_book_3-2.webp", "x": 89, "y": 62, "w": 14, "tip": "輕輕點三下小鎖的蓋子", "ok": "小鎖的蓋子動了一下。"}},cfg=T['箱爺爺'],name='箱爺爺',need=3,hits=0,done=false;
 var bg=document.getElementById('bg'),hit=document.getElementById('hit'),ring=document.getElementById('ring'),tip=document.getElementById('tip'),
     dots=[].slice.call(document.querySelectorAll('#dots b')),stage=document.getElementById('stage');
-function apply(n){if(T[n]){name=n;cfg=T[n]}bg.src=cfg.bg;hit.style.left=cfg.x+'%';hit.style.top=cfg.y+'%';hit.style.width=cfg.w+'%';tip.textContent=cfg.tip}
+function apply(n){if(T[n]){name=n;cfg=T[n]}bg.src=cfg.bg;document.getElementById('fill').src=cfg.bg;hit.style.left=cfg.x+'%';hit.style.top=cfg.y+'%';hit.style.width=cfg.w+'%';tip.textContent=cfg.tip}
 apply('箱爺爺');
 ring.animate([{transform:'scale(1)',opacity:.85},{transform:'scale(1.08)',opacity:.45},{transform:'scale(1)',opacity:.85}],{duration:1600,iterations:Infinity});
 function knock(){if(done)return;hits++;
  var k=document.createElement('div');k.className='kn';k.textContent='叩！';
- var r=hit.getBoundingClientRect();k.style.left=(r.left+r.width*(.55+Math.random()*.2))+'px';k.style.top=(r.top-r.height*.05)+'px';stage.appendChild(k);
+ var r=hit.getBoundingClientRect(),sr=stage.getBoundingClientRect();k.style.left=(r.left-sr.left+r.width*(.55+Math.random()*.2))+'px';k.style.top=(r.top-sr.top-r.height*.05)+'px';stage.appendChild(k);
  k.animate([{opacity:0,transform:'translateY(10px) rotate(-8deg) scale(.8)'},{opacity:1,transform:'translateY(-6px) rotate(-8deg) scale(1.05)',offset:.25},{opacity:0,transform:'translateY(-40px) rotate(-8deg)'}],{duration:700}).onfinish=function(){k.remove()};
  bg.animate([{transform:'translate(0,0)'},{transform:'translate(-4px,2px)'},{transform:'translate(3px,-2px)'},{transform:'translate(0,0)'}],{duration:160});
  ring.animate([{transform:'scale(.92)',opacity:1},{transform:'scale(1.45)',opacity:0}],{duration:600});

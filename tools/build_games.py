@@ -20,12 +20,13 @@ COMMON_CSS = """
 @import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap");
 :root{--ink:#5a3f52;--rose:#e0789c;--rose-d:#b9577c;--hand:"LXGW WenKai TC","Huninn","Noto Sans TC",serif}
 html,body{margin:0;height:100%;background:#2a1f2a;font-family:var(--hand);overflow:hidden;user-select:none;-webkit-user-select:none;color:var(--ink)}
-#stage{position:fixed;inset:0;overflow:hidden}
+#fill{position:fixed;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;filter:blur(24px) brightness(.8);pointer-events:none}
+#stage{position:fixed;left:50%;top:50%;translate:-50% -50%;width:min(100vw,177.78vh);aspect-ratio:16/9;overflow:hidden;container-type:size}
 #bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.pill{position:absolute;white-space:nowrap;padding:.55em 1.7em;font-size:clamp(17px,2.6vh,28px);letter-spacing:.08em;
+.pill{position:absolute;white-space:nowrap;padding:.55em 1.7em;font-size:clamp(13px,4.6cqh,28px);letter-spacing:.08em;
   border-style:solid;border-width:0;border-image:url("__PILL__") 40 60 fill / 12px 18px stretch;filter:drop-shadow(0 5px 8px rgba(90,50,80,.28))}
 #tip{left:50%;top:5%;translate:-50% 0;rotate:-.6deg}
-#skip{right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));font:inherit;font-size:clamp(14px,2vh,20px);color:var(--ink);background:none;cursor:pointer;padding:.45em 1.4em}
+#skip{right:2.5%;bottom:3.5%;font:inherit;font-size:clamp(12px,3.4cqh,20px);color:var(--ink);background:none;cursor:pointer;padding:.45em 1.4em}
 #skip:hover,#skip:focus-visible{color:var(--rose-d);outline:none}
 """
 
@@ -35,10 +36,10 @@ KNOCK = """<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta
 #ring{position:absolute;inset:-8%;pointer-events:none;opacity:.85}
 #ring circle{fill:none;stroke:#fffaf3;stroke-width:3.2;stroke-linecap:round;filter:url(#rough)}
 #ring .c2{stroke-width:1.6;opacity:.6}
-.kn{position:absolute;font-weight:700;font-size:clamp(34px,7vh,78px);color:#fffaf3;pointer-events:none;
+.kn{position:absolute;font-weight:700;font-size:clamp(26px,12cqh,78px);color:#fffaf3;pointer-events:none;
   text-shadow:0 0 .05em var(--rose-d),0 .05em .02em var(--rose-d),0 .1em .25em rgba(150,60,100,.55)}
-#dots{position:absolute;left:50%;bottom:7%;translate:-50% 0;display:flex;gap:2.2vh}
-#dots b{width:4.4vh;height:4.4vh;border-radius:50%;filter:url(#rough-s);
+#dots{position:absolute;left:50%;bottom:7%;translate:-50% 0;display:flex;gap:3.8cqh}
+#dots b{width:7.5cqh;height:7.5cqh;border-radius:50%;filter:url(#rough-s);
   background:radial-gradient(circle at 45% 40%,#fffaf1 0 55%,#f3dde8 80%,#ddb8d4 100%);box-shadow:0 3px 6px rgba(90,50,80,.25)}
 #dots b.on{background:radial-gradient(circle at 45% 40%,#ffb7cb 0 45%,#f590ae 72%,#c95f86 100%)}
 #veil{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(255,250,240,0),rgba(255,250,240,.0));pointer-events:none;transition:background .5s}
@@ -48,7 +49,7 @@ KNOCK = """<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta
  <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="4"/></filter>
  <filter id="rough-s"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter>
 </svg>
-<div id="stage"><img id="bg" alt="">
+<img id="fill" alt=""><div id="stage"><img id="bg" alt="">
 <div id="veil"></div>
 <div id="hit" role="button" tabindex="0" aria-label="敲蓋子"><svg id="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/><circle class="c2" cx="51" cy="49" r="40"/></svg></div>
 <div class="pill" id="tip"></div>
@@ -58,12 +59,12 @@ KNOCK = """<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta
 var T=__TARGETS__,cfg=T['箱爺爺'],name='箱爺爺',need=3,hits=0,done=false;
 var bg=document.getElementById('bg'),hit=document.getElementById('hit'),ring=document.getElementById('ring'),tip=document.getElementById('tip'),
     dots=[].slice.call(document.querySelectorAll('#dots b')),stage=document.getElementById('stage');
-function apply(n){if(T[n]){name=n;cfg=T[n]}bg.src=cfg.bg;hit.style.left=cfg.x+'%';hit.style.top=cfg.y+'%';hit.style.width=cfg.w+'%';tip.textContent=cfg.tip}
+function apply(n){if(T[n]){name=n;cfg=T[n]}bg.src=cfg.bg;document.getElementById('fill').src=cfg.bg;hit.style.left=cfg.x+'%';hit.style.top=cfg.y+'%';hit.style.width=cfg.w+'%';tip.textContent=cfg.tip}
 apply('箱爺爺');
 ring.animate([{transform:'scale(1)',opacity:.85},{transform:'scale(1.08)',opacity:.45},{transform:'scale(1)',opacity:.85}],{duration:1600,iterations:Infinity});
 function knock(){if(done)return;hits++;
  var k=document.createElement('div');k.className='kn';k.textContent='叩！';
- var r=hit.getBoundingClientRect();k.style.left=(r.left+r.width*(.55+Math.random()*.2))+'px';k.style.top=(r.top-r.height*.05)+'px';stage.appendChild(k);
+ var r=hit.getBoundingClientRect(),sr=stage.getBoundingClientRect();k.style.left=(r.left-sr.left+r.width*(.55+Math.random()*.2))+'px';k.style.top=(r.top-sr.top-r.height*.05)+'px';stage.appendChild(k);
  k.animate([{opacity:0,transform:'translateY(10px) rotate(-8deg) scale(.8)'},{opacity:1,transform:'translateY(-6px) rotate(-8deg) scale(1.05)',offset:.25},{opacity:0,transform:'translateY(-40px) rotate(-8deg)'}],{duration:700}).onfinish=function(){k.remove()};
  bg.animate([{transform:'translate(0,0)'},{transform:'translate(-4px,2px)'},{transform:'translate(3px,-2px)'},{transform:'translate(0,0)'}],{duration:160});
  ring.animate([{transform:'scale(.92)',opacity:1},{transform:'scale(1.45)',opacity:0}],{duration:600});
@@ -84,17 +85,17 @@ parent.postMessage({type:'larch:ready'},'*');
 APPLE = """<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>接蘋果</title>
 <style>__COMMON__
 #hud{left:50%;top:4%;translate:-50% 0}
-#mimic{position:absolute;bottom:3%;width:16vw;max-width:260px;translate:-50% 0;filter:drop-shadow(0 8px 6px rgba(60,40,30,.3));pointer-events:none}
-.ap{position:absolute;width:5.2vw;max-width:80px;translate:-50% -50%;pointer-events:none;filter:drop-shadow(0 3px 3px rgba(0,0,0,.18))}
-.plus{position:absolute;font-weight:700;font-size:clamp(26px,5vh,56px);color:#fffaf3;pointer-events:none;
+#mimic{position:absolute;bottom:3%;width:16%;translate:-50% 0;filter:drop-shadow(0 8px 6px rgba(60,40,30,.3));pointer-events:none}
+.ap{position:absolute;width:5.2%;translate:-50% -50%;pointer-events:none;filter:drop-shadow(0 3px 3px rgba(0,0,0,.18))}
+.plus{position:absolute;font-weight:700;font-size:clamp(20px,9cqh,56px);color:#fffaf3;pointer-events:none;
   text-shadow:0 0 .05em var(--rose-d),0 .05em .02em var(--rose-d),0 .1em .25em rgba(150,60,100,.55)}
-#start{left:50%;top:50%;translate:-50% -50%;font:inherit;font-size:clamp(20px,3.4vh,34px);color:#fff;background:none;cursor:pointer;
+#start{left:50%;top:50%;translate:-50% -50%;font:inherit;font-size:clamp(15px,6cqh,34px);color:#fff;background:none;cursor:pointer;
   border-image:url("__HOT__") 60 80 fill / 14px 20px stretch;text-shadow:0 0 .35em rgba(150,40,80,.45);padding:.6em 2em}
 #start[hidden]{display:none}
-#help{left:50%;top:64%;translate:-50% 0;font-size:clamp(14px,2.1vh,22px)}
+#help{left:50%;top:64%;translate:-50% 0;font-size:clamp(12px,3.6cqh,22px)}
 #help[hidden]{display:none}
 </style></head><body>
-<div id="stage"><img id="bg" src="__BG__" alt="">
+<img id="fill" src="__BG__" alt=""><div id="stage"><img id="bg" src="__BG__" alt="">
 <div class="pill" id="hud">接到 0 顆・剩 20 秒</div>
 <img id="mimic" src="__MIMIC__" alt="寶箱怪">
 <button class="pill" id="start" type="button">開始接蘋果</button>
@@ -104,9 +105,9 @@ APPLE = """<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta
 var stage=document.getElementById('stage'),mimic=document.getElementById('mimic'),hud=document.getElementById('hud'),APPLE='__APPLE__';
 var x=50,keys={},apples=[],got=0,left=20,running=false,last=0,spawnT=0;
 function place(){mimic.style.left=x+'%'}place();
-function setX(clientX){x=Math.max(8,Math.min(92,clientX/innerWidth*100));place()}
-stage.addEventListener('pointermove',function(e){if(running)setX(e.clientX)});
-stage.addEventListener('pointerdown',function(e){if(running)setX(e.clientX)});
+function setX(clientX){var r=stage.getBoundingClientRect();x=Math.max(8,Math.min(92,(clientX-r.left)/r.width*100));place()}
+document.addEventListener('pointermove',function(e){if(running)setX(e.clientX)});
+document.addEventListener('pointerdown',function(e){if(running)setX(e.clientX)});
 addEventListener('keydown',function(e){keys[e.code]=true});addEventListener('keyup',function(e){keys[e.code]=false});
 function spawn(){var a=document.createElement('img');a.src=APPLE;a.className='ap';var o={el:a,x:10+Math.random()*80,y:-6,v:22+Math.random()*16};
  a.style.left=o.x+'%';a.style.top=o.y+'%';stage.appendChild(a);apples.push(o)}
