@@ -3,3 +3,8 @@ __pycache__/
 *.raw/
 node_modules/
 art/music_raw/
+
+# 影片產線的中間產物（可重新產生）
+film/cg/
+film/src/
+film/test/
