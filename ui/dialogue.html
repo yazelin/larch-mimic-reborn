@@ -1,28 +1,32 @@
 <!--
-  《轉生成寶箱怪的我》對話框（Larch settings.customInterfaces.dialogue），方向 B「黃昏軟糖」。
-  半透明的白色軟糖泡泡，名字是一顆粉紅色膠囊；旁白（沒有講者）不顯示名字，字改成淡紫。
-  寶箱怪一族（寶箱怪、箱爺爺、阿扣、小鎖、族人）的名字膠囊是薰衣草色，冒險隊是粉紅色。
+  《轉生成寶箱怪的我》對話框（Larch settings.customInterfaces.dialogue），手繪水彩版（2026-11-10 作者選定，取代黃昏軟糖）。
+  底圖是模型畫的水彩紙卡與名牌色塊（art/ui/，媒體庫 ui_panel / ui_tag），用 border-image 九宮格：四邊毛邊照原比例，只拉長中間。
+  旁白（沒有講者）不顯示名牌，字改成淡紫。寶箱怪一族的名牌轉成薰衣草色，冒險隊是玫瑰粉。
 -->
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Huninn&display=swap");
-:root { color-scheme: light; --glass: rgba(255,246,252,.84); --ink: #4a3560; --dim: #7b6696; --pink: #ff8fb1; --pink-d: #d9688c; --lav: #a98ce0; --lav-d: #7a56aa; }
+@import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap");
+:root { color-scheme: light; --ink: #5a3f52; --dim: #86708c; --hand: "LXGW WenKai TC", "Huninn", "Noto Sans TC", serif; }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: transparent; overflow: hidden; }
-.larch-project-font body .box, .larch-project-font body .box * { font-family: "Huninn", "Noto Sans TC", sans-serif !important; }
-.wrap { padding: 34px 7vw 22px; }
-.box { position: relative; padding: 22px 34px 22px; border-radius: 34px; background: var(--glass); color: var(--ink);
-  box-shadow: 0 7px 0 rgba(122,86,170,.35), inset 0 0 0 4px #fff, 0 18px 40px -18px rgba(74,53,96,.6); backdrop-filter: blur(6px);
-  font-family: "Huninn", "Noto Sans TC", sans-serif; }
-.name { position: absolute; left: 28px; top: -20px; margin: 0; padding: 4px 20px; border-radius: 999px; background: var(--k, var(--pink)); color: #fff;
-  font-size: clamp(15px, 1.2vw, 19px); letter-spacing: .1em; box-shadow: 0 4px 0 var(--kd, var(--pink-d)); }
+.larch-project-font body .box, .larch-project-font body .box * { font-family: var(--hand) !important; }
+.wrap { padding: 40px 6vw 18px; }
+.box { position: relative; padding: 46px 56px 34px 86px; color: var(--ink); font-family: var(--hand);
+  border-style: solid; border-width: 0; border-image: url("https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301259505_ui_panel.webp") 170 120 110 230 fill / 60px 42px 38px 80px stretch;
+  filter: drop-shadow(0 8px 14px rgba(90,50,80,.22)); }
+.name { position: absolute; left: 96px; top: -14px; margin: 0; padding: 7px 26px 8px; color: #fff; font-weight: 700;
+  font-size: clamp(15px, 1.2vw, 19px); letter-spacing: .12em; rotate: -2deg; text-shadow: 0 0 .35em rgba(150,40,80,.4);
+  border-style: solid; border-width: 0; border-image: url("https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301261830_ui_tag.webp") 80 140 fill / 14px 26px stretch; }
+.box.is-family .name { filter: hue-rotate(-62deg) saturate(.75) brightness(1.02); }
 .name:empty, .box.is-narration .name { display: none; }
-.text { margin: 0; min-height: 3.4em; max-width: 52em; font-size: var(--larch-text-size, 22px); line-height: 1.7; letter-spacing: .04em; }
+.text { margin: 0; min-height: 3.4em; max-width: 52em; font-size: var(--larch-text-size, 23px); line-height: 1.7; letter-spacing: .05em; }
 .box.is-narration .text { color: var(--dim); }
-.next { position: absolute; right: 22px; bottom: 14px; width: 26px; height: 26px; border: 0; border-radius: 50%; padding: 0; cursor: pointer;
-  background: var(--lav); box-shadow: 0 3px 0 var(--lav-d); animation: bob 1.3s ease-in-out infinite; }
-.next:focus-visible { outline: 3px solid var(--pink); outline-offset: 2px; }
+.next { position: absolute; right: 30px; bottom: 20px; width: 0; height: 0; padding: 0; cursor: pointer; background: none;
+  border: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 13px solid #c97a9c; animation: bob 1.3s ease-in-out infinite; }
+.next:focus-visible { outline: 3px solid #e0789c; outline-offset: 6px; }
 @keyframes bob { 50% { transform: translateY(-4px); } }
-@media (max-width: 720px) { .wrap { padding: 28px 4vw 14px; } .box { padding: 18px 22px 18px; border-radius: 26px; } .text { font-size: var(--larch-text-size, 18px); } }
+@media (max-width: 720px) { .wrap { padding: 30px 3vw 10px; }
+  .box { padding: 34px 30px 24px 52px; border-image-width: 40px 28px 26px 52px; }
+  .name { left: 58px; top: -12px; } .text { font-size: var(--larch-text-size, 18px); } }
 @media (prefers-reduced-motion: reduce) { .next { animation: none; } }
 </style>
 <div class="wrap">
@@ -39,9 +43,7 @@ html, body { margin: 0; background: transparent; overflow: hidden; }
   window.addEventListener('larch:state', function (e) {
     var sp = ((e.detail && e.detail.speaker) || '').trim();
     box.classList.toggle('is-narration', !sp || sp === '旁白');
-    var fam = FAMILY.indexOf(sp) >= 0;
-    box.style.setProperty('--k', fam ? 'var(--lav)' : 'var(--pink)');
-    box.style.setProperty('--kd', fam ? 'var(--lav-d)' : 'var(--pink-d)');
+    box.classList.toggle('is-family', FAMILY.indexOf(sp) >= 0);
   });
 })();
 </script>

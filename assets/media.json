@@ -110,5 +110,29 @@
  "shot-v11-6-ending": {
   "id": "54fb105d-659d-4294-9c6a-f19f846948b0",
   "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794282311243_shot-v11-6-ending.webp"
+ },
+ "ui_panel": {
+  "id": "48820944-a1b0-4c5a-82b3-85c7dac49bdd",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301259505_ui_panel.webp"
+ },
+ "ui_tag": {
+  "id": "54e96f6e-f0b2-4d01-9fd4-c9df1acb41e2",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301261830_ui_tag.webp"
+ },
+ "ui_btn": {
+  "id": "c28adfa5-1cba-4d9b-93ab-f6b7055e5b92",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301264178_ui_btn.webp"
+ },
+ "ui_btn_hot": {
+  "id": "3fe4b8ea-43d6-4aa5-accc-cf0d42842050",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301266186_ui_btn_hot.webp"
+ },
+ "ui_pill": {
+  "id": "9991c947-00cc-4cbc-8c70-d2727c89f109",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp"
+ },
+ "ui_pill_hot": {
+  "id": "6ddd595d-09f0-4f50-8118-b2a8feb54fd8",
+  "url": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301269756_ui_pill_hot.webp"
  }
 }

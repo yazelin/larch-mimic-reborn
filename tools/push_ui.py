@@ -13,7 +13,7 @@ def get():
 cur = get()
 for s in sys.argv[1:] or list(FILES):
     html = open(os.path.join(R, FILES[s])).read()
-    body = {'surface': s, 'html': html, 'enabled': True, 'expectedHtml': (cur.get(s) or {}).get('html', ''), 'summary': f'介面 {s} 換成方向 B「黃昏軟糖」'}
+    body = {'surface': s, 'html': html, 'enabled': True, 'expectedHtml': (cur.get(s) or {}).get('html', ''), 'summary': f'介面 {s} 換成手繪水彩版'}
     r = urllib.request.Request(f'https://larch.ink/api/agent/projects/{PID}/interface', method='PUT', data=json.dumps(body).encode(), headers=H)
     try: print(s, urllib.request.urlopen(r, timeout=300).status)
     except urllib.error.HTTPError as e: print(s, e.code, e.read()[:300])

@@ -67,6 +67,19 @@ ONE_CH1 = [
  ('b19', '1-9〈蓋子砸地〉', '從 1-4 改：箱爺爺跳起來，蓋子往地上一砸，塵土飛起來。', ['箱爺爺：往地上用力一砸，旁邊的人都站不穩。']),
 ]
 
+ONE_CH1B = [
+ ('b12', '1-2〈長老蹲下來〉', '從 1-1 B 改：長老蹲到跟寶箱怪一樣高，表情認真。', ['長老：你的族人睡得太沉，被撬開都不會醒。去把他們叫起來。']),
+ ('b13', '1-3〈箱爺爺在那邊〉', '從 1-1 B 改：長老指向路牌旁邊的老寶箱。寶箱怪沒有轉頭去看，是臉朝前；要它轉頭就按重畫。', ['長老：箱爺爺就在村口告示牌旁邊。營地跟遺跡也各有一個。']),
+]
+ITEMS_MAP = [
+ ('bm1', 'M-1〈井〉', '島上地圖的回憶：第一次在井的水面看到自己。', ['寶箱怪：我第一次看到自己的樣子，就是在這口井的水面上。', '箱爺爺：我第一次照這口井的時候，還以為自己是一個便當盒。'], 'ab'),
+ ('bm2', 'M-2〈火堆〉', '長老把怕火的寶箱怪往後挪。第一次畫成往火的方向推，已經重畫；地上的拖痕是從火堆那邊過來的。長老身體往箱子傾，如果你看起來還是像在推，就按重畫。', ['寶箱怪：我說我是木頭做的，怕火。長老笑了很久，然後把我往後挪了一點。', '箱爺爺：他小時候也這樣挪過我。他們一家都這樣。'], 'cd'),
+ ('bm3', 'M-3〈市集的貓〉', '貓睡在蓋子上，寶箱怪一動也不敢動。', ['寶箱怪：我怕吵醒牠，一動也不敢動，結果等到天黑牠才走。'], 'ab'),
+ ('bm4', 'M-4〈岩縫〉', '下雨天躲在岩縫，對著裡面沒醒的族人講話。', ['寶箱怪：裡面那箱族人一直沒醒。我就對著他講話，講到雨停。'], 'ab'),
+ ('bm5', 'M-5〈池塘〉', '劇本是翻過來、肚子朝天漂著。兩版都比較像泡在水裡；A 版鎖扣在下面，算是翻過來。兩版都不像就按重畫。', ['寶箱怪：木頭會浮，所以我沒沉下去，只是翻過來，肚子朝天漂了一個下午。', '寶箱怪：一隻青蛙跳到我身上，我就翻回來了。'], 'ab'),
+ ('bm6', 'M-6〈風車〉', '風車底下午睡，葉片的影子晃過去。B 版眼睛閉著、影子掃在身上。', ['寶箱怪：葉片的影子一下一下晃過去，比數羊還好睡。', '箱爺爺：……下次換我睡那裡。'], 'ab'),
+]
+
 def card_one(key, title, desc, lines):
     p = latest(key)
     img = f'<img src="{uri(p)}" alt="{title}" loading="lazy">' if p else '<div class="missing">沒畫出來</div>'
@@ -90,13 +103,13 @@ def uri(path):
     im = Image.open(path).convert('RGB'); im.thumbnail((1200, 1200)); b = io.BytesIO(); im.save(b, 'WEBP', quality=84)
     return 'data:image/webp;base64,' + base64.b64encode(b.getvalue()).decode()
 
-def card(key, title, desc, lines):
+def card(key, title, desc, lines, vs='ab'):
     opts = ''
-    for v in 'ab':
+    for v in vs:
         p = latest(key + v)
-        lab = v.upper()
+        lab = 'AB'[vs.index(v)]
         img = f'<img src="{uri(p)}" alt="{title} {lab} 版" loading="lazy">' if p else '<div class="missing">這一版沒畫出來</div>'
-        opts += f'<figure class="opt" data-v="{v}">{img}<figcaption><button type="button" class="pick" id="pick-{key}-{v}" data-k="{key}" data-v="{v}">選 {lab} 版</button></figcaption></figure>'
+        opts += f'<figure class="opt" data-v="{lab.lower()}">{img}<figcaption><button type="button" class="pick" id="pick-{key}-{lab.lower()}" data-k="{key}" data-v="{lab.lower()}">選 {lab} 版</button></figcaption></figure>'
     ls = ''.join(f'<li>{l}</li>' for l in lines)
     return f'''<section class="cg" id="{key}">
 <header><h2>{title}</h2><p class="desc">{desc}</p></header>
@@ -167,6 +180,10 @@ document.querySelectorAll('textarea').forEach(t=>t.onchange=()=>save(t.dataset.k
 </script>'''
 
 out = sys.argv[1]
+if 'map' in sys.argv[2:]:
+    cards = [card_one(*i) for i in ONE_CH1B] + [card(*i) for i in ITEMS_MAP]
+    intro = '第一章 1-2、1-3（從你選的 1-1 B 改出來），以及島上地圖的六段回憶。單張的按「這張可以」或「要重畫」，兩版的選一版。選了就存，不用另外送出。'
+    open(out, 'w').write(HTML.replace('__CARDS__', '\n'.join(cards)).replace('__INTRO__', intro)); print(out, os.path.getsize(out)); sys.exit()
 if 'ch1' in sys.argv[2:]:
     cards = [card(*i) for i in ITEMS_CH1] + [card_one(*i) for i in ONE_CH1]
     intro = '繪本第一章的圖。1-1 畫了兩版選一版；1-5 到 1-9 是從你選的 1-4 一次改出來的，每張按「這張可以」或「要重畫」。選了就存，不用另外送出。'

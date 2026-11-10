@@ -1,19 +1,22 @@
 /* larch-skill-part: choices */
-/* @larch-params { "gold": { "type": "color", "label": "選到時的顏色", "default": "#ff8fb1" } } */
-/* 方向 B「黃昏軟糖」（2026-11-10 作者選定）：一排白色軟糖泡泡，滑過時變薰衣草色、往上浮一點。部位 CSS 不能 @import，字型用專案的。 */
+/* @larch-params { "gold": { "type": "color", "label": "選到時的顏色", "default": "#e0789c" } } */
+/* 手繪水彩版（2026-11-10 作者選定）：一排水彩紙條（ui_pill），滑過或選到時換成玫瑰粉色帶（ui_pill_hot）、往上浮一點。
+   部位 CSS 不能 @import，字型用專案的。九宮格切片照素材像素量好。 */
 :scope.vn2-choices-floating {
   left: 50% !important; right: auto !important; top: auto !important; bottom: 28% !important; translate: -50% 0 !important; transform: none !important;
   width: min(620px, 86vw) !important; max-width: none !important; display: flex !important; flex-direction: column; align-items: stretch; gap: 14px;
   padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; backdrop-filter: none !important; }
 [data-larch-ui="choice"] {
-  display: flex !important; align-items: center; justify-content: center; width: 100% !important; min-height: 54px; padding: 12px 28px !important;
-  border: 0 !important; border-radius: 999px !important; background: rgba(255,246,252,.92) !important; color: #4a3560 !important;
-  box-shadow: 0 5px 0 rgba(122,86,170,.35), inset 0 0 0 3px #fff !important;
-  font-size: clamp(16px, 1.3vw, 21px) !important; line-height: 1.5 !important; letter-spacing: .06em; transition: background .2s, color .2s, translate .15s, box-shadow .15s; }
-[data-larch-ui="choice"]:hover, [data-larch-ui="choice"]:focus-visible { background: #a98ce0 !important; color: #fff !important; translate: 0 -2px;
-  box-shadow: 0 7px 0 #7a56aa, inset 0 0 0 3px rgba(255,255,255,.7) !important; outline: none; }
-[data-larch-ui="choice"]:focus-visible { outline: 3px solid var(--skin-gold, #ff8fb1) !important; outline-offset: 3px; }
-[data-larch-ui="choice"]:active { translate: 0 2px; box-shadow: 0 2px 0 #7a56aa !important; }
+  display: flex !important; align-items: center; justify-content: center; width: 100% !important; min-height: 56px; padding: 12px 34px !important;
+  border-style: solid !important; border-width: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important;
+  border-image: url("https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp") 40 60 fill / 12px 18px stretch !important; color: #5a3f52 !important;
+  filter: drop-shadow(0 5px 8px rgba(90,50,80,.2));
+  font-size: clamp(16px, 1.3vw, 21px) !important; line-height: 1.5 !important; letter-spacing: .06em; transition: translate .15s, color .15s; }
+[data-larch-ui="choice"]:nth-child(2n) { rotate: .5deg; } [data-larch-ui="choice"]:nth-child(2n+1) { rotate: -.4deg; }
+[data-larch-ui="choice"]:hover, [data-larch-ui="choice"]:focus-visible {
+  border-image: url("https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301269756_ui_pill_hot.webp") 60 80 fill / 14px 20px stretch !important; color: #fff !important; text-shadow: 0 0 .35em rgba(150,40,80,.45); translate: 0 -2px; outline: none; }
+[data-larch-ui="choice"]:focus-visible { outline: 3px solid var(--skin-gold, #e0789c) !important; outline-offset: 4px; }
+[data-larch-ui="choice"]:active { translate: 0 2px; }
 [data-larch-ui="choice"]:disabled { opacity: .5; cursor: default; translate: none; }
 [data-larch-ui="choice-index"], [data-larch-ui="choice-arrow"] { display: none !important; }
 :scope:not(.vn2-choices-floating) { display: flex !important; flex-direction: column; gap: 14px; background: none !important; border: 0 !important; box-shadow: none !important; }
