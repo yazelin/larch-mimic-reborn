@@ -96,6 +96,7 @@ ITEMS_CH34 = [
 ]
 
 ONE_CH5 = [
+ ('b44', '4-4〈雲端之門〉', '第四章最後一張，從高台圖改：寶箱還沒到，兩個獵人在撬門上的石環，Pulut 縮在門邊。', ['旁白：雲端之門前，兩個獵人正在撬門上的石環。綠色的史萊姆縮在門邊。']),
  ('b52', '5-2〈第一回合〉', '從你選的高台圖改：少年舉著撬棍衝過來。', ['少年獵人：別動，讓我撬一下就好！']),
  ('b53', '5-3〈第二回合〉', '少女甩出繩子想套住寶箱怪。', ['少女獵人：綁起來帶回船上！']),
  ('b54', '5-4〈第三回合〉', '兩個獵人一起撲過來。', ['少年獵人：一起上！']),
@@ -211,7 +212,7 @@ document.querySelectorAll('textarea').forEach(t=>t.onchange=()=>save(t.dataset.k
 out = sys.argv[1]
 if 'ch2' in sys.argv[2:]:
     cards = [card(*i) for i in ITEMS_CH2 + ITEMS_CH34] + [card_one(*i) for i in ONE_CH5]
-    intro = '上半：地圖回憶重畫的兩張、第二到四章的主圖，各兩版，選一版。下半：第五章十張，都從你在草圖選的高台圖改出來，每張按「這張可以」或「要重畫」。選了就存，不用另外送出。'
+    intro = '上半：地圖回憶重畫的兩張、第二到四章的主圖，各兩版，選一版。下半：4-4 與第五章，都從你在草圖選的高台圖改出來，每張按「這張可以」或「要重畫」。選了就存，不用另外送出。'
     open(out, 'w').write(HTML.replace('__CARDS__', '\n'.join(cards)).replace('__INTRO__', intro)); print(out, os.path.getsize(out)); sys.exit()
 if 'map' in sys.argv[2:]:
     cards = [card_one(*i) for i in ONE_CH1B] + [card(*i) for i in ITEMS_MAP]
