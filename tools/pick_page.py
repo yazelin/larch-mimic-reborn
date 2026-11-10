@@ -21,6 +21,12 @@ ITEMS = [
    '寶箱怪：我每天去敲，一個敲三下。叫不醒，我就說一聲「明天再來」。',
    '寶箱怪：白天在村口曬太陽，晚上到海邊看海。就這樣過了一整個夏天。']),
 ]
+ITEMS_APPLE = [
+ ('mem2apple', '回憶 CG 2〈第一次吃東西〉蘋果版', '蘋果樹下，寶箱怪掀著蓋子發呆，一顆蘋果正要掉進箱子裡。兔子版不用了。', [
+   '寶箱怪：第三天，我開始覺得肚子餓。',
+   '寶箱怪：我在樹下張著蓋子發呆，一顆蘋果掉下來，剛好掉進箱子裡。',
+   '寶箱怪：我嚇了一跳，蓋子一闔。……很甜。']),
+]
 
 def latest(name):
     fs = sorted(glob.glob(os.path.join(R, f'art/cg/{name}_v*.webp')), key=lambda f: int(f.rsplit('_v', 1)[1].split('.')[0]))
@@ -83,7 +89,7 @@ textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700&family=Noto+Sans+TC:wght@400;700&display=swap">
 <main>
 <div class="intro"><h1>轉生成寶箱怪的我：回憶 CG</h1>
-<p>序章新加的三段回憶，每段一張 CG，各畫了兩版。每段選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。</p>
+<p>__INTRO__</p>
 <p>點圖可以放大。</p><p class="offline" id="offline" hidden>這個畫面存不了選擇，請直接在對話裡告訴我。</p></div>
 __CARDS__
 </main>
@@ -107,5 +113,8 @@ document.querySelectorAll('textarea').forEach(t=>t.onchange=()=>save(t.dataset.k
 </script>'''
 
 out = sys.argv[1]
-open(out, 'w').write(HTML.replace('__CARDS__', '\n'.join(card(*i) for i in ITEMS)))
+items = ITEMS_APPLE if 'apple' in sys.argv[2:] else ITEMS
+intro = ('吃兔子改成吃蘋果，回憶 CG 2 重畫了兩版。選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。' if items is ITEMS_APPLE
+         else '序章新加的三段回憶，每段一張 CG，各畫了兩版。每段選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。')
+open(out, 'w').write(HTML.replace('__CARDS__', '\n'.join(card(*i) for i in items)).replace('__INTRO__', intro))
 print(out, os.path.getsize(out))

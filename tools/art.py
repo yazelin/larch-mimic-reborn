@@ -169,6 +169,17 @@ for k, body, refs in [('mem1', MEM1, ['open_final', 'mimic', 'elder']),
     for v in 'ab':
         JOBS[f'{k}{v}'] = dict(size='1536x1024', refs=refs, prompt=body + '\n' + S2D + '畫風照 Image 1。' + NOTXT)
 
+# 2026-11-10 作者：吃兔子會撞「兔兔那麼可愛」的梗，回憶 CG 2 改成蘋果
+MEM2_APPLE = """序章回憶 CG〈第一次吃東西〉，橫幅 16:9。
+畫面：白天，陽光從樹葉間灑下來，一棵圓滾滾、結滿紅蘋果的蘋果樹下，鏡頭貼近地面、稍微仰角。""" + MIMIC + """
+寶箱怪坐在蘋果樹下的草地上，蓋子往上掀開一條寬寬的縫，像在發呆曬太陽。
+一顆紅蘋果正從樹枝上掉下來，就在蓋子的縫正上方，快要掉進箱子裡。
+蓋子縫裡的眼睛往上看著那顆蘋果，睜得很大，嚇了一跳的樣子。
+草地上還有一兩顆掉落的蘋果，有小花，背景是模糊的綠樹與藍天白雲，景深淺，焦點在蘋果和眼睛。
+畫面可愛、溫暖、有一點好笑。畫面裡沒有任何動物。"""
+for v in 'ab':
+    JOBS[f'mem2apple{v}'] = dict(size='1536x1024', refs=['open_final', 'mimic'], prompt=MEM2_APPLE + '\n' + S2D + '畫風照 Image 1。' + NOTXT)
+
 
 def b64(path):
     im = Image.open(os.path.join(R, path)).convert('RGB'); buf = io.BytesIO(); im.save(buf, 'PNG')
