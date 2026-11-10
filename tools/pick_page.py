@@ -53,6 +53,35 @@ ITEMS_TRIBE = [
    'A 版：箱爺爺的鬍子長長垂到箱身，小鎖特別小。B 版：四個畫得比較大，箱爺爺鬍子短一點、蓋子掀比較開。']),
 ]
 
+ITEMS_CH1 = [
+ ('b11', '1-1〈長老！〉', '第一章第一張：寶箱怪蹦到長老面前，長老轉過頭。選定後 1-2（長老蹲下來）、1-3（長老指向箱爺爺）都從這張改。', [
+   '寶箱怪：長老！',
+   '長老：你也看到了吧。早上那幾個外地人，已經撬了市集後面兩箱，大家寄放在裡面的金幣全被拿走了。',
+   'A 版：寶箱怪撞到長老身上，長老被推著、瞇眼笑。B 版：寶箱怪蹦在半空，長老嚇一跳轉頭。']),
+]
+ONE_CH1 = [
+ ('b15', '1-5〈天亮了嗎？〉', '從 1-4 改：箱爺爺蓋子掀開一條縫，睡眼。', ['箱爺爺：吵什麼……天亮了嗎？']),
+ ('b16', '1-6〈這個聲音〉', '從 1-4 改：箱爺爺眼睛睜大，盯著寶箱怪。', ['箱爺爺：……這個聲音。這陣子每天都有人敲我三下，跟我講天氣、講蘋果。是你吧？']),
+ ('b17', '1-7〈很悶吧〉', '從 1-4 改：箱爺爺眼神變溫和。', ['箱爺爺：一個人醒著，很悶吧。']),
+ ('b18', '1-8〈誰敢拿？〉', '從 1-4 改：蓋子「碰」一聲闔上，氣呼呼。', ['箱爺爺：我身上收的，是村子裡好幾代人交給我顧的東西，誰敢拿？']),
+ ('b19', '1-9〈蓋子砸地〉', '從 1-4 改：箱爺爺跳起來，蓋子往地上一砸，塵土飛起來。', ['箱爺爺：往地上用力一砸，旁邊的人都站不穩。']),
+]
+
+def card_one(key, title, desc, lines):
+    p = latest(key)
+    img = f'<img src="{uri(p)}" alt="{title}" loading="lazy">' if p else '<div class="missing">沒畫出來</div>'
+    ls = ''.join(f'<li>{l}</li>' for l in lines)
+    return f'''<section class="cg" id="{key}">
+<header><h2>{title}</h2><p class="desc">{desc}</p></header>
+<ol class="lines">{ls}</ol>
+<div class="opts"><figure class="opt" data-v="ok">{img}</figure></div>
+<div class="row"><button type="button" class="pick" id="pick-{key}-ok" data-k="{key}" data-v="ok">這張可以</button>
+<button type="button" class="pick redo" id="pick-{key}-redo" data-k="{key}" data-v="redo">要重畫</button>
+<span class="state" id="state-{key}">還沒選</span></div>
+<label class="note-l" for="note-{key}">想改的地方（可以不寫）</label>
+<textarea id="note-{key}" data-k="{key}" rows="2" placeholder="例如：鬍子太長、眉毛方向不對"></textarea>
+</section>'''
+
 def latest(name):
     fs = sorted(glob.glob(os.path.join(R, f'art/cg/{name}_v*.webp')), key=lambda f: int(f.rsplit('_v', 1)[1].split('.')[0]))
     return fs[-1] if fs else None
@@ -126,7 +155,7 @@ document.querySelectorAll('.opt img').forEach(i=>i.onclick=()=>{z.querySelector(
 z.onclick=()=>z.hidden=true;
 const show=(k,v)=>{document.querySelectorAll(`#${k} .pick`).forEach(b=>b.classList.toggle('on',b.dataset.v===v));
  document.querySelectorAll(`#${k} .opt`).forEach(o=>o.classList.toggle('on',o.dataset.v===v));
- document.getElementById('state-'+k).textContent=v==='redo'?'已存：重畫':v?`已存：${v.toUpperCase()} 版`:'還沒選'};
+ document.getElementById('state-'+k).textContent=v==='redo'?'已存：重畫':v==='ok'?'已存：這張可以':v?`已存：${v.toUpperCase()} 版`:'還沒選'};
 const db=await claude.use('db');
 if(!db){document.getElementById('offline').hidden=false;return}
 const col=db.collection('picks');const cur={};
@@ -138,6 +167,10 @@ document.querySelectorAll('textarea').forEach(t=>t.onchange=()=>save(t.dataset.k
 </script>'''
 
 out = sys.argv[1]
+if 'ch1' in sys.argv[2:]:
+    cards = [card(*i) for i in ITEMS_CH1] + [card_one(*i) for i in ONE_CH1]
+    intro = '繪本第一章的圖。1-1 畫了兩版選一版；1-5 到 1-9 是從你選的 1-4 一次改出來的，每張按「這張可以」或「要重畫」。選了就存，不用另外送出。'
+    open(out, 'w').write(HTML.replace('__CARDS__', '\n'.join(cards)).replace('__INTRO__', intro)); print(out, os.path.getsize(out)); sys.exit()
 items = ITEMS_TRIBE if 'tribe' in sys.argv[2:] else ITEMS_APPLE if 'apple' in sys.argv[2:] else ITEMS_LORE if 'lore' in sys.argv[2:] else ITEMS
 intro = ('繪本版的族人定稿畫了兩版。選一版，或按「重畫」並寫下要改的地方（例如某個族人的配件、大小）。選了就存，不用另外送出。' if items is ITEMS_TRIBE else '開場科普兩張、尾聲一張，各畫了兩版。每張選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。' if items is ITEMS_LORE else '吃兔子改成吃蘋果，回憶 CG 2 重畫了兩版。選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。' if items is ITEMS_APPLE
          else '序章新加的三段回憶，每段一張 CG，各畫了兩版。每段選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。')
