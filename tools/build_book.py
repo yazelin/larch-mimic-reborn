@@ -11,6 +11,9 @@ M = json.load(open(os.path.join(R, 'assets/media.json')))
 CG = lambda k: M['book_' + k]['url']
 BGM_EXPLORE = 'https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244624541_bgm-explore.mp3'
 BGM_BATTLE = 'https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794244627884_bgm-battle.mp3'
+# 台詞語音（影片產線配的，film/tools/push_voice.py 傳上媒體庫）：角色|台詞 → voiceUrl；沒有這張表就不掛語音
+_VM = os.path.join(R, 'film/voice/voice_map.json')
+VOICE = json.load(open(_VM)) if os.path.exists(_VM) else {}
 KNOCK = open(os.path.join(R, 'book/games/knock.html')).read()
 APPLE = open(os.path.join(R, 'book/games/apple.html')).read()
 
@@ -25,6 +28,7 @@ def dlg(nid, title, lines, bgm=None):
         L = {'id': f'{nid}-{i}', 'text': tx, 'speaker': sp}
         if sp == '旁白': L['narration'] = True
         if cg: L['background'] = CG(cg)
+        if VOICE.get(f'{sp}|{tx}'): L['voiceUrl'] = VOICE[f'{sp}|{tx}']
         dl.append(L)
     first = next(c for c, _, _ in lines if c)
     d = {'type': 'dialogue', 'title': title, 'text': lines[0][2], 'speaker': lines[0][1], 'background': CG(first),
@@ -77,7 +81,7 @@ dlg('bk-1b', '箱爺爺醒了', [
     (None, '寶箱怪', '你聽得到？'),
     ('1-7', '箱爺爺', '睡著的時候聽得到一點，就是醒不過來。被你敲了這麼久，一天比一天睡得淺，今天總算醒了。'),
     (None, '箱爺爺', '一個人醒著，很悶吧。'),
-    (None, '寶箱怪', '……嗯。'),
+    (None, '寶箱怪', '……是啊。'),
     ('1-8', '箱爺爺', '先不說這個。我身上收的，是村子裡好幾代人交給我顧的東西，誰敢拿？'),
     ('1-9', '箱爺爺', '對了，蓋子不是只拿來走路的。往地上用力一砸，旁邊的人都站不穩。'),
     (None, '旁白', '寶箱怪學會了「蓋子砸地」。'),
@@ -225,7 +229,7 @@ dlg('bk-5o', '敲三下', [
     ('5-8', '旁白', '雲端之門亮了起來，門裡走出一個女孩。是住在雲上的女神，卡雅。'),
     (None, '卡雅', 'Pulut，找到你了。'),
     (None, '卡雅', '這扇門會把人送到雲上。你就是從它的縫掉下來的。'),
-    (None, '卡雅', '謝謝你們顧著他。我帶他回家。'),
+    (None, '卡雅', '謝謝你們照顧他。我帶他回家。'),
 ], bgm=BGM_EXPLORE)
 edge('bk-5c', 'bk-5o', 'choice-3')
 edge('bk-5o', 'sw-ending')
@@ -246,12 +250,27 @@ if __name__ == '__main__':
         r = urllib.request.urlopen(urllib.request.Request(url, headers=H), timeout=120)
         etag = r.headers.get('ETag'); b = json.load(r); b = b.get('board', b)
         json.dump(b, open(os.path.join(R, f'snapshots/board-main-before-book-{etag.strip("W/").strip(chr(34))}.json'), 'w'), ensure_ascii=False)
+        # 序章、尾聲是 3D 與繪本共用的卡：同步影片版改的字（作者 2026-11-10），每句掛上語音
+        SW_TEXT = {'島上的人一直把重要的東西放在箱子裡。所以醒過來的寶箱怪，也一直替大家顧著這些東西。':
+                       '島上的人一直把重要的東西放在箱子裡。所以醒過來的寶箱怪，也一直替大家保管這些東西。',
+                   '……我會繼續幫你們顧著。': '……我會繼續幫你們顧好。'}
+        missing = []
+        for n in b['nodes']:
+            if n['id'] not in ('sw-intro', 'sw-ending'): continue
+            for L in n['data'].get('dialogueLines', []):
+                L['text'] = SW_TEXT.get(L['text'], L['text'])
+                u = VOICE.get(f"{L.get('speaker')}|{L['text']}")
+                if u: L['voiceUrl'] = u
+                elif VOICE: missing.append(L['text'])
+            dl = n['data'].get('dialogueLines') or []
+            if dl: n['data']['text'] = dl[0]['text']
+        print('序章尾聲沒有語音的句子', missing)
         b['nodes'] = [n for n in b['nodes'] if not n['id'].startswith('bk-')] + nodes
         b['edges'] = [e for e in b['edges'] if not (e['source'].startswith('bk-') or e['target'].startswith('bk-')) and e['id'] != 'e-sw-intro-sw-world']
         b['edges'] += [{'id': 'e-sw-intro-bk-mode', 'source': 'sw-intro', 'target': 'bk-mode', 'sourceHandle': 'right', 'targetHandle': 'left', 'animated': True},
                        {'id': 'e-bk-mode-sw-world', 'source': 'bk-mode', 'target': 'sw-world', 'sourceHandle': 'choice-0', 'targetHandle': 'left', 'animated': True}]
         b['edges'] += edges
-        body = {'name': b.get('name', '主線故事'), 'nodes': b['nodes'], 'edges': b['edges'], 'summary': '加入繪本模式：序章後選 3D 或繪本，繪本五章接共用尾聲'}
+        body = {'name': b.get('name', '主線故事'), 'nodes': b['nodes'], 'edges': b['edges'], 'summary': os.environ.get('BOOK_SUMMARY', '加入繪本模式：序章後選 3D 或繪本，繪本五章接共用尾聲')}
         req = urllib.request.Request(url, method='PUT', data=json.dumps(body).encode(), headers={**H, 'If-Match': etag})
         try:
             print('PUT', urllib.request.urlopen(req, timeout=300).status)
