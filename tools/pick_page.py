@@ -27,6 +27,24 @@ ITEMS_APPLE = [
    '寶箱怪：我在樹下張著蓋子發呆，一顆蘋果掉下來，剛好掉進箱子裡。',
    '寶箱怪：我嚇了一跳，蓋子一闔。……很甜。']),
 ]
+ITEMS_LORE = [
+ ('lorea', 'CG A〈寶箱怪圖鑑〉', '開場科普的第一張：構造。', [
+   '旁白：寶箱怪，住在這座島上的一種箱子。外表跟普通的寶箱一模一樣。',
+   '旁白：蓋子是寶箱怪的嘴巴，也是腳。蓋子一開一闔，身體就往前蹦一下。',
+   '旁白：眼睛長在蓋子和箱身之間的縫裡。蓋子一闔緊，眼睛就藏起來了。',
+   '旁白：眼睛後面黑黑的，看不到底。吃進去的果子、青蛙，會在這裡慢慢消化掉。',
+   '旁白：別人交給寶箱怪保管的東西，寶箱怪不會消化，會一直收好。只有放東西的那一家人來了，寶箱怪才會自己打開蓋子，把東西還給他們。',
+   '旁白：寶箱怪大部分的時間都在睡覺。睡著的時候幾乎不用吃東西，一整年只要幾顆蘋果就夠了。']),
+ ('loreb', 'CG B〈一百年前〉', '開場科普的第二張：由來。箱子就是後來轉生的那個，當時還沒有眼睛。', [
+   '旁白：寶箱怪是怎麼來的？島上的老人說，一個箱子被人好好用了一百年，就會醒過來。',
+   '旁白：島上的人一直把重要的東西放在箱子裡。所以醒過來的寶箱怪，也一直替大家顧著這些東西。',
+   '旁白：睡著的寶箱怪，看起來就是一個普通的寶箱。']),
+ ('endc', 'CG C〈打開蓋子〉', '尾聲最後一幕：長老敲三下，寶箱怪第一次自己打開蓋子。', [
+   '旁白：寶箱怪第一次自己打開了蓋子。',
+   '旁白：裡面有一頂舊舊的小藍帽、一封摺好的信、一顆圓圓的白石頭。',
+   '長老：……這頂帽子是我小時候戴的。我還以為早就弄丟了。',
+   '寶箱怪：……我會繼續幫你們顧著。']),
+]
 
 def latest(name):
     fs = sorted(glob.glob(os.path.join(R, f'art/cg/{name}_v*.webp')), key=lambda f: int(f.rsplit('_v', 1)[1].split('.')[0]))
@@ -113,8 +131,8 @@ document.querySelectorAll('textarea').forEach(t=>t.onchange=()=>save(t.dataset.k
 </script>'''
 
 out = sys.argv[1]
-items = ITEMS_APPLE if 'apple' in sys.argv[2:] else ITEMS
-intro = ('吃兔子改成吃蘋果，回憶 CG 2 重畫了兩版。選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。' if items is ITEMS_APPLE
+items = ITEMS_APPLE if 'apple' in sys.argv[2:] else ITEMS_LORE if 'lore' in sys.argv[2:] else ITEMS
+intro = ('開場科普兩張、尾聲一張，各畫了兩版。每張選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。' if items is ITEMS_LORE else '吃兔子改成吃蘋果，回憶 CG 2 重畫了兩版。選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。' if items is ITEMS_APPLE
          else '序章新加的三段回憶，每段一張 CG，各畫了兩版。每段選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。')
 open(out, 'w').write(HTML.replace('__CARDS__', '\n'.join(card(*i) for i in items)).replace('__INTRO__', intro))
 print(out, os.path.getsize(out))
