@@ -45,6 +45,13 @@ ITEMS_LORE = [
    '長老：……這頂帽子是我小時候戴的。我還以為早就弄丟了。',
    '寶箱怪：……我會繼續幫你們顧著。']),
 ]
+ITEMS_TRIBE = [
+ ('tribe', '族人定稿', '繪本版要用的族人長相。左到右：寶箱怪（比例參考）、箱爺爺、阿扣、小鎖。選定後繪本的每張圖都照這張畫。', [
+   '箱爺爺：最大最老，深棕色木頭，白青苔像鬍子，粗白眉毛，眼睛瞇著。',
+   '阿扣：圓胖，淡藍色布睡帽，眼皮半垂，縫邊冒睡覺泡泡。',
+   '小鎖：最小、顏色最淺，心形鎖扣，眼睛大大濕濕的。',
+   'A 版：箱爺爺的鬍子長長垂到箱身，小鎖特別小。B 版：四個畫得比較大，箱爺爺鬍子短一點、蓋子掀比較開。']),
+]
 
 def latest(name):
     fs = sorted(glob.glob(os.path.join(R, f'art/cg/{name}_v*.webp')), key=lambda f: int(f.rsplit('_v', 1)[1].split('.')[0]))
@@ -131,8 +138,8 @@ document.querySelectorAll('textarea').forEach(t=>t.onchange=()=>save(t.dataset.k
 </script>'''
 
 out = sys.argv[1]
-items = ITEMS_APPLE if 'apple' in sys.argv[2:] else ITEMS_LORE if 'lore' in sys.argv[2:] else ITEMS
-intro = ('開場科普兩張、尾聲一張，各畫了兩版。每張選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。' if items is ITEMS_LORE else '吃兔子改成吃蘋果，回憶 CG 2 重畫了兩版。選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。' if items is ITEMS_APPLE
+items = ITEMS_TRIBE if 'tribe' in sys.argv[2:] else ITEMS_APPLE if 'apple' in sys.argv[2:] else ITEMS_LORE if 'lore' in sys.argv[2:] else ITEMS
+intro = ('繪本版的族人定稿畫了兩版。選一版，或按「重畫」並寫下要改的地方（例如某個族人的配件、大小）。選了就存，不用另外送出。' if items is ITEMS_TRIBE else '開場科普兩張、尾聲一張，各畫了兩版。每張選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。' if items is ITEMS_LORE else '吃兔子改成吃蘋果，回憶 CG 2 重畫了兩版。選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。' if items is ITEMS_APPLE
          else '序章新加的三段回憶，每段一張 CG，各畫了兩版。每段選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。')
 open(out, 'w').write(HTML.replace('__CARDS__', '\n'.join(card(*i) for i in items)).replace('__INTRO__', intro))
 print(out, os.path.getsize(out))
