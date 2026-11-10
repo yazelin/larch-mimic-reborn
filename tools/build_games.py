@@ -13,7 +13,7 @@ U = lambda k: M[k]['url']
 TARGETS = {
     '箱爺爺': {'bg': U('book_1-4'), 'x': 62, 'y': 47, 'w': 34, 'tip': '點三下箱爺爺的蓋子', 'ok': '箱爺爺的蓋子動了一下。'},
     '阿扣': {'bg': U('book_2-3'), 'x': 82, 'y': 58, 'w': 22, 'tip': '點三下阿扣的蓋子', 'ok': '阿扣的蓋子動了一下。'},
-    '小鎖': {'bg': U('book_3-2'), 'x': 89, 'y': 62, 'w': 14, 'tip': '輕輕點三下小鎖的蓋子', 'ok': '小鎖的蓋子動了一下。'},
+    '小鎖': {'bg': U('book_3-2'), 'x': 89, 'y': 62, 'w': 14, 'tip': '輕輕點三下小鎖的蓋子', 'ok': '小鎖的蓋子動了一下。', 'vol': 0.5},
 }
 
 COMMON_CSS = """
@@ -61,7 +61,9 @@ var bg=document.getElementById('bg'),hit=document.getElementById('hit'),ring=doc
 function apply(n){if(T[n]){name=n;cfg=T[n]}bg.src=cfg.bg;document.getElementById('fill').src=cfg.bg;hit.style.left=cfg.x+'%';hit.style.top=cfg.y+'%';hit.style.width=cfg.w+'%';tip.textContent=cfg.tip}
 apply('箱爺爺');
 ring.animate([{transform:'scale(1)',opacity:.85},{transform:'scale(1.08)',opacity:.45},{transform:'scale(1)',opacity:.85}],{duration:1600,iterations:Infinity});
+var snd=new Audio('__KNOCK_SFX__');snd.preload='auto';
 function knock(){if(done)return;hits++;
+ try{var a=snd.cloneNode();a.volume=cfg.vol||1;var p=a.play();if(p&&p.catch)p.catch(function(){})}catch(e){}
  var k=document.createElement('div');k.className='kn';k.textContent='叩！';
  var r=hit.getBoundingClientRect(),sr=stage.getBoundingClientRect();k.style.left=(r.left-sr.left+r.width*(.55+Math.random()*.2))+'px';k.style.top=(r.top-sr.top-r.height*.05)+'px';stage.appendChild(k);
  k.animate([{opacity:0,transform:'translateY(10px) rotate(-8deg) scale(.8)'},{opacity:1,transform:'translateY(-6px) rotate(-8deg) scale(1.05)',offset:.25},{opacity:0,transform:'translateY(-40px) rotate(-8deg)'}],{duration:700}).onfinish=function(){k.remove()};
@@ -130,7 +132,8 @@ parent.postMessage({type:'larch:ready'},'*');
 common = COMMON_CSS.replace('__PILL__', U('ui_pill'))
 os.makedirs(os.path.join(R, 'book/games'), exist_ok=True)
 open(os.path.join(R, 'book/games/knock.html'), 'w').write(
-    KNOCK.replace('__COMMON__', common).replace('__DOT__', U('ui_dot')).replace('__DOT_ON__', U('ui_dot_on')).replace('__TARGETS__', json.dumps(TARGETS, ensure_ascii=False)))
+    KNOCK.replace('__COMMON__', common).replace('__DOT__', U('ui_dot')).replace('__DOT_ON__', U('ui_dot_on')).replace('__TARGETS__', json.dumps(TARGETS, ensure_ascii=False))
+    .replace('__KNOCK_SFX__', U('sfx_knock1')))  # 每點一下播一次（Larch 內建敲門音效切出的單下）
 open(os.path.join(R, 'book/games/apple.html'), 'w').write(
     APPLE.replace('__COMMON__', common).replace('__HOT__', U('ui_pill_hot')).replace('__BG__', U('book_A-0'))
     .replace('__MIMIC__', U('sprite_mimic_open')).replace('__APPLE__', U('sprite_apple')))
