@@ -39,9 +39,8 @@ KNOCK = """<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta
 .kn{position:absolute;font-weight:700;font-size:clamp(26px,12cqh,78px);color:#fffaf3;pointer-events:none;
   text-shadow:0 0 .05em var(--rose-d),0 .05em .02em var(--rose-d),0 .1em .25em rgba(150,60,100,.55)}
 #dots{position:absolute;left:50%;bottom:7%;translate:-50% 0;display:flex;gap:3.8cqh}
-#dots b{width:7.5cqh;height:7.5cqh;border-radius:50%;filter:url(#rough-s);
-  background:radial-gradient(circle at 45% 40%,#fffaf1 0 55%,#f3dde8 80%,#ddb8d4 100%);box-shadow:0 3px 6px rgba(90,50,80,.25)}
-#dots b.on{background:radial-gradient(circle at 45% 40%,#ffb7cb 0 45%,#f590ae 72%,#c95f86 100%)}
+#dots b{width:8.5cqh;height:8.5cqh;background:url("__DOT__") center/contain no-repeat;filter:drop-shadow(0 3px 5px rgba(90,50,80,.25));transition:transform .2s}
+#dots b.on{background-image:url("__DOT_ON__");transform:scale(1.08)}
 #veil{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(255,250,240,0),rgba(255,250,240,.0));pointer-events:none;transition:background .5s}
 #veil.done{background:radial-gradient(60% 60% at 50% 50%,rgba(255,246,236,.35),rgba(255,246,236,.0))}
 </style></head><body>
@@ -131,7 +130,7 @@ parent.postMessage({type:'larch:ready'},'*');
 common = COMMON_CSS.replace('__PILL__', U('ui_pill'))
 os.makedirs(os.path.join(R, 'book/games'), exist_ok=True)
 open(os.path.join(R, 'book/games/knock.html'), 'w').write(
-    KNOCK.replace('__COMMON__', common).replace('__TARGETS__', json.dumps(TARGETS, ensure_ascii=False)))
+    KNOCK.replace('__COMMON__', common).replace('__DOT__', U('ui_dot')).replace('__DOT_ON__', U('ui_dot_on')).replace('__TARGETS__', json.dumps(TARGETS, ensure_ascii=False)))
 open(os.path.join(R, 'book/games/apple.html'), 'w').write(
     APPLE.replace('__COMMON__', common).replace('__HOT__', U('ui_pill_hot')).replace('__BG__', U('book_A-0'))
     .replace('__MIMIC__', U('sprite_mimic_open')).replace('__APPLE__', U('sprite_apple')))
