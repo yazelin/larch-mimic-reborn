@@ -280,6 +280,18 @@ JOBS['sprite_mimic_open'] = dict(size='1024x1024', refs=['open_final', 'mimic'],
 JOBS['sprite_apple'] = dict(size='1024x1024', refs=['open_final'], prompt="""遊戲小圖：一顆紅蘋果，帶一小段梗和一片葉子，置中、完整入畫、佔畫面大約六成，飽滿可愛、有一點水彩高光。
 """ + GREEN + '\n' + S2D + '畫風照 Image 1。' + NOTXT)
 
+# 作者：Pulut 要照真的 Pulut（官方封面，沒有角）。從選定的 bookb1b 原圖一次編輯，只換 Pulut
+REF['bookb1b_v1'] = ('art/cg/bookb1b_v1.webp', '要編輯的原圖（繪本 5-1 雲端高台，作者選的 B 版）')
+REF['pulut_official'] = ('art/refs/pulut_official.webp', '官方《Pulut 大冒險》封面：中間戴頭盔的綠色史萊姆就是 Pulut（只參考牠的身體，頭盔不要畫）；旁邊的粉紅與藍色史萊姆不要畫')
+JOBS['bookb1b_pulut'] = dict(size='1536x1024', refs=['bookb1b_v1', 'pulut_official'], prompt=EDIT + """
+只改一個地方：畫面右邊石環門邊那隻綠色小史萊姆，頭上兩個小尖角畫錯了。把牠改成真的 Pulut（照 Image 2 中間那隻綠色史萊姆的身體）：
+圓滾滾的半圓形果凍身體、表面光滑有一塊白色亮光、頭頂完全沒有角也沒有耳朵、不戴頭盔、兩顆小小的黑眼睛、兩頰淡淡的腮紅，有點害怕地縮在門邊，大小跟原圖那隻差不多。
+畫風照 Image 1 的手繪水彩，不要畫成 Image 2 的粗線卡通風。其他地方完全照 Image 1：獵人、四個寶箱、石環門、飛龍翅膀、天空都不動。""" + NOTXT)
+
+
+# 2026-11-10 起 Pulut 一律照官方封面（沒有角）；art/refs/pulut.webp 是 3D 小史萊姆模型，頭上有尖耳朵，不能當 Pulut 參考
+REF['pulut'] = REF['pulut_official']
+
 
 def b64(path):
     im = Image.open(os.path.join(R, path)).convert('RGB'); buf = io.BytesIO(); im.save(buf, 'PNG')
