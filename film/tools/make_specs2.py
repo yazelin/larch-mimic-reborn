@@ -7,7 +7,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "film"))
-from motion import RETAKE  # noqa: E402
+from motion import RETAKE, RETAKE2, CONT_ACTION  # noqa: E402
+CHEST_KEYS = {"mimic", "grandpa", "akou", "xiaosuo", "chests"}
+NO_CHEST_DROP = ("None of the treasure chests", "Only the two hunters", "Only the girl hunter")
 
 H3 = ROOT / "film/h3"
 SEGS = json.load(open(ROOT / "film/segments.json"))
@@ -21,9 +23,11 @@ def retake(n):
         while (d / f"clip_v{k}.mp4").exists(): k += 1
         shutil.move(d / "clip.mp4", d / f"clip_v{k}.mp4")
     s = json.loads((d / "spec.json").read_text(encoding="utf-8"))
-    cam, act, extra = RETAKE[n]
+    cam, act, extra = (RETAKE2.get(n) or RETAKE[n]) if ROUND == 2 else RETAKE[n]
     s["shots"][0]["camera"], s["shots"][0]["action"] = cam, act
-    s["constraints"] = [c for c in s["constraints"] if c not in extra] + extra
+    s["constraints"] = [c for c in s["constraints"] if c not in extra and not any(c.startswith(k) for k in ("Exactly", "Only", "The whole", "The mimic stays", "It stays", "The map", "The red mimic", "Both", "The two hunters", "The girl hunter", "The island", "The market"))] + extra
+    if not CHEST_KEYS & {x["key"] for x in s["subjects"]}:
+        s["constraints"] = [c for c in s["constraints"] if not c.startswith(NO_CHEST_DROP)]
     s["seed"] = s["seed"] + 1000
     (d / "spec.json").write_text(json.dumps(s, ensure_ascii=False, indent=1), encoding="utf-8")
     return d / "spec.json"
@@ -44,7 +48,7 @@ def cont(n):
     s["duration"] = max(rest, 4.0)
     s["first_clip"] = "tail22.mp4"
     s["seed"] = s["seed"] + 500
-    act = s["shots"][0]["action"].replace("Starting from <Picture 1>,", "Continuing smoothly from <Picture 1>,", 1)
+    act = CONT_ACTION.get(n) or s["shots"][0]["action"].replace("Starting from <Picture 1>,", "Continuing smoothly from <Picture 1>,", 1)
     s["shots"][0]["action"] = act + " The motion then slows and settles calmly toward the end."
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i", "anullsrc=r=48000:cl=mono", "-t", str(s["duration"] + 1),
                     str(b / "silence.wav")], check=True)
@@ -52,6 +56,8 @@ def cont(n):
     return b / "spec.json"
 
 
+ROUND = 2 if "--round2" in sys.argv else 1
 if __name__ == "__main__":
+    sys.argv = [a for a in sys.argv if a != "--round2"]
     fn = {"retake": retake, "cont": cont}[sys.argv[1]]
     for x in sys.argv[2:]: print(fn(int(x)))

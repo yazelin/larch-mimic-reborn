@@ -113,3 +113,22 @@ RETAKE = {
     64: (STATIC, "Starting from <Picture 1>, the two hunters strain to pry a stone ring off the cloud gate with a crowbar, pulling back twice; the green slime Pulut huddles by the gate, trembling.", ["Only the two hunters and Pulut are in the shot; no treasure chest appears."]),
     83: ("The camera holds a static wide shot on a tripod.", "Starting from <Picture 1>, the small mimic sits alone on the moonlit beach; gentle waves roll in, the moonlight path shimmers on the sea and the mimic's lid lifts slightly once.", ["It stays night with the full moon for the whole clip.", "The mimic stays small, on the sand, in the same place."]),
 }
+
+# 第二批抽格後再重抽（2026-11-11）。畫面沒有寶箱的段落，提示詞完全不提寶箱（提「不要出現寶箱」反而會長出寶箱）。
+RETAKE2 = {
+    4: (STATIC, "Starting from <Picture 1>, on the picture-book page the small family walks up to the chest on the right, the chest slowly opens its lid by itself and the child reaches toward the straw hat with a smile; the chest on the left stays shut.", ["The whole picture-book page stays fully visible; the camera never moves closer."]),
+    10: (STATIC, "Starting from <Picture 1>, the single red mimic opens and closes its lid and hops forward across the grass twice, landing with a soft bounce and scattering a few blades of grass.", ["The red mimic is the only character in the shot for the whole clip."]),
+    17: (STATIC, "Starting from <Picture 1>, the boy hunter hops off the boat onto the sand with a splash and swings the crowbar over his shoulder with a grin; the girl hunter turns her head toward her backpack and talks to it with a playful smile.", ["The two hunters and the boat are the only things that move; the beach, sea and rocks stay exactly as in <Picture 1>."]),
+    18: (STATIC, "Starting from <Picture 1>, the green slime Pulut pops its head out of the girl's backpack, looks around and hops twice toward the village; the girl hunter laughs and looks after it.", ["The girl hunter and Pulut are the only characters; the village path and fence stay exactly as in <Picture 1>."]),
+    19: (STATIC, "Starting from <Picture 1>, the boy hunter pulls once on the crowbar and the lid of the sleeping chest creaks open; the girl hunter scoops a handful of gold coins; far behind the stall the red mimic peeks out and trembles.", ["The market scene stays bright and fully visible for the whole clip.", "Exactly the chests of <Picture 1> stay in their places."]),
+    27: (STATIC, "Starting from <Picture 1>, Grandpa Chest's eyes widen as he stares at the red mimic and his lid moves slowly as he talks; the mimic's eyes go wide in surprise and its lid lifts a little.", ["Both chests stay fully in frame and keep their size."]),
+    44: (STATIC, "Starting from <Picture 1>, Akou's lid slowly opens and his sleepy eyes blink awake, his lid moving drowsily as he talks; the red mimic beside him leans closer and its lid moves as it speaks.", ["Exactly the chests of <Picture 1> stay in their places; the red mimic stays one single chest."]),
+    54: (STATIC, "Starting from <Picture 1>, little Xiao Suo's lid lifts a crack and its teary eyes peek out, trembling as it talks; the red mimic leans in gently; Grandpa Chest and Akou watch.", ["Exactly the four chests of <Picture 1> stay in their places and keep their size."]),
+    63: (STATIC, "Starting from <Picture 1>, the island below slides slowly toward the bottom of the frame and clouds drift past; Akou's nightcap flutters in the wind and Xiao Suo's lid stays shut tight.", ["The island stays sharp and visible below for the whole clip."]),
+}
+RETAKE2[64] = (STATIC, "Starting from <Picture 1>, the two hunters strain to pry a stone ring off the cloud gate with a crowbar, pulling back twice; the green slime Pulut huddles by the gate, trembling.", ["The two hunters and Pulut are the only characters; the stone platform stays exactly as in <Picture 1>."])
+# 接後半段重抽：動作維持安靜、背景不變
+CONT_ACTION = {
+    14: "Continuing smoothly from <Picture 1>, the red mimic stays still beside the sleeping brown chest, blinks slowly and lowers its lid a little; the dusk light dims gently over the grass.",
+    73: "Continuing smoothly from <Picture 1>, Pulut stays in the same place and wobbles shyly, its small face sad; the stone platform and sky stay exactly as in <Picture 1>.",
+}
