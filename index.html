@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>轉生成寶箱怪的我</title>
+<meta name="description" content="Larch 第四屆創作者挑戰作品。轉生成一個用了一百年的箱子，叫醒睡著的族人，把上島搶東西的冒險隊趕走。可以在 3D 小島上走，也可以翻開手繪繪本讀完整個故事。">
+<meta property="og:title" content="轉生成寶箱怪的我"><meta property="og:image" content="https://yazelin.github.io/larch-mimic-reborn/site/img/kv.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap">
+<style>
+:root{--paper:#fbf3ea;--paper2:#f6e6ec;--ink:#4f3848;--dim:#86708c;--rose:#e0789c;--rose-d:#b9577c;--hand:"LXGW WenKai TC","Noto Serif TC",serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:var(--hand);font-size:18px;line-height:1.85;
+  background:radial-gradient(120% 80% at 50% 0%,#fffaf2 0,var(--paper) 45%,var(--paper2) 100%)}
+a{color:var(--rose-d)}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:max(18px,env(safe-area-inset-left))}
+.hero{position:relative;min-height:min(86vh,760px);display:grid;align-items:end;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 55%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,243,234,0) 45%,rgba(251,243,234,.92) 92%,var(--paper) 100%)}
+.hero .in{position:relative;z-index:1;padding-block:0 42px}
+h1{margin:0;font-size:clamp(40px,7vw,86px);line-height:1.1;color:#fffaf3;letter-spacing:.04em;
+  text-shadow:0 0 .04em var(--rose-d),0 0 .04em var(--rose-d),0 .05em .02em var(--rose-d),0 .1em .25em rgba(150,60,100,.55)}
+h1 small{display:block;font-size:.55em;letter-spacing:.14em}
+.quote{margin:.6em 0 1.1em;font-size:clamp(18px,2.2vw,24px);color:var(--ink);max-width:36em}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-block;text-decoration:none;color:var(--ink);padding:.6em 1.8em;font-size:19px;letter-spacing:.1em;
+  border-style:solid;border-width:0;border-image:url("site/img/ui_pill.webp") 40 60 fill / 12px 18px stretch;filter:drop-shadow(0 5px 8px rgba(90,50,80,.22))}
+.btn.hot{border-image-source:url("site/img/ui_pill_hot.webp");border-image-slice:60 80 fill;color:#fff;text-shadow:0 0 .35em rgba(150,40,80,.45)}
+.btn:hover,.btn:focus-visible{translate:0 -2px}
+section{padding-block:56px}
+h2{font-size:clamp(26px,3.4vw,36px);margin:0 0 .7em;letter-spacing:.08em;color:var(--rose-d);text-wrap:balance}
+.panel{padding:46px 52px 38px 70px;border-style:solid;border-width:0;border-image:url("site/img/ui_panel.webp") 170 120 110 230 fill / 60px 42px 38px 80px stretch;
+  filter:drop-shadow(0 10px 18px rgba(90,50,80,.16))}
+.panel p{margin:.4em 0;max-width:40em}
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px}
+.mode img{border-radius:6px;box-shadow:0 0 0 6px #fffdf8,0 10px 22px -8px rgba(90,50,80,.4)}
+.mode h3{margin:.9em 0 .2em;font-size:23px}
+.mode p{margin:0;color:var(--ink)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:26px}
+.frame{margin:0;background:#fffdf8;padding:9px 9px 14px;box-shadow:0 0 0 1px rgba(176,120,160,.22),0 10px 18px -8px rgba(90,50,80,.35)}
+.frame:nth-child(3n+1){rotate:-.7deg}.frame:nth-child(3n+2){rotate:.5deg}
+.frame figcaption{font-size:16px;line-height:1.6;padding:10px 4px 0}
+.who{display:inline-block;color:#fff;font-size:13px;letter-spacing:.1em;padding:.1em .9em;margin-right:.5em;vertical-align:.1em;
+  border-style:solid;border-width:0;border-image:url("site/img/ui_tag.webp") 80 140 fill / 8px 14px stretch}
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px}
+.who-card{text-align:center}
+.who-card img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 0 0 6px #fffdf8,0 8px 18px -6px rgba(90,50,80,.35)}
+.who-card h3{margin:.7em 0 .1em;font-size:22px}
+.who-card p{margin:0;font-size:16px;color:var(--dim)}
+.music{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.music li{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}
+.music span{min-width:6em}
+.music audio{width:min(100%,420px)}
+.notes p{max-width:44em}
+.notes ul{margin:.4em 0;padding-left:1.3em;max-width:44em}
+footer.site{padding-block:40px 120px;text-align:center;color:var(--dim);font-size:15px}
+@media (max-width:640px){.panel{padding:34px 30px 26px 48px;border-image-width:40px 28px 26px 52px} body{font-size:17px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<header class="hero"><img src="site/img/kv.webp" alt="轉生成寶箱怪的我 標題圖：海邊的草坡上一個紅色寶箱，蓋子縫裡露出一雙眼睛">
+<div class="wrap in"><h1><small>轉生成</small>寶箱怪的我</h1>
+<p class="quote">「我從來沒想過，轉生成寶箱怪這種事，會發生在我身上。」</p>
+<div class="btns"><a class="btn hot" href="https://larch.ink/play/market/12cc23dc-9e1b-428b-9067-0c79d3d32071">到 Larch 玩</a><a class="btn" href="#book">看繪本片段</a><a class="btn" href="https://github.com/yazelin/larch-mimic-reborn">原始碼與製作紀錄</a></div></div></header>
+
+<main>
+<section class="wrap" id="story"><h2>故事</h2><div class="panel">
+<p>在這座島上，一個箱子被人好好用了一百年，就會醒過來，變成寶箱怪。島民把重要的東西交給寶箱怪保管，寶箱怪替大家顧著，兩邊一起過了很久的日子。</p>
+<p>你轉生成長老家倉庫裡的那個箱子。族人一睡就是好幾年，整個夏天只有你醒著。直到岸邊停了一艘船，兩個獵人帶著史萊姆 Pulut 上島，開始撬開寶箱，搶走大家寄放的東西。</p>
+<p>去村口、營地、遺跡把族人叫醒，騎上火焰飛龍到雲端高台，把冒險隊趕走。</p>
+</div></section>
+
+<section class="wrap" id="modes"><h2>兩種玩法</h2><div class="modes">
+<div class="mode"><img src="site/img/shot_3d.webp" alt="3D 版：寶箱怪在村口叫醒箱爺爺" loading="lazy"><h3>在 3D 小島上自己走</h3>
+<p>WASD 移動、空白鍵跳、E 對話與叫醒。島上六個地方藏著寶箱怪剛轉生時的回憶，26 個寶箱都是族人。一輪大約 10～12 分鐘。</p></div>
+<div class="mode"><img src="site/img/b_1_5.webp" alt="繪本版：箱爺爺被敲醒" loading="lazy"><h3>翻開繪本，跟著故事走</h3>
+<p>52 張手繪插圖，一句台詞換一張。中間有敲三下、島上地圖、接蘋果、高台選招式四個小互動。不用在 3D 裡走動也能讀完整個故事，手機請轉成橫的。</p></div>
+</div></section>
+
+<section class="wrap" id="book"><h2>繪本片段</h2><div class="gallery">
+<figure class="frame"><img src="site/img/b_1_1.webp" alt="繪本 1-1" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">寶箱怪</span>長老！</figcaption></figure>
+<figure class="frame"><img src="site/img/b_1_7.webp" alt="繪本 1-7" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">箱爺爺</span>一個人醒著，很悶吧。</figcaption></figure>
+<figure class="frame"><img src="site/img/b_M_3.webp" alt="繪本 M-3" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">寶箱怪</span>我怕吵醒牠，一動也不敢動，結果等到天黑牠才走。</figcaption></figure>
+<figure class="frame"><img src="site/img/b_M_5.webp" alt="繪本 M-5" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">寶箱怪</span>木頭會浮，所以我沒沉下去，只是翻過來，肚子朝天漂了一個下午。</figcaption></figure>
+<figure class="frame"><img src="site/img/b_2_3.webp" alt="繪本 2-3" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">旁白</span>阿扣就在隔壁，蓋子跟著打呼一起一伏。</figcaption></figure>
+<figure class="frame"><img src="site/img/b_2_7.webp" alt="繪本 2-7" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">阿扣</span>我睡覺翻身都會滾下坡。你試試看，整個箱子撞過去。</figcaption></figure>
+<figure class="frame"><img src="site/img/b_3_3.webp" alt="繪本 3-3" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">小鎖</span>（蓋子抖個不停）走、走了嗎？</figcaption></figure>
+<figure class="frame"><img src="site/img/b_3_5.webp" alt="繪本 3-5" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">箱爺爺</span>會講話的箱子，就算人。</figcaption></figure>
+<figure class="frame"><img src="site/img/b_4_3.webp" alt="繪本 4-3" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">小鎖</span>（蓋子闔得緊緊的）我、我不看。</figcaption></figure>
+<figure class="frame"><img src="site/img/b_5_O.webp" alt="繪本 5-O" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">旁白</span>叩、叩、叩。四個寶箱一起敲下去，整座高台都在響。</figcaption></figure>
+<figure class="frame"><img src="site/img/b_5_7.webp" alt="繪本 5-7" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">寶箱怪</span>（那時候，是長老把我扶起來的。）</figcaption></figure>
+<figure class="frame"><img src="site/img/b_5_8.webp" alt="繪本 5-8" loading="lazy" width="1200" height="800">
+<figcaption><span class="who">卡雅</span>Pulut，找到你了。</figcaption></figure>
+</div></section>
+
+<section class="wrap" id="cast"><h2>島上的寶箱們</h2><div class="cast">
+<article class="who-card"><img src="site/img/c_0.webp" alt="寶箱怪" loading="lazy"><h3>寶箱怪</h3><p>長老家倉庫裡用了一百年的箱子，醒過來變成寶箱怪。整個夏天島上只有它醒著，每天去敲族人的蓋子，一個敲三下。</p></article>
+<article class="who-card"><img src="site/img/c_1.webp" alt="箱爺爺" loading="lazy"><h3>箱爺爺</h3><p>村口最老的寶箱，白青苔像鬍子。身上收著村子裡好幾代人交給他顧的東西。</p></article>
+<article class="who-card"><img src="site/img/c_2.webp" alt="阿扣" loading="lazy"><h3>阿扣</h3><p>營地的寶箱，睡最熟，戴一頂淡藍色睡帽。睡覺翻身會滾下坡。</p></article>
+<article class="who-card"><img src="site/img/c_3.webp" alt="小鎖" loading="lazy"><h3>小鎖</h3><p>遺跡裡最小的寶箱，心形鎖扣，膽子很小。害怕的時候就把蓋子闔緊。</p></article>
+</div></section>
+
+<section class="wrap" id="music"><h2>配樂</h2><ul class="music">
+<li><span>標題</span><audio controls preload="none" src="assets/audio/bgm-title.mp3"></audio></li>
+<li><span>序章</span><audio controls preload="none" src="assets/audio/bgm-opening.mp3"></audio></li>
+<li><span>島上探索</span><audio controls preload="none" src="assets/audio/bgm-explore.mp3"></audio></li>
+<li><span>高台對決</span><audio controls preload="none" src="assets/audio/bgm-battle.mp3"></audio></li>
+<li><span>尾聲</span><audio controls preload="none" src="assets/audio/bgm-ending.mp3"></audio></li>
+</ul></section>
+
+<section class="wrap notes" id="making"><h2>怎麼做的</h2><div class="panel">
+<p>這是 Larch 第四屆創作者挑戰（主題：神秘小島）的參賽作品，從 Larch 官方 3D 範例《Pulut 大冒險 3D》改作。3D 場景、模型與角色盡量沿用官方範例，主要換掉劇情：玩家從冒險者變成島上的原住民寶箱怪。</p>
+<ul>
+<li>劇情、台詞方向與每一張圖的取捨由林亞澤決定；圖都是在選圖頁上從兩版裡挑出來，或逐張確認過的。</li>
+<li>2D 插圖用 AI 產圖，同一個場景的各格都從選定的主圖一次改出來，不拿上一格再改。配樂用 AI 生成，再切成循環版。</li>
+<li>Larch 卡片、3D 場景事件、介面與小遊戲由 Claude Code 透過 Larch 的 MCP 工具寫進專案。</li>
+<li>繪本模式是因為有玩家留言說 3D 不適合、希望有純劇情模式，才把整個故事做成繪本。</li>
+</ul>
+<p>劇本、設計紀錄與工具都在 <a href="https://github.com/yazelin/larch-mimic-reborn">GitHub</a>。文字與原創素材採 CC BY-NC 4.0，工具程式碼採 MIT；範例的場景、模型與內建素材權利屬於 Larch。</p>
+</div></section>
+</main>
+<footer class="site"><p>轉生成寶箱怪的我．林亞澤</p></footer>
+<!-- yz-promo-footer v11 | 三件套+BMC 注意力效果 | https://github.com/yazelin/promo-footer-skill -->
+<script>
+(function(){"use strict";
+if(window.__yzPromoInit)return;window.__yzPromoInit=1;
+/* 開啟計數。只送站名,後端只記「哪天、哪站、幾次」,不存 IP、不設 cookie、不給識別碼。
+   有一半的作品是純靜態沒後端,以前根本不知道有沒有人在用。這行要放在下面那個
+   prefers-reduced-motion 的 return 之前,不然關動畫的人就不會被算到。 */
+try{if(location.hostname==="yazelin.github.io"&&navigator.sendBeacon)navigator.sendBeacon("https://k-rider-api.yazelinj303.workers.dev/hit?s=larch-mimic-reborn")}catch(e){}
+try{if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return}catch(e){}
+var REPO="larch-mimic-reborn",INJECT=false,ADDBLOG=true;
+var GH=REPO?"https://github.com/yazelin/"+REPO:"https://github.com/yazelin";
+var LINES=["嘿，這裡這裡，我是咖啡按鈕","我是一顆很努力的按鈕，求被點一下","噓，亞澤不知道我在偷偷拉贊助","你看我跳得這麼賣力，不請一杯嗎？","不請也沒關係，你來玩我就很開心","免費給你玩的，想寵亞澤再說","一杯咖啡，是下一個作品的燃料","你的咖啡會變成下一個作品，真的","咖啡因進入亞澤體內，程式碼就會自己寫完","亞澤說，有人請咖啡他會開心一整天","只是一杯咖啡，但亞澤會記得你","用愛發電中，咖啡因可提升發電效率","覺得好玩嗎？抖內一下下","這個網站沒有廣告，只有我這顆按鈕"];
+var ICONS={blog:'<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>',gh:'<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>',fb:'<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>',bmc:'<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.216 6.415l-.132-.666c-.119-.598-.388-1.163-1.001-1.379-.197-.069-.42-.098-.57-.241-.152-.143-.196-.366-.231-.572-.065-.378-.125-.756-.192-1.133-.057-.325-.102-.69-.25-.987-.195-.4-.597-.634-.996-.788a5.723 5.723 0 00-.626-.194c-1-.263-2.05-.36-3.077-.416a25.834 25.834 0 00-3.7.062c-.915.083-1.88.184-2.75.5-.318.116-.646.256-.888.501-.297.302-.393.77-.177 1.146.154.267.415.456.692.58.36.162.737.284 1.123.366 1.075.238 2.189.331 3.287.37 1.218.05 2.437.01 3.65-.118.299-.033.598-.073.896-.119.352-.054.578-.513.474-.834-.124-.383-.457-.531-.834-.473-.466.074-.96.108-1.382.146-1.177.08-2.358.082-3.536.006a22.228 22.228 0 01-1.157-.107c-.086-.01-.18-.025-.258-.036-.243-.036-.484-.08-.724-.13-.111-.027-.111-.185 0-.212h.005c.277-.06.557-.108.838-.147h.002c.131-.009.263-.032.394-.048a25.076 25.076 0 013.426-.12c.674.019 1.347.067 2.017.144l.228.031c.267.04.533.088.798.145.392.085.895.113 1.07.542.055.137.08.288.111.431l.319 1.484a.237.237 0 01-.199.284h-.003c-.037.006-.075.01-.112.015a36.704 36.704 0 01-4.743.295 37.059 37.059 0 01-4.699-.304c-.14-.017-.293-.042-.417-.06-.326-.048-.649-.108-.973-.161-.393-.065-.768-.032-1.123.161-.29.16-.527.404-.675.701-.154.316-.199.66-.267 1-.069.34-.176.707-.135 1.056.087.753.613 1.365 1.37 1.502a39.69 39.69 0 0011.343.376.483.483 0 01.535.53l-.071.697-1.018 9.907c-.041.41-.047.832-.125 1.237-.122.637-.553 1.028-1.182 1.171-.577.131-1.165.2-1.756.205-.656.004-1.31-.025-1.966-.022-.699.004-1.556-.06-2.095-.58-.475-.458-.54-1.174-.605-1.793l-.731-7.013-.322-3.094c-.037-.351-.286-.695-.678-.678-.336.015-.718.3-.678.679l.228 2.185.949 9.112c.147 1.344 1.174 2.068 2.446 2.272.742.12 1.503.144 2.257.156.966.016 1.942.053 2.892-.122 1.408-.258 2.465-1.198 2.616-2.657.34-3.332.683-6.663 1.024-9.995l.215-2.087a.484.484 0 01.39-.426c.402-.078.787-.212 1.074-.518.455-.488.546-1.124.385-1.766zm-1.478.772c-.145.137-.363.201-.578.233-2.416.359-4.866.54-7.308.46-1.748-.06-3.477-.254-5.207-.498-.17-.024-.353-.055-.47-.18-.22-.236-.111-.71-.054-.995.052-.26.152-.609.463-.646.484-.057 1.046.148 1.526.22.577.088 1.156.159 1.737.212 2.48.226 5.002.19 7.472-.14.45-.06.899-.13 1.345-.21.399-.072.84-.206 1.08.206.166.281.188.657.162.974a.544.544 0 01-.169.364zm-6.159 3.9c-.862.37-1.84.788-3.109.788a5.884 5.884 0 01-1.569-.217l.877 9.004c.065.78.717 1.38 1.5 1.38 0 0 1.243.065 1.658.065.447 0 1.786-.065 1.786-.065.783 0 1.434-.6 1.499-1.38l.94-9.95a3.996 3.996 0 00-1.322-.238c-.826 0-1.491.284-2.26.613z"/></svg>'};
+var CSS="@keyframes yzIdle{0%,55%,100%{transform:translateY(0)}62%{transform:translateY(-4px)}70%{transform:translateY(0)}78%{transform:translateY(-2px)}84%{transform:translateY(0)}}"+
+".yz-idle{animation:yzIdle 2.6s ease-in-out infinite}"+
+"@keyframes yzHop{0%,100%{transform:translateY(0)}20%{transform:translateY(-6px) scale(1.04)}40%{transform:translateY(0) scale(1)}55%{transform:translateY(-3px)}70%{transform:translateY(0)}}"+
+".yz-hop{animation:yzHop .9s cubic-bezier(.36,.07,.19,.97)}"+
+".yz-bubble{position:fixed;z-index:2147483000;max-width:200px;padding:6px 11px;border-radius:14px;background:#fffdf7;color:#4a3f35;border:1px solid rgba(0,0,0,.1);box-shadow:0 4px 14px rgba(0,0,0,.18);font:13px/1.5 system-ui,-apple-system,'Noto Sans TC',sans-serif;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .25s ease,transform .25s ease}"+
+".yz-bubble.yz-on{opacity:1;transform:translateY(0)}"+
+".yz-bubble::after{content:'';position:absolute;left:var(--yz-tail,50%);margin-left:-6px;border:6px solid transparent}"+
+".yz-bubble.yz-above::after{bottom:-6px;border-bottom:0;border-top:6px solid #fffdf7}"+
+".yz-bubble.yz-below::after{top:-6px;border-top:0;border-bottom:6px solid #fffdf7}"+
+".yz-cluster{position:fixed;right:12px;bottom:12px;z-index:2147482999;display:flex;gap:10px}"+
+".yz-cluster a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:rgba(22,26,35,.72);color:#fff;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(4px);transition:transform .15s,background .15s}"+
+".yz-cluster a:hover{transform:translateY(-2px);background:rgba(22,26,35,.92)}";
+var bubble,anchor;
+function addCss(){if(document.getElementById("yz-promo-css"))return;var s=document.createElement("style");s.id="yz-promo-css";s.textContent=CSS;document.head.appendChild(s)}
+function inFooter(el){try{return !!(el.closest&&el.closest('footer,nav,[class*="footer"],[id*="footer"]'))}catch(e){return false}}
+function findAnchor(){var as=document.querySelectorAll('a[href*="buymeacoffee.com/yazelin"]');if(!as.length)return null;
+var vis=[],i,r;for(i=0;i<as.length;i++){r=as[i].getBoundingClientRect();if(r.width||r.height)vis.push(as[i])}
+var pool=vis.length?vis:[].slice.call(as);
+for(i=0;i<pool.length;i++)if(inFooter(pool[i]))return pool[i];
+return pool[pool.length-1]}
+function inject(){if(!INJECT||findAnchor()||document.querySelector(".yz-cluster"))return;
+var n=document.createElement("nav");n.className="yz-cluster";n.setAttribute("aria-label","作者連結");
+n.innerHTML='<a href="'+GH+'" target="_blank" rel="noopener" aria-label="GitHub 原始碼" title="GitHub 原始碼">'+ICONS.gh+'</a>'+
+'<a href="https://www.facebook.com/yaze.lin.gm" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">'+ICONS.fb+'</a>'+
+'<a href="https://buymeacoffee.com/yazelin" target="_blank" rel="noopener" aria-label="請亞澤喝杯咖啡 Buy me a coffee" title="請亞澤喝杯咖啡 Buy me a coffee">'+ICONS.bmc+'</a>'+
+(ADDBLOG?'<a class="yz-blog" href="https://yazelin.github.io/" target="_blank" rel="noopener" aria-label="亞澤的部落格" title="亞澤的部落格">'+ICONS.blog+'</a>':'');
+document.body.appendChild(n)}
+function blogLinked(){var as=document.querySelectorAll('a[href^="https://yazelin.github.io"]');for(var i=0;i<as.length;i++){try{if(new URL(as[i].href).pathname==="/")return true}catch(e){}}return false}
+function addBlog(){if(!ADDBLOG||document.querySelector(".yz-blog")||blogLinked()||!inFooter(anchor))return;
+var c=anchor.cloneNode(true);c.classList.remove("yz-hop","yz-idle");c.classList.add("yz-blog");
+c.href="https://yazelin.github.io/";c.setAttribute("aria-label","亞澤的部落格");c.setAttribute("title","亞澤的部落格");
+if(c.querySelector("svg")){var hasText=!!c.textContent.trim();c.innerHTML=ICONS.blog+(hasText?"部落格":"")}else{c.textContent="部落格"}
+anchor.parentNode.insertBefore(c,anchor.nextSibling)}
+function hop(){anchor.classList.remove("yz-hop");void anchor.offsetWidth;anchor.classList.add("yz-hop")}
+var shown=0,MAX_SHOWS=3;
+function say(){if(document.hidden)return;var r=anchor.getBoundingClientRect();if(!r.width&&!r.height)return;if(r.bottom<0||r.top>innerHeight)return;shown++;
+bubble.textContent=LINES[Math.floor(Math.random()*LINES.length)];
+bubble.classList.remove("yz-on","yz-above","yz-below");
+bubble.style.left="0px";bubble.style.top="0px";
+var bw=bubble.offsetWidth,bh=bubble.offsetHeight,cx=r.left+r.width/2;
+var left=Math.max(8,Math.min(cx-bw/2,innerWidth-bw-8));
+var above=r.top-bh-12>=8;
+bubble.style.left=left+"px";
+bubble.style.top=(above?r.top-bh-12:r.bottom+12)+"px";
+bubble.classList.add(above?"yz-above":"yz-below");
+bubble.style.setProperty("--yz-tail",Math.max(12,Math.min(cx-left,bw-12))+"px");
+hop();
+requestAnimationFrame(function(){bubble.classList.add("yz-on")});
+setTimeout(function(){bubble.classList.remove("yz-on")},4200)}
+function start(){addCss();inject();anchor=findAnchor();if(!anchor)return false;
+try{if(getComputedStyle(anchor).display==="inline")anchor.style.display="inline-block"}catch(e){}
+anchor.classList.add("yz-idle");
+anchor.addEventListener("animationend",function(e){if(e.animationName==="yzHop")anchor.classList.remove("yz-hop")});
+try{addBlog()}catch(e){}
+bubble=document.createElement("div");bubble.className="yz-bubble";bubble.setAttribute("aria-hidden","true");document.body.appendChild(bubble);
+window.__yzPromo=say;
+(function loop(first){if(shown>=MAX_SHOWS)return;setTimeout(function(){say();loop(false)},first?18e3+Math.random()*12e3:9e4+Math.random()*9e4)})(true);
+return true}
+function boot(){var tries=0;(function t(){if(start())return;if(++tries<20)setTimeout(t,1500)})()}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",boot);else boot();
+})();
+</script>
+</body></html>
