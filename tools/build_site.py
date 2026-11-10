@@ -26,7 +26,7 @@ def fetch(key, name, w=1600):
         open(tmp, 'wb').write(urllib.request.urlopen(req, timeout=120).read())
     p = save(tmp, name, w); os.remove(tmp); return p
 
-KV = fetch('kv_title_v3', 'kv', 1920)  # 遊戲 titleCoverImage 用的是 v3；v1 獵人臉是糊的
+KV = fetch('kv_title_v4', 'kv', 1920)  # 遊戲 titleCoverImage：v4（Pulut 官方造型）；v1 獵人臉是糊的、v3 的 Pulut 有角
 LORE = fetch('cg_lore_a', 'lore', 1400)
 OPEN = fetch('cg_opening', 'opening', 1400)
 SHOT3D = save(os.path.join(R, 'art/screenshots/4-wake-grandpa.webp'), 'shot_3d', 1400)
@@ -130,6 +130,12 @@ footer.site{{padding-block:40px 120px;text-align:center;color:var(--dim);font-si
 <p>在這座島上，一個箱子被人好好用了一百年，就會醒過來，變成寶箱怪。島民把重要的東西交給寶箱怪保管，寶箱怪替大家顧著，兩邊一起過了很久的日子。</p>
 <p>你轉生成長老家倉庫裡的那個箱子。族人一睡就是好幾年，整個夏天只有你醒著。直到岸邊停了一艘船，兩個獵人帶著史萊姆 Pulut 上島，開始撬開寶箱，搶走大家寄放的東西。</p>
 <p>去村口、營地、遺跡把族人叫醒，騎上火焰飛龍到雲端高台，把冒險隊趕走。</p>
+</div></section>
+
+<section class="wrap" id="meaning"><h2>這個故事想說的</h2><div class="panel">
+<p>轉生故事裡，主角通常是打開寶箱的冒險者。這次你轉生成被撬開的那個寶箱，上島的冒險者反而是闖進別人家搶東西的人。</p>
+<p>島上的箱子被一家人好好用了一百年，才會醒過來。寶箱怪守的不是寶藏，是別人交給它的東西：長老小時候戴的小藍帽、一封摺好的信、一顆圓圓的白石頭。</p>
+<p>整個夏天，島上只有它醒著。它每天去敲族人的蓋子，一個敲三下，叫不醒就說一聲「明天再來」。故事最後它說：「可是現在，我知道敲三下會有人回答。」</p>
 </div></section>
 
 <section class="wrap" id="modes"><h2>兩種玩法</h2><div class="modes">

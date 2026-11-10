@@ -517,6 +517,12 @@ UIJOBS2 = {
 for k, d in UIJOBS2.items():
     JOBS[k] = dict(size='1024x1024', refs=['open_final'], prompt=d + UIK)
 
+# 標題主視覺（遊戲 titleCoverImage＝kv_title_v3）的 Pulut 頭上有兩個小角，是舊造型（作者：官方 Pulut 沒有角；「好 一起換」）
+REF['kv_v3'] = ('art/cg/kv_title_v3_src.webp', '要編輯的原圖（標題主視覺，遊戲現在用的版本）')
+JOBS['kv_v4'] = dict(size='1536x1024', refs=['kv_v3', 'pulut_official'], prompt=EDIT + """
+只改一個地方：少女獵人背包裡探出頭的那隻綠色史萊姆，頭上兩個小尖角畫錯了。把牠改成真的 Pulut（照 Image 2 中間那隻綠色史萊姆的身體）：圓滾滾的半圓形果凍身體、表面光滑有一塊白色亮光、頭頂完全沒有角也沒有耳朵、不戴頭盔、兩顆小小的黑眼睛、淡淡的腮紅，大小與位置跟原圖那隻一樣，還是從背包裡探出頭。
+畫風照 Image 1 的手繪水彩，不要畫成 Image 2 的粗線卡通風。其他地方完全照 Image 1：兩個獵人的臉與姿勢、寶箱怪、寶箱、村子、天空、海、船都不動。""" + NOTXT)
+
 
 # 2026-11-10 起 Pulut 一律照官方封面（沒有角）；art/refs/pulut.webp 是 3D 小史萊姆模型，頭上有尖耳朵，不能當 Pulut 參考
 REF['pulut'] = REF['pulut_official']
