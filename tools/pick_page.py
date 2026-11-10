@@ -88,6 +88,13 @@ ITEMS_CH2 = [
  ('b27', '2-7〈整箱衝撞〉', '阿扣從坡上滾下來撞在樹上，蘋果掉了一地；主角和箱爺爺在坡頂看。', ['阿扣：我睡覺翻身都會滾下坡。你試試看，整個箱子撞過去。', '旁白：寶箱怪學會了「整箱衝撞」。'], 'ab'),
 ]
 
+ITEMS_CH34 = [
+ ('b31', '3-1〈遺跡入口〉', '入口的大石頭被炸開，碎石散一地、還冒著煙。', ['旁白：遺跡入口的大石頭被炸開了，碎石散了一地。', '箱爺爺：連石頭都炸，這些人真的什麼都敢。'], 'ab'),
+ ('b32', '3-2〈小鎖〉', '小鎖縮在角落發抖。選定後 3-2b～3-6（嚇得更緊、掀開一條縫、望向高台、阿扣和箱爺爺互看、示範闔蓋子）都從這張改。', ['旁白：遺跡最裡面的角落，有一個寶箱縮成一團，蓋子抖個不停。', '箱爺爺：小鎖膽子小，敲輕一點。'], 'ab'),
+ ('b37', '3-7〈三個族人都醒了〉', '四個寶箱並排站在陽光裡。', ['旁白：三個族人都醒了。', '箱爺爺：上去之前，我們一起敲三下，嚇他們一跳。'], 'ab'),
+ ('b43', '4-3〈騎火焰飛龍〉', '從高空往下看整座島。A 版龍背上只看得到三個，少了阿扣；B 版四個都在，但小鎖眼睛睜著（劇本是闔緊不敢看，選 B 的話我再改一次讓小鎖闔眼）。', ['旁白：火焰飛龍拍了兩下翅膀，整座島一下子變得好小。', '小鎖：（蓋子闔得緊緊的）我、我不看。'], 'ab'),
+]
+
 def card_one(key, title, desc, lines):
     p = latest(key)
     img = f'<img src="{uri(p)}" alt="{title}" loading="lazy">' if p else '<div class="missing">沒畫出來</div>'
@@ -189,8 +196,8 @@ document.querySelectorAll('textarea').forEach(t=>t.onchange=()=>save(t.dataset.k
 
 out = sys.argv[1]
 if 'ch2' in sys.argv[2:]:
-    cards = [card(*i) for i in ITEMS_CH2]
-    intro = '地圖回憶重畫的兩張，以及第二章的三張主圖，各兩版。選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。'
+    cards = [card(*i) for i in ITEMS_CH2 + ITEMS_CH34]
+    intro = '地圖回憶重畫的兩張，以及第二、三、四章的主圖，各兩版。選一版，或按「重畫」並寫下要改的地方。選了就存，不用另外送出。'
     open(out, 'w').write(HTML.replace('__CARDS__', '\n'.join(cards)).replace('__INTRO__', intro)); print(out, os.path.getsize(out)); sys.exit()
 if 'map' in sys.argv[2:]:
     cards = [card_one(*i) for i in ONE_CH1B] + [card(*i) for i in ITEMS_MAP]
