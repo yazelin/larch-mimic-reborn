@@ -1,6 +1,54 @@
 {
  "nodes": [
   {
+   "id": "bk-start",
+   "type": "story",
+   "position": {
+    "x": -620,
+    "y": 0
+   },
+   "data": {
+    "type": "choice",
+    "title": "要怎麼看這個故事",
+    "text": "要怎麼看這個故事？",
+    "speaker": "",
+    "start": true,
+    "stage": {
+     "actors": []
+    },
+    "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794315219225_kv_title_v4.webp",
+    "choices": [
+     "開始遊戲",
+     "看完整影片（YouTube，約 12 分鐘）"
+    ]
+   }
+  },
+  {
+   "id": "bk-video",
+   "type": "story",
+   "position": {
+    "x": -620,
+    "y": 260
+   },
+   "data": {
+    "type": "video",
+    "title": "轉生成寶箱怪的我　完整故事",
+    "text": "看完請按右下角「略過影片」回到選單",
+    "mediaUrl": "https://youtu.be/VtVaP_HATBU",
+    "mediaKind": "video",
+    "videoSource": "youtube",
+    "videoAutoplay": false,
+    "videoMuted": false,
+    "videoControls": true,
+    "videoSkippable": true,
+    "videoLoop": false,
+    "videoPlays": 1,
+    "videoFit": "contain",
+    "videoFullscreen": true,
+    "videoPoster": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794315219225_kv_title_v4.webp"
+   }
+  },
+  {
    "id": "bk-mode",
    "type": "story",
    "position": {
@@ -26,7 +74,7 @@
    "id": "bk-1a",
    "type": "story",
    "position": {
-    "x": 380,
+    "x": 980,
     "y": 820
    },
    "data": {
@@ -99,7 +147,7 @@
    "id": "bk-kt1",
    "type": "story",
    "position": {
-    "x": 680,
+    "x": 1280,
     "y": 820
    },
    "data": {
@@ -123,7 +171,7 @@
    "id": "bk-g1",
    "type": "story",
    "position": {
-    "x": 980,
+    "x": 1580,
     "y": 820
    },
    "data": {
@@ -152,7 +200,7 @@
    "id": "bk-1b",
    "type": "story",
    "position": {
-    "x": 1280,
+    "x": 1880,
     "y": 820
    },
    "data": {
@@ -255,7 +303,7 @@
    "id": "bk-map",
    "type": "story",
    "position": {
-    "x": 1580,
+    "x": 2180,
     "y": 820
    },
    "data": {
@@ -363,8 +411,8 @@
    "id": "bk-m-well",
    "type": "story",
    "position": {
-    "x": 1880,
-    "y": 820
+    "x": 80,
+    "y": 1040
    },
    "data": {
     "type": "dialogue",
@@ -405,8 +453,8 @@
    "id": "bk-sv-well",
    "type": "story",
    "position": {
-    "x": 2180,
-    "y": 820
+    "x": 380,
+    "y": 1040
    },
    "data": {
     "type": "setVariable",
@@ -429,7 +477,7 @@
    "id": "bk-m-fire",
    "type": "story",
    "position": {
-    "x": 80,
+    "x": 680,
     "y": 1040
    },
    "data": {
@@ -471,7 +519,7 @@
    "id": "bk-sv-fire",
    "type": "story",
    "position": {
-    "x": 380,
+    "x": 980,
     "y": 1040
    },
    "data": {
@@ -495,7 +543,7 @@
    "id": "bk-m-cat",
    "type": "story",
    "position": {
-    "x": 680,
+    "x": 1280,
     "y": 1040
    },
    "data": {
@@ -537,7 +585,7 @@
    "id": "bk-sv-cat",
    "type": "story",
    "position": {
-    "x": 980,
+    "x": 1580,
     "y": 1040
    },
    "data": {
@@ -561,7 +609,7 @@
    "id": "bk-m-nook",
    "type": "story",
    "position": {
-    "x": 1280,
+    "x": 1880,
     "y": 1040
    },
    "data": {
@@ -603,7 +651,7 @@
    "id": "bk-sv-nook",
    "type": "story",
    "position": {
-    "x": 1580,
+    "x": 2180,
     "y": 1040
    },
    "data": {
@@ -627,8 +675,8 @@
    "id": "bk-m-pond",
    "type": "story",
    "position": {
-    "x": 1880,
-    "y": 1040
+    "x": 80,
+    "y": 1260
    },
    "data": {
     "type": "dialogue",
@@ -675,8 +723,8 @@
    "id": "bk-sv-pond",
    "type": "story",
    "position": {
-    "x": 2180,
-    "y": 1040
+    "x": 380,
+    "y": 1260
    },
    "data": {
     "type": "setVariable",
@@ -699,7 +747,7 @@
    "id": "bk-m-mill",
    "type": "story",
    "position": {
-    "x": 80,
+    "x": 680,
     "y": 1260
    },
    "data": {
@@ -741,7 +789,7 @@
    "id": "bk-sv-mill",
    "type": "story",
    "position": {
-    "x": 380,
+    "x": 980,
     "y": 1260
    },
    "data": {
@@ -765,7 +813,7 @@
    "id": "bk-2a",
    "type": "story",
    "position": {
-    "x": 680,
+    "x": 1280,
     "y": 1260
    },
    "data": {
@@ -829,7 +877,7 @@
    "id": "bk-kt2",
    "type": "story",
    "position": {
-    "x": 980,
+    "x": 1580,
     "y": 1260
    },
    "data": {
@@ -853,7 +901,7 @@
    "id": "bk-g2a",
    "type": "story",
    "position": {
-    "x": 1280,
+    "x": 1880,
     "y": 1260
    },
    "data": {
@@ -882,7 +930,7 @@
    "id": "bk-2b",
    "type": "story",
    "position": {
-    "x": 1580,
+    "x": 2180,
     "y": 1260
    },
    "data": {
@@ -918,8 +966,8 @@
    "id": "bk-g2b",
    "type": "story",
    "position": {
-    "x": 1880,
-    "y": 1260
+    "x": 80,
+    "y": 1480
    },
    "data": {
     "type": "miniGame",
@@ -947,8 +995,8 @@
    "id": "bk-2c",
    "type": "story",
    "position": {
-    "x": 2180,
-    "y": 1260
+    "x": 380,
+    "y": 1480
    },
    "data": {
     "type": "dialogue",
@@ -1008,7 +1056,7 @@
    "id": "bk-ga",
    "type": "story",
    "position": {
-    "x": 80,
+    "x": 680,
     "y": 1480
    },
    "data": {
@@ -1035,7 +1083,7 @@
    "id": "bk-2d1",
    "type": "story",
    "position": {
-    "x": 380,
+    "x": 980,
     "y": 1480
    },
    "data": {
@@ -1065,7 +1113,7 @@
    "id": "bk-2d2",
    "type": "story",
    "position": {
-    "x": 680,
+    "x": 1280,
     "y": 1480
    },
    "data": {
@@ -1095,7 +1143,7 @@
    "id": "bk-2e",
    "type": "story",
    "position": {
-    "x": 980,
+    "x": 1580,
     "y": 1480
    },
    "data": {
@@ -1138,7 +1186,7 @@
    "id": "bk-3a",
    "type": "story",
    "position": {
-    "x": 1280,
+    "x": 1880,
     "y": 1480
    },
    "data": {
@@ -1189,7 +1237,7 @@
    "id": "bk-kt3",
    "type": "story",
    "position": {
-    "x": 1580,
+    "x": 2180,
     "y": 1480
    },
    "data": {
@@ -1213,8 +1261,8 @@
    "id": "bk-g3a",
    "type": "story",
    "position": {
-    "x": 1880,
-    "y": 1480
+    "x": 80,
+    "y": 1700
    },
    "data": {
     "type": "miniGame",
@@ -1242,8 +1290,8 @@
    "id": "bk-3b",
    "type": "story",
    "position": {
-    "x": 2180,
-    "y": 1480
+    "x": 380,
+    "y": 1700
    },
    "data": {
     "type": "dialogue",
@@ -1278,7 +1326,7 @@
    "id": "bk-g3b",
    "type": "story",
    "position": {
-    "x": 80,
+    "x": 680,
     "y": 1700
    },
    "data": {
@@ -1307,7 +1355,7 @@
    "id": "bk-3c",
    "type": "story",
    "position": {
-    "x": 380,
+    "x": 980,
     "y": 1700
    },
    "data": {
@@ -1422,7 +1470,7 @@
    "id": "bk-4",
    "type": "story",
    "position": {
-    "x": 680,
+    "x": 1280,
     "y": 1700
    },
    "data": {
@@ -1513,7 +1561,7 @@
    "id": "bk-5a",
    "type": "story",
    "position": {
-    "x": 980,
+    "x": 1580,
     "y": 1700
    },
    "data": {
@@ -1564,7 +1612,7 @@
    "id": "bk-r1",
    "type": "story",
    "position": {
-    "x": 1280,
+    "x": 1880,
     "y": 1700
    },
    "data": {
@@ -1588,7 +1636,7 @@
    "id": "bk-5r1",
    "type": "story",
    "position": {
-    "x": 1580,
+    "x": 2180,
     "y": 1700
    },
    "data": {
@@ -1618,8 +1666,8 @@
    "id": "bk-5r2",
    "type": "story",
    "position": {
-    "x": 1880,
-    "y": 1700
+    "x": 80,
+    "y": 1920
    },
    "data": {
     "type": "dialogue",
@@ -1648,8 +1696,8 @@
    "id": "bk-5r3",
    "type": "story",
    "position": {
-    "x": 2180,
-    "y": 1700
+    "x": 380,
+    "y": 1920
    },
    "data": {
     "type": "dialogue",
@@ -1678,7 +1726,7 @@
    "id": "bk-5c",
    "type": "story",
    "position": {
-    "x": 80,
+    "x": 680,
     "y": 1920
    },
    "data": {
@@ -1714,7 +1762,7 @@
    "id": "bk-5y",
    "type": "story",
    "position": {
-    "x": 380,
+    "x": 980,
     "y": 1920
    },
    "data": {
@@ -1744,7 +1792,7 @@
    "id": "bk-5u",
    "type": "story",
    "position": {
-    "x": 680,
+    "x": 1280,
     "y": 1920
    },
    "data": {
@@ -1774,7 +1822,7 @@
    "id": "bk-5i",
    "type": "story",
    "position": {
-    "x": 980,
+    "x": 1580,
     "y": 1920
    },
    "data": {
@@ -1804,7 +1852,7 @@
    "id": "bk-rn",
    "type": "story",
    "position": {
-    "x": 1280,
+    "x": 1880,
     "y": 1920
    },
    "data": {
@@ -1828,7 +1876,7 @@
    "id": "bk-5o",
    "type": "story",
    "position": {
-    "x": 1580,
+    "x": 2180,
     "y": 1920
    },
    "data": {

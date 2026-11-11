@@ -1,0 +1,30 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>看完整影片</title>
+<style>
+html,body{margin:0;height:100%;background:#1d1822;color:#f2e8ef;font-family:"LXGW WenKai TC","Noto Sans TC",sans-serif;overflow:hidden}
+#wrap{position:fixed;inset:0;display:grid;place-items:center}
+#player,#player iframe{width:100vw;height:56.25vw;max-height:100vh;max-width:177.78vh;border:0;display:block}
+#start{position:fixed;inset:0;display:grid;place-items:center;background:#1d1822 url(__COVER__) center/cover no-repeat}
+#start button{font:inherit;font-size:clamp(18px,3.2vw,30px);padding:.7em 1.6em;border:0;border-radius:999px;background:#7a3f8f;color:#fff;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+#start p{margin:.8em 0 0;text-align:center;font-size:clamp(13px,1.8vw,18px);text-shadow:0 1px 4px #000}
+#stop{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));font:inherit;font-size:15px;padding:.45em 1em;border:1px solid rgba(255,255,255,.4);border-radius:999px;background:rgba(29,24,34,.7);color:#f2e8ef;cursor:pointer}
+#msg{position:fixed;left:0;right:0;bottom:18%;text-align:center;font-size:16px;display:none}
+</style></head><body>
+<div id="wrap"><div id="player"></div></div>
+<div id="start"><div><button id="go" type="button">開始播放</button><p>《轉生成寶箱怪的我》完整故事，約 12 分鐘</p></div></div>
+<button id="stop" type="button">結束觀看</button>
+<div id="msg">影片載不起來，可以按「結束觀看」，或在 YouTube 搜尋「轉生成寶箱怪的我」觀看。</div>
+<script>
+var VID='__VIDEO_ID__',done=false,player=null,ready=false,wantPlay=false;
+function finish(r){if(done)return;done=true;try{parent.postMessage({type:'larch:set',name:'video_watched',value:r==='ended'},'*')}catch(e){}
+ setTimeout(function(){parent.postMessage({type:'larch:complete',result:r},'*')},300)}
+document.getElementById('stop').onclick=function(){finish('stopped')};
+document.getElementById('go').onclick=function(){document.getElementById('start').style.display='none';wantPlay=true;if(ready)player.playVideo()};
+window.onYouTubeIframeAPIReady=function(){player=new YT.Player('player',{videoId:VID,host:'https://www.youtube.com',
+ playerVars:{rel:0,playsinline:1,modestbranding:1,fs:1},events:{
+  onReady:function(){ready=true;if(wantPlay)player.playVideo()},
+  onStateChange:function(e){if(e.data===0)finish('ended')},
+  onError:function(){document.getElementById('msg').style.display='block'}}})};
+var s=document.createElement('script');s.src='https://www.youtube.com/iframe_api';s.onerror=function(){document.getElementById('msg').style.display='block'};document.head.appendChild(s);
+setTimeout(function(){if(!ready)document.getElementById('msg').style.display='block'},10000);
+parent.postMessage({type:'larch:ready'},'*');
+</script></body></html>
