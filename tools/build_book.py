@@ -57,13 +57,13 @@ def chain(*ids):
 
 V = lambda var, op, val: {'kind': 'variable', 'variable': var, 'op': op, 'value': val}
 
-# ---- 遊戲開頭：玩遊戲或看完整影片（作者 2026-11-11：開始時多一個影片模式，用看 YouTube 的方式看完）----
+# ---- 遊戲開頭：遊戲模式或影片模式（作者 2026-11-11：開始時多一個影片模式，用看 YouTube 的方式看完；影片模式看完回標題）----
 YT = 'https://youtu.be/VtVaP_HATBU'
 nodes.append({'id': 'bk-start', 'type': 'story', 'position': {'x': -620, 'y': 0}, 'data': {
-    'type': 'choice', 'title': '要怎麼看這個故事', 'text': '要怎麼看這個故事？', 'speaker': '', 'start': True, 'stage': {'actors': []},
-    'background': M['kv_title_v4']['url'], 'choices': ['開始遊戲', '看完整影片（YouTube，約 12 分鐘）']}})
+    'type': 'choice', 'title': '選擇模式', 'text': '要用哪一種方式看這個故事？', 'speaker': '', 'start': True, 'stage': {'actors': []},
+    'background': M['kv_title_v4']['url'], 'choices': ['遊戲模式', '影片模式（YouTube，約 12 分鐘）']}})
 nodes.append({'id': 'bk-video', 'type': 'story', 'position': {'x': -620, 'y': 260}, 'data': {
-    'type': 'video', 'title': '轉生成寶箱怪的我　完整故事', 'text': '看完請按右下角「略過影片」回到選單',
+    'type': 'video', 'title': '轉生成寶箱怪的我　完整故事', 'text': '看完請按右下角「略過影片」回到標題畫面',
     'mediaUrl': YT, 'mediaKind': 'video', 'videoSource': 'youtube', 'videoAutoplay': False, 'videoMuted': False,
     'videoControls': True, 'videoSkippable': True, 'videoLoop': False, 'videoPlays': 1, 'videoFit': 'contain',
     'videoFullscreen': True, 'videoPoster': M['kv_title_v4']['url']}})
@@ -284,8 +284,7 @@ if __name__ == '__main__':
                        {'id': 'e-bk-mode-sw-world', 'source': 'bk-mode', 'target': 'sw-world', 'sourceHandle': 'choice-0', 'targetHandle': 'left', 'animated': True}]
         b['edges'] += edges
         b['edges'] += [{'id': 'e-bk-start-sw-intro', 'source': 'bk-start', 'target': 'sw-intro', 'sourceHandle': 'choice-0', 'targetHandle': 'left', 'animated': True},
-                       {'id': 'e-bk-start-bk-video', 'source': 'bk-start', 'target': 'bk-video', 'sourceHandle': 'choice-1', 'targetHandle': 'left', 'animated': True},
-                       {'id': 'e-bk-video-bk-start', 'source': 'bk-video', 'target': 'bk-start', 'sourceHandle': 'right', 'targetHandle': 'left', 'animated': True}]
+                       {'id': 'e-bk-start-bk-video', 'source': 'bk-start', 'target': 'bk-video', 'sourceHandle': 'choice-1', 'targetHandle': 'left', 'animated': True}]  # 影片卡是終點：專案開了 returnToTitleOnEnd，看完或略過就回標題
         body = {'name': b.get('name', '主線故事'), 'nodes': b['nodes'], 'edges': b['edges'], 'summary': os.environ.get('BOOK_SUMMARY', '加入繪本模式：序章後選 3D 或繪本，繪本五章接共用尾聲')}
         req = urllib.request.Request(url, method='PUT', data=json.dumps(body).encode(), headers={**H, 'If-Match': etag})
         try:

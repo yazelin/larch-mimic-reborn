@@ -9,8 +9,8 @@
    },
    "data": {
     "type": "choice",
-    "title": "要怎麼看這個故事",
-    "text": "要怎麼看這個故事？",
+    "title": "選擇模式",
+    "text": "要用哪一種方式看這個故事？",
     "speaker": "",
     "start": true,
     "stage": {
@@ -18,8 +18,8 @@
     },
     "background": "https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794315219225_kv_title_v4.webp",
     "choices": [
-     "開始遊戲",
-     "看完整影片（YouTube，約 12 分鐘）"
+     "遊戲模式",
+     "影片模式（YouTube，約 12 分鐘）"
     ]
    }
   },
@@ -33,7 +33,7 @@
    "data": {
     "type": "video",
     "title": "轉生成寶箱怪的我　完整故事",
-    "text": "看完請按右下角「略過影片」回到選單",
+    "text": "看完請按右下角「略過影片」回到標題畫面",
     "mediaUrl": "https://youtu.be/VtVaP_HATBU",
     "mediaKind": "video",
     "videoSource": "youtube",
