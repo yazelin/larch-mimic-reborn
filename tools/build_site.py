@@ -55,6 +55,8 @@ GALLERY = [
 ]
 GAL = [(BOOK(k, 1200), sp, tx, k) for k, sp, tx in GALLERY]
 MODE_BOOK = BOOK('1-5')
+MODE_FILM = save(os.path.join(R, 'film/out/yt_thumb.jpg'), 'film_thumb', 1280)  # 影片模式：YouTube 縮圖
+YT_ID = 'VtVaP_HATBU'
 MUSIC = [('標題', 'bgm-title'), ('序章', 'bgm-opening'), ('島上探索', 'bgm-explore'), ('高台對決', 'bgm-battle'), ('尾聲', 'bgm-ending')]
 
 gal_html = '\n'.join(f'''<figure class="frame"><img src="{src}" alt="繪本 {k}" loading="lazy" width="1200" height="800">
@@ -65,7 +67,7 @@ music_html = '\n'.join(f'''<li><span>{n}</span><audio controls preload="none" sr
 HTML = f'''<!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>轉生成寶箱怪的我</title>
-<meta name="description" content="Larch 第四屆創作者挑戰作品。轉生成一個用了一百年的箱子，叫醒睡著的族人，把上島搶東西的冒險隊趕走。可以在 3D 小島上走，也可以翻開手繪繪本讀完整個故事。">
+<meta name="description" content="Larch 第四屆創作者挑戰作品。轉生成一個用了一百年的箱子，叫醒睡著的族人，把上島搶東西的冒險隊趕走。可以在 3D 小島上走、翻開有配音的手繪繪本，或看約 12 分鐘的完整影片。">
 <meta property="og:title" content="轉生成寶箱怪的我"><meta property="og:image" content="https://yazelin.github.io/larch-mimic-reborn/{KV}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap">
 <style>
@@ -95,7 +97,7 @@ h2{{font-size:clamp(26px,3.4vw,36px);margin:0 0 .7em;letter-spacing:.08em;color:
 .panel{{padding:46px 52px 38px 70px;border-style:solid;border-width:0;border-image:url("{UI['ui_panel']}") 170 120 110 230 fill / 60px 42px 38px 80px stretch;
   filter:drop-shadow(0 10px 18px rgba(90,50,80,.16))}}
 .panel p{{margin:.4em 0;max-width:40em}}
-.modes{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px}}
+.modes{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px}}
 .mode img{{border-radius:6px;box-shadow:0 0 0 6px #fffdf8,0 10px 22px -8px rgba(90,50,80,.4)}}
 .mode h3{{margin:.9em 0 .2em;font-size:23px}}
 .mode p{{margin:0;color:var(--ink)}}
@@ -110,6 +112,10 @@ h2{{font-size:clamp(26px,3.4vw,36px);margin:0 0 .7em;letter-spacing:.08em;color:
 .who-card img{{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 0 0 6px #fffdf8,0 8px 18px -6px rgba(90,50,80,.35)}}
 .who-card h3{{margin:.7em 0 .1em;font-size:22px}}
 .who-card p{{margin:0;font-size:16px;color:var(--dim)}}
+.film{{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:6px;overflow:hidden;box-shadow:0 0 0 6px #fffdf8,0 12px 26px -8px rgba(90,50,80,.4)}}
+.film iframe{{position:absolute;inset:0;width:100%;height:100%;border:0}}
+.film-note{{margin:.9em 0 0;color:var(--dim);font-size:16px}}
+#news ul{{margin:.4em 0;padding-left:1.3em;max-width:40em}}
 .music{{list-style:none;margin:0;padding:0;display:grid;gap:12px}}
 .music li{{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}}
 .music span{{min-width:6em}}
@@ -123,7 +129,7 @@ footer.site{{padding-block:40px 120px;text-align:center;color:var(--dim);font-si
 <header class="hero"><img src="{KV}" alt="轉生成寶箱怪的我 標題圖：海邊的草坡上一個紅色寶箱，蓋子縫裡露出一雙眼睛">
 <div class="wrap in"><h1><small>轉生成</small>寶箱怪的我</h1>
 <p class="quote">「我從來沒想過，轉生成寶箱怪這種事，會發生在我身上。」</p>
-<div class="btns"><a class="btn hot" href="{MARKET}">到 Larch 玩</a><a class="btn" href="#book">看繪本片段</a><a class="btn" href="{REPO}">原始碼與製作紀錄</a></div></div></header>
+<div class="btns"><a class="btn hot" href="{MARKET}">到 Larch 玩</a><a class="btn" href="#film">看完整影片</a><a class="btn" href="#book">看繪本片段</a><a class="btn" href="{REPO}">原始碼與製作紀錄</a></div></div></header>
 
 <main>
 <section class="wrap" id="story"><h2>故事</h2><div class="panel">
@@ -138,12 +144,28 @@ footer.site{{padding-block:40px 120px;text-align:center;color:var(--dim);font-si
 <p>整個夏天，島上只有它醒著。它每天去敲族人的蓋子，一個敲三下，叫不醒就說一聲「明天再來」。故事結尾，族人睡回去之前跟它約好：下次敲三下，大家就起來。</p>
 </div></section>
 
-<section class="wrap" id="modes"><h2>兩種玩法</h2><div class="modes">
+<section class="wrap" id="modes"><h2>三種方式</h2><div class="modes">
 <div class="mode"><img src="{SHOT3D}" alt="3D 版：寶箱怪在村口叫醒箱爺爺" loading="lazy"><h3>在 3D 小島上自己走</h3>
 <p>WASD 移動、空白鍵跳、E 對話與叫醒。島上六個地方藏著寶箱怪剛轉生時的回憶，26 個寶箱都是族人。一輪大約 10～12 分鐘。</p></div>
 <div class="mode"><img src="{MODE_BOOK}" alt="繪本版：箱爺爺被敲醒" loading="lazy"><h3>翻開繪本，跟著故事走</h3>
-<p>52 張手繪插圖，一句台詞換一張。中間有敲三下、島上地圖、接蘋果、高台選招式四個小互動。不用在 3D 裡走動也能讀完整個故事，手機請轉成橫的。</p></div>
+<p>52 張手繪插圖，一句台詞換一張，每句台詞都有配音。中間有敲三下、島上地圖、接蘋果、高台選招式四個小互動。不用在 3D 裡走動也能讀完整個故事，手機請轉成橫的。</p></div>
+<div class="mode"><img src="{MODE_FILM}" alt="影片模式：轉生成寶箱怪的我 完整故事" loading="lazy"><h3>看完整影片</h3>
+<p>開頭選「影片模式」，把整個故事當成一部約 12 分鐘的影片看完，看完回到標題畫面。影片放在 YouTube，也可以直接在下面看。</p></div>
 </div></section>
+
+<section class="wrap" id="film"><h2>完整影片</h2>
+<div class="film"><iframe src="https://www.youtube-nocookie.com/embed/{YT_ID}?rel=0" title="轉生成寶箱怪的我｜完整故事" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+<p class="film-note">照繪本版的劇情從頭演到尾，約 12 分鐘，有配音與字幕。<a href="https://youtu.be/{YT_ID}">在 YouTube 上看</a></p>
+</section>
+
+<section class="wrap" id="news"><h2>最新更新（1.3）</h2><div class="panel">
+<p>這一版加了配音和影片模式。</p>
+<ul>
+<li>繪本、序章、尾聲的 163 句台詞都有配音，每個角色有自己的聲音。</li>
+<li>敲三下的時候，每敲一下都有敲木頭的聲音。</li>
+<li>開頭可以選「遊戲模式」或「影片模式」。影片模式是把整個故事做成約 12 分鐘的影片，在 YouTube 上播放，看完回到標題畫面。</li>
+<li>幾句台詞改了字，配音唸起來比較自然。</li>
+</ul></div></section>
 
 <section class="wrap" id="book"><h2>繪本片段</h2><div class="gallery">
 {gal_html}
@@ -164,6 +186,8 @@ footer.site{{padding-block:40px 120px;text-align:center;color:var(--dim);font-si
 <li>2D 插圖用 AI 產圖，同一個場景的各格都從選定的主圖一次改出來，不拿上一格再改。配樂用 AI 生成，再切成循環版。</li>
 <li>Larch 卡片、3D 場景事件、介面與小遊戲由 Claude Code 透過 Larch 的 MCP 工具寫進專案。</li>
 <li>繪本模式是因為有玩家留言說 3D 不適合、希望有純劇情模式，才把整個故事做成繪本。</li>
+<li>配音用 Larch 的 AI 配音，11 個角色的聲音由林亞澤在試聽頁上選定，唸錯或語氣不對的句子逐句標出來重配。</li>
+<li>影片照配音的長度排畫面：繪本插圖加上補畫的 27 張，用 MiniMax H3 做成會動的短片，再照台詞剪成整部。每一段都抽格檢查過，畫面跑掉的重新生成；影像、插圖、配音都是 AI 生成，片尾有標示。</li>
 </ul>
 <p>劇本、設計紀錄與工具都在 <a href="{REPO}">GitHub</a>。文字與原創素材採 CC BY-NC 4.0，工具程式碼採 MIT；範例的場景、模型與內建素材權利屬於 Larch。</p>
 </div></section>
@@ -173,3 +197,6 @@ footer.site{{padding-block:40px 120px;text-align:center;color:var(--dim);font-si
 open(os.path.join(R, 'index.html'), 'w').write(HTML)
 tot = sum(os.path.getsize(os.path.join(IMG, f)) for f in os.listdir(IMG))
 print('index.html', len(HTML), 'site/img', len(os.listdir(IMG)), 'files', round(tot / 1e6, 1), 'MB')
+# 頁尾三件套（promo-footer skill）：每次重產都要重新套，不然會被洗掉（2026-11-11 踩過）
+import subprocess
+subprocess.run(['python3', os.path.expanduser('~/promo-footer-skill/apply.py'), os.path.join(R, 'index.html'), 'larch-mimic-reborn'], check=True)
