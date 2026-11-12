@@ -1,0 +1,27 @@
+/* larch-skill-part: l3d */
+/* 《轉生成寶箱怪的我》3D 遊戲介面（Larch settings.customInterfaces.l3d），手繪水彩版。
+   目前只管一件事：3D 場景的限時倒數（引擎的計時器步驟畫出來的 .l3d-ev-timer，固定在右上角）。
+   底是對話選項同一張水彩紙條（ui_pill），九宮格切片照素材像素量好；數字用對話框同一套手寫楷體，只載數字與冒號那一小塊。
+   引擎寫進去的字是「計時器符號＋空白＋分:秒」，符號用 ::first-letter 縮成零，換成自己畫的沙漏（::before，玫瑰粉線條）。
+   引擎的位置與底色是行內樣式，所以每一條都要 !important。
+   位置：右上角第一排是金幣與隱藏介面鈕、第二排是時鐘與設定鈕、第三排起是任務卡。遊戲裡的時鐘（幾點、黃昏）收掉，倒數放在時鐘原本那一格。
+   時間到的出題視窗是引擎的對話框，題目裡的換行要留著。 */
+/* @larch-layout { "clock": { "hide": true } } */
+@font-face { font-family: "Mimic Digits"; font-style: normal; font-weight: 700;
+  src: url("https://fonts.gstatic.com/l/font?kit=w8gAH20td8wNsI3f40DmtXZb4_M2AvksVCZwOwyVFJ4s6jUQYA&skey=dc90fe349d668c77&v=v11") format("woff2");
+  unicode-range: U+30-3A; }
+.l3d-ui .l3d-ev-timer {
+  right: max(58px, calc(env(safe-area-inset-right) + 58px)) !important; top: max(96px, calc(env(safe-area-inset-top) + 96px)) !important;
+  min-width: 132px; padding: 10px 24px 11px 52px !important; text-align: right; white-space: nowrap;
+  border-style: solid !important; border-width: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important;
+  border-image: url("https://pub-4b20b43f5acf4dfaa3f6ab842daa51cf.r2.dev/2d3b0242-9a6d-4051-9825-46aa4efd064a/larch/project-993a4982-d653-4f55-a511-5950e7fda343/1794301267818_ui_pill.webp") 40 60 fill / 12px 18px stretch !important;
+  color: #5a3f52 !important; font: 700 24px/1.15 "Mimic Digits", "LXGW WenKai TC", "Huninn", "Noto Sans TC", serif !important;
+  letter-spacing: .08em; font-variant-numeric: tabular-nums; rotate: 1.2deg;
+  filter: drop-shadow(0 5px 8px rgba(90, 50, 80, .22)); }
+.l3d-ui .l3d-ev-timer::first-letter { font-size: 0 !important; letter-spacing: 0 !important; }
+.l3d-ui .l3d-ev-timer::before { content: ""; position: absolute; left: 22px; top: 50%; width: 22px; height: 26px; translate: 0 -50%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 26' fill='none' stroke='%23c97a9c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.2 2.6c4.6-.5 9.2-.4 13.8.1M4 23.5c4.7.4 9.3.3 14-.2'/%3E%3Cpath d='M6 3.4c-.3 4.3 1.6 6.9 5 9.6-3.5 2.6-5.3 5.4-5 9.8M16.2 3.5c.2 4.2-1.7 6.8-5.2 9.5 3.6 2.7 5.4 5.5 5.1 9.9'/%3E%3Cpath d='M8.6 20.6c1.6-1.9 3.4-1.9 5 .1' stroke='%23e0a35c'/%3E%3Cpath d='M11 13.4v3.4' stroke='%23e0a35c' stroke-dasharray='.6 2.2'/%3E%3C/svg%3E") center / contain no-repeat; }
+.l3d-ui .l3d-dialogue p { white-space: pre-line; }
+@media (max-width: 720px) {
+  .l3d-ui .l3d-ev-timer { min-width: 108px; padding: 7px 18px 8px 42px !important; font-size: 19px !important; border-image-width: 10px 15px !important; }
+  .l3d-ui .l3d-ev-timer::before { left: 17px; width: 17px; height: 20px; } }

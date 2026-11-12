@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """把 ui/ 底下的介面寫進 Larch（REST PUT /projects/:id/interface）。先讀現有的 html 當 expectedHtml，寫完讀回比對。
-  python3 tools/push_ui.py [title dialogue choices menu gallery]"""
+  python3 tools/push_ui.py [title dialogue choices menu gallery l3d]"""
 import json, os, sys, urllib.request
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PID = 'project-993a4982-d653-4f55-a511-5950e7fda343'
 KEY = open(os.path.expanduser('~/.config/larch/key')).read().strip()
-FILES = {'title': 'ui/title.html', 'dialogue': 'ui/dialogue.html', 'choices': 'ui/choices.css', 'menu': 'ui/menu.css', 'gallery': 'ui/gallery.css'}
+FILES = {'l3d': 'ui/l3d.css', 'title': 'ui/title.html', 'dialogue': 'ui/dialogue.html', 'choices': 'ui/choices.css', 'menu': 'ui/menu.css', 'gallery': 'ui/gallery.css'}
 H = {'Authorization': 'Bearer ' + KEY, 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0'}
 def get():
     r = urllib.request.Request(f'https://larch.ink/api/agent/projects/{PID}', headers=H)
